@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Formulaire de Contact</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" title="Logo"><i class="fa-solid fa-house-chimney"></i></a>
+        <nav>
+            <a href="index.html" > Page d'Accueil</a>
+            <a href="presentation.html" >Cursus Scolaire</a>
+            <a href="caracteristiques.html" >Planning Extra-Scolaire</a> 
+            <a href="projets.html">Projets</a>
+            <a href="contact.html" >Contact</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <form method="post" action="/PHP/contact.php">
+                <label for="nom">Nom : </label>
+                <input type="text" name="nom" id="nom" placeholder="Nom" required><br><br>
+                <label for="email">Email : </label>
+                <input type="email" name="email" id="email" placeholder="exemple@exemple.fr" required><br><br>
+                <label for="tel">Téléphone : </label>
+                <input type="tel" name="tel" id="tel" placeholder="06..."><br><br>
+                <label for="motif">Motif de contact : </label>
+                <select name="motif" id="motif">
+                    <option value="information" disabled selected hidden>...</option>
+                    <option value="rendez-vous">Prise de rendez-vous</option>
+                    <option value="reclamation">Réclamation</option>
+                    <option value="autre">Autre</option>
+                </select><br><br>
+                <label for="creneau">Créneau horaire : </label>
+                <input type="datetime-local" name="creneau" id="creneau"><br><br>
+                <label>Première demande ? </label>
+                <input type="radio" name="premiere_demande" id="oui" value="oui">
+                <label for="oui">Oui</label>
+                <input type="radio" name="premiere_demande" id="non" value="non">
+                <label for="non">Non</label><br><br>
+                <label for="message">Message : </label><br>
+                <textarea name="message" id="message" rows="5" cols="30" required></textarea><br><br>
+                <input type="submit" value="Envoyer">
+                <input type="reset" value="Réinitialiser">
+            </form>
+        </div>
+    </section>
+</body>
+<footer>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" title="Linkdin"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/neyorrrr" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://x.com/mylan_perrier/" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/mylan_perrier/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://m.facebook.com/mylan.perrier/" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="mailto:mylan.perrier@etu.uca.fr" title="Mail"><i aria-hidden="true" class="far fa-envelope"></i></a>
+    </div>
+</footer>
+</html>

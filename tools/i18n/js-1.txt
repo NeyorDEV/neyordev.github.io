@@ -1,0 +1,204 @@
+(copie impossible : sélectionne-le) ||| (copy failed: select it manually)
+(copié dans le presse-papiers) ||| (copied to clipboard)
+Action ||| =
+Activer les animations ||| Turn animations on
+Aller au contenu ||| Skip to content
+Aller à la diapositive {n} ||| Go to slide {n}
+Aller à, ouvrir, chercher… ||| Go to, open, search…
+Alternant chez Electronique du Mazet · ouvert aux collaborations ||| Apprentice at Electronique du Mazet · open to collaborations
+Alternant chez Electronique du Mazet. ||| Apprentice at Electronique du Mazet.
+Animations réduites : {state}. ||| Reduced animations: {state}.
+Appels restants : {n}/{max} ||| Remaining calls: {n}/{max}
+Archive du dépôt ||| Repository archive
+Aucun résultat ||| No results
+Aucun résultat pour « {arg} ». ||| No results for "{arg}".
+Aucune release trouvée. ||| No release found.
+Aucune release à afficher. ||| No release to display.
+Aucune techno ne correspond à « {arg} ». ||| No technology matches "{arg}".
+BUT Informatique · UCA (3e année) ||| BUT Computer Science · UCA (3rd year)
+Bienvenue. Tape "help" pour voir les commandes, Tab pour compléter. ||| Welcome. Type "help" to see the commands, Tab to complete.
+CV imprimable ||| Printable CV
+Capture d'écran de {name} ||| Screenshot of {name}
+Ce fichier est un exécutable Windows : il ne fonctionnera pas sur {os}. ||| This file is a Windows executable: it won't work on {os}.
+Cette release ne contient pas de fichier : voir le code source. ||| This release has no file: see the source code.
+Changement de langue… ||| Switching language…
+Changer de langue ||| Change language
+Chargement des dépôts… réessaie dans une seconde. ||| Loading repositories… try again in a second.
+Commandes disponibles (Tab pour compléter, ↑ ↓ pour l'historique) : ||| Available commands (Tab to complete, ↑ ↓ for history):
+Comment t'appelles-tu ? ||| What's your name?
+Contact portfolio — {name} ||| Portfolio contact — {name}
+Copier l'empreinte ||| Copy fingerprint
+Copié : {text} ||| Copied: {text}
+Copié dans le presse-papiers ||| Copied to clipboard
+Copié ✓ ||| Copied ✓
+Dernier push ||| Last push
+Dernière version ||| Latest version
+Dernière version : ||| Latest version:
+Données : GitHub en direct ||| Data: GitHub live
+Données : copie hors-ligne ||| Data: offline copy
+Données en direct depuis GitHub · {rel} · {dl} au total. ||| Live data from GitHub · {rel} · {dl} in total.
+Décompresse l'archive, puis suis le README du dépôt pour lancer le projet. ||| Unzip the archive, then follow the repository's README to run the project.
+Dépôts en cours de chargement… ||| Repositories are loading…
+Détail d'un projet : "info <projet>". ||| Project details: "info <project>".
+Empreinte SHA-256 connue ||| SHA-256 fingerprint known
+En ce moment : J.A.R.V.I.S, RL Session Stats et ModShift. ||| Right now: J.A.R.V.I.S, RL Session Stats and ModShift.
+Envoyer un mail à {mail} ||| Send an email to {mail}
+Erreur inattendue. ||| Unexpected error.
+FERMER ||| CLOSE
+Fermer ||| Close
+GitHub est injoignable : copie hors-ligne du {date}. Les versions peuvent être en retard. ||| GitHub is unreachable: offline copy from {date}. Versions may be out of date.
+GitHub injoignable : copie hors-ligne du {date}. ||| GitHub unreachable: offline copy from {date}.
+Historique vide. ||| History is empty.
+Installation locale : {cmd} ||| Local install: {cmd}
+Je prépare un e-mail pour toi. Trois questions. ||| I'm preparing an email for you. Three questions.
+Ko ||| KB
+Le site est déjà en {lang}. ||| The site is already in {lang}.
+Lecture des releases GitHub… ||| Reading GitHub releases…
+Lien ||| Link
+MENU ||| =
+Migre un modpack Minecraft vers une autre version ou un autre mod loader. ||| Migrates a Minecraft modpack to another version or mod loader.
+Mo ||| MB
+Moi ||| About me
+Mylan PERRIER — étudiant en BUT Informatique à l'UCA, Clermont-Ferrand. ||| Mylan PERRIER — BUT Computer Science student at UCA, Clermont-Ferrand.
+Navigation ||| =
+Node.js 20.17+ ou 22.13+ est nécessaire. ||| Node.js 20.17+ or 22.13+ is required.
+Ouverture de {label}… ||| Opening {label}…
+Ouvrir la page Téléchargements ||| Open the Downloads page
+Ouvrir la palette de commandes ||| Open the command palette
+Overlay de statistiques de session pour Rocket League, sans injection (compatible Easy Anti-Cheat). ||| Session statistics overlay for Rocket League, no injection (compatible with Easy Anti-Cheat).
+Page ||| =
+Page de la release ↗ ||| Release page ↗
+Page de téléchargement ||| Download page
+Page inconnue : {arg}. Essaie : projets, competences, apropos, cv, downloads. ||| Unknown page: {arg}. Try: projects, skills, about, cv, downloads.
+Palette de commandes ||| Command palette
+Parfait. Appuie sur Entrée pour ouvrir ton application mail, ou Échap pour annuler. ||| Perfect. Press Enter to open your mail app, or Esc to cancel.
+Pas d'aide pour « {arg} ». ||| No help for "{arg}".
+Pas de description. ||| No description.
+Pas de release publiée : code source uniquement. ||| No published release: source code only.
+Pas de release publiée pour l'instant : ce projet se récupère via son code source. ||| No release published yet: this project is obtained through its source code.
+Permission refusée. Bien essayé. ||| Permission denied. Nice try.
+Pour vérifier : {cmd} ||| To verify: {cmd}
+Projet ||| Project
+Projet inconnu{arg}. Essaie : {list}. ||| Unknown project{arg}. Try: {list}.
+Préparation du téléchargement ||| Preparing the download
+Préversion ||| Pre-release
+Quelle est ton adresse e-mail ? ||| What's your email address?
+Rechercher une commande ||| Search for a command
+Relancer le téléchargement ||| Restart the download
+Remonter en haut de page ||| Scroll to top
+Réduire les animations ||| Reduce animations
+Réglage ||| Setting
+Résolution du lien GitHub ||| Resolving the GitHub link
+Si Windows affiche « Windows a protégé votre ordinateur » : Informations complémentaires, puis Exécuter quand même (exécutable non signé). ||| If Windows shows "Windows protected your PC": More info, then Run anyway (unsigned executable).
+Sources ||| Source
+Système ||| System
+Ta réponse ||| Your answer
+Ton application mail s'ouvre. Merci ! ||| Your mail app is opening. Thank you!
+Ton message ? ||| Your message?
+Téléchargement ||| Download
+Téléchargement lancé. Vérifie ton dossier Téléchargements. ||| Download started. Check your Downloads folder.
+Télécharger ||| Download
+Télécharger le CV (PDF) ||| Download the CV (PDF)
+Télécharger le code source ||| Download the source code
+Télécharger {name} ||| Download {name}
+Usage : grep <mot>   (ex. grep rust) ||| Usage: grep <word>   (e.g. grep rust)
+Usage : {usage} ||| Usage: {usage}
+Windows détecté · mes installateurs sont compatibles ||| Windows detected · my installers are compatible
+accueil ||| home
+activé ||| on
+api.github.com injoignable ou limite atteinte. ||| api.github.com unreachable or limit reached.
+appuie sur une touche pour passer ||| press any key to skip
+assistant vocal, IA, interface 3D ||| voice assistant, AI, 3D interface
+bienvenue. ||| welcome.
+change la langue du site (lang fr | en) ||| changes the site language (lang fr | en)
+chargement du noyau ........ OK ||| loading kernel .............. OK
+cherche un mot dans mes projets, technos et pages ||| searches a word in my projects, technologies and pages
+commande introuvable : {name}. Tape "help". ||| command not found: {name}. Type "help".
+commande introuvable : {name}. Tu voulais dire « {guess} » ? ||| command not found: {name}. Did you mean "{guess}"?
+commandes tapées depuis l'ouverture ||| commands typed since opening
+connexion à GitHub… ||| connecting to GitHub…
+copie mon adresse e-mail ||| copies my email address
+coupe ou remet les animations (calm on | off) ||| turns animations off or on (calm on | off)
+dernier relevé ||| last snapshot
+dernière ||| latest
+dernières versions publiées (en direct) ||| latest published versions (live)
+download <projet> ||| download <project>
+dépôt ||| repo
+désactivé ||| off
+fiche détaillée d'un projet ||| detailed project sheet
+fiche récapitulative façon terminal ||| summary card, terminal style
+fork ||| =
+fork du mod Minecraft (Java) ||| fork of the Minecraft mod (Java)
+gestion de parkings (PHP, Blazor, Kotlin) ||| parking management (PHP, Blazor, Kotlin)
+goto <page> ||| =
+grep <mot> ||| grep <word>
+help [commande] ||| help [command]
+il y a {n} h ||| {n} h ago
+il y a {n} j ||| {n} d ago
+il y a {n} min ||| {n} min ago
+il y a {n} mois ||| {n} months ago
+info <projet> ||| info <project>
+interface ................... OK ||| =
+le CV ||| the CV
+le CV (impression PDF) ||| the CV (PDF print)
+le téléchargement de {name} ||| the download of {name}
+liste des commandes (help <commande> pour le détail) ||| list of commands (help <command> for details)
+liste les pages ||| lists the pages
+maintenant ||| now
+me contacter ||| contact me
+mes chiffres GitHub ||| my GitHub numbers
+mes dépôts GitHub (en direct) ||| my GitHub repositories (live)
+mes projets (liens GitHub) ||| my projects (GitHub links)
+mes technos (skills <mot> pour filtrer) ||| my technologies (skills <word> to filter)
+migration de modpacks Minecraft ||| Minecraft modpack migration
+mon profil GitHub ||| my GitHub profile
+noir & rouge ||| black & red
+o ||| B
+ouvre le CV (cv pdf : version à imprimer) ||| opens the CV (cv pdf: printable version)
+ouvre le téléchargement d'un projet ||| opens a project's download
+ouvre une page (projets, competences, apropos, cv, downloads) ||| opens a page (projects, skills, about, cv, downloads)
+overlay Rocket League (Rust, Tauri) ||| Rocket League overlay (Rust, Tauri)
+page ||| =
+page des téléchargements ||| downloads page
+parcours et centres d'intérêt ||| background and interests
+plan du site ||| site map
+projet ||| project
+projets ..................... OK ||| projects .................... OK
+projets et dépôts GitHub ||| projects and GitHub repositories
+qui es-tu ? ||| who are you?
+qui je suis ||| who I am
+release ||| =
+releases ||| =
+réseau github.com/neyordev .. OK ||| network github.com/neyordev . OK
+skills [mot] ||| skills [word]
+techno ||| tech
+technos ||| technologies
+teste la connexion à GitHub (ping github) ||| tests the connection to GitHub (ping github)
+touches 1–{n} · M ouvrir/fermer · Échap fermer ||| keys 1–{n} · M open/close · Esc close
+téléchargement ||| download
+téléchargements ||| downloads
+version ||| =
+version publiée ||| published version
+versions ||| =
+versions publiées ||| published versions
+vide le terminal ||| clears the terminal
+visiteur@portfolio — bienvenue. ||| visitor@portfolio — welcome.
+{lang} · ★ {stars} · dernier push {date} ({rel}){fork} ||| {lang} · ★ {stars} · last push {date} ({rel}){fork}
+{n} dont {m} avec installateur ||| {n} including {m} with an installer
+{os} détecté · mes installateurs sont pour Windows, le code source reste disponible ||| {os} detected · my installers are for Windows, the source code is still available
+· Ctrl+K palette ||| =
+Ça ne ressemble pas à une adresse e-mail, réessaie. ||| That doesn't look like an email address, try again.
+Échap pour quitter ||| Esc to quit
+Écrire en mode terminal ||| Write in terminal mode
+Écrire un message ||| Write a message
+à l'instant ||| just now
+↑↓ naviguer · Entrée valider · Échap fermer ||| ↑↓ navigate · Enter confirm · Esc close
+Nom ||| Name
+Études ||| Studies
+Alternance ||| Apprenticeship
+Thème ||| Theme
+Paquet npm ||| npm package
+Archive ||| =
+Mod (.jar) ||| =
+Fichier ||| File
+inconnu ||| unknown

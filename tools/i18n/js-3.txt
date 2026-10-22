@@ -1,0 +1,9 @@
+développeur en formation ||| developer in training
+assistants vocaux et IA ||| voice assistants and AI
+outils pour les moddeurs ||| tools for modders
+applications de bureau en Rust ||| desktop apps in Rust
+plateformes web complètes ||| complete web platforms
+interfaces web ||| web interfaces
+backends simples ||| simple backends
+projets concrets ||| real-world projects
+Ou directement depuis npm : ||| Or directly from npm:

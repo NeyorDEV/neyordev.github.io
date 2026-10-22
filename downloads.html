@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Télécharge les dernières versions de mes projets : installateurs, versions portables, paquets npm et code source." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://neyordev.github.io/downloads.html" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Téléchargements — neyor" />
+    <meta property="og:description" content="Télécharge les dernières versions de mes projets : installateurs, versions portables, paquets npm et code source." />
+    <meta property="og:url" content="https://neyordev.github.io/downloads.html" />
+    <meta property="og:image" content="https://neyordev.github.io/images/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Téléchargements — neyor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script>(function(d){d.classList.add("js");var L="fr";try{L=localStorage.getItem("lang")||((navigator.language||"fr").slice(0,2)==="fr"?"fr":"en")}catch(e){}if(L==="en")d.classList.add("i18n-wait");try{if(localStorage.getItem("calm")==="1")d.classList.add("calm");else if(sessionStorage.getItem("wipe")==="1")d.classList.add("wipe");else if(!sessionStorage.getItem("boot"))d.classList.add("boot")}catch(e){}})(document.documentElement)</script>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <link rel="stylesheet" href="CSS/downloads.css" />
+    <script src="JS/i18n-en.js" defer></script>
+    <script src="JS/i18n.js" defer></script>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/ui.js" defer></script>
+    <script src="JS/downloads-data.js" defer></script>
+    <script src="JS/downloads.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">neyor</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="projets.html">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="apropos.html">À propos</a>
+        <a href="cv.html">CV</a>
+        <a href="downloads.html" aria-current="page">Téléchargements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="stage dl-stage" id="top">
+        <canvas id="rain" aria-hidden="true"></canvas>
+        <div class="beam" aria-hidden="true"></div>
+        <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i>
+        <i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
+        <div class="wrap stage-inner">
+          <p class="eyebrow rise">Centre de téléchargement</p>
+          <h1 class="glitch" data-text="Téléchargements">Téléchargements</h1>
+          <p class="lede rise">
+            Installateurs, versions portables, paquets npm et code source de tous mes projets.<br />
+            Les fichiers viennent directement des releases GitHub, avec leur empreinte SHA-256.
+          </p>
+          <div class="dl-chips rise">
+            <span class="dl-chip" id="os-chip"><span class="led"></span> Détection du système…</span>
+            <span class="dl-chip" id="src-chip">Données : chargement…</span>
+          </div>
+          <div class="cta rise">
+            <a class="btn primary" href="#versions">Voir les versions</a>
+            <a class="btn" href="#guide">Guide d'installation</a>
+          </div>
+        </div>
+        <ul class="hudbar" aria-live="polite" aria-label="Statistiques des téléchargements">
+          <li><span class="led"></span> SYSTÈME EN LIGNE</li>
+          <li>DÉPÔTS <b data-stat="repos">—</b></li>
+          <li>RELEASES <b id="n-rel">—</b></li>
+          <li>TÉLÉCHARGEMENTS <b id="n-dl">—</b></li>
+          <li class="last">DERNIÈRE <b id="n-last">—</b></li>
+        </ul>
+      </section>
+
+      <section id="versions" class="block">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">01 — Versions</p>
+            <h2>Dernières versions</h2>
+            <p class="sub" id="dl-status">Chargement des releases GitHub…</p>
+          </header>
+
+          <div class="dl-tools reveal">
+            <label class="dl-search"><span class="sr">Rechercher un projet</span>
+              <input type="search" id="dl-q" placeholder="Rechercher un projet…" autocomplete="off" />
+            </label>
+            <div class="filters" id="dl-filters" role="group" aria-label="Filtrer par type">
+              <button type="button" data-f="all" aria-pressed="true">Tous</button>
+              <button type="button" data-f="installer" aria-pressed="false">Installateurs</button>
+              <button type="button" data-f="portable" aria-pressed="false">Portables</button>
+              <button type="button" data-f="npm" aria-pressed="false">npm</button>
+              <button type="button" data-f="sources" aria-pressed="false">Code source</button>
+            </div>
+            <label class="dl-sort"><span class="sr">Trier</span>
+              <select id="dl-sort">
+                <option value="recent">Plus récent</option>
+                <option value="dl">Plus téléchargé</option>
+                <option value="az">Nom (A–Z)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="dl-grid" id="dl-grid">
+            <article class="project dl-card reveal" id="dl-jarvis" data-id="jarvis" data-repo="J.A.R.V.I.S" data-art="voice" data-kinds="installer" data-name="J.A.R.V.I.S">
+              <div class="shot" data-img="images/projects/jarvis.png"><span>J.A.R.V.I.S</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Assistant vocal · IA</p><h3>J.A.R.V.I.S</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA.</p>
+                <ul class="chips"><li>Windows</li><li>Installateur</li><li>Python</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/J.A.R.V.I.S/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/J.A.R.V.I.S.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/J.A.R.V.I.S" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+            <article class="project dl-card reveal" id="dl-rlss" data-id="rlss" data-repo="rl-session-stats" data-art="bars" data-kinds="installer portable" data-name="RL Session Stats">
+              <div class="shot" data-img="images/projects/rl-session-stats.png"><span>RL Session Stats</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Overlay · Rocket League</p><h3>RL Session Stats</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Overlay de statistiques de session pour Rocket League. Aucune injection : compatible Easy Anti-Cheat.</p>
+                <ul class="chips"><li>Windows</li><li>Installateur</li><li>Portable</li><li>Rust · Tauri</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/rl-session-stats/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/rl-session-stats.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/rl-session-stats" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+            <article class="project dl-card reveal" id="dl-modshift" data-id="modshift" data-repo="ModShift" data-art="blocks" data-kinds="npm" data-name="ModShift">
+              <div class="shot" data-img="images/projects/modshift.png"><span>ModShift</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Outil en ligne de commande</p><h3>ModShift</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Migre un modpack Minecraft vers une autre version ou un autre mod loader, mod par mod.</p>
+                <ul class="chips"><li>npm</li><li>Node.js 20.17+</li><li>CLI · Web</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/ModShift/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/ModShift.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/ModShift" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+            <article class="project dl-card reveal" id="dl-rentpark" data-id="rentpark" data-repo="RentPark" data-art="grid" data-kinds="sources" data-name="RentPark">
+              <div class="shot" data-img="images/projects/rentpark.png"><span>RentPark</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Projet d&#x27;équipe</p><h3>RentPark</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Plateforme de gestion de location de places de parking : site web, API, administration Blazor et application Android.</p>
+                <ul class="chips"><li>Code source</li><li>PHP</li><li>Blazor</li><li>Kotlin</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/RentPark/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/RentPark.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/RentPark" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+            <article class="project dl-card reveal" id="dl-dragon" data-id="dragon" data-repo="Dragon-Mounts-Legacy" data-art="cube" data-kinds="sources" data-name="Dragon Mounts: Legacy">
+              <div class="shot" data-img="images/projects/dragon-mounts.png"><span>Dragon Mounts: Legacy</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Fork · mod Minecraft</p><h3>Dragon Mounts: Legacy</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Fork du mod Minecraft Dragon Mounts: Legacy, migré vers de nouvelles versions.</p>
+                <p class="credit">Bannière : projet d'origine <a href="https://github.com/Kay9Unit/Dragon-Mounts-Legacy" target="_blank" rel="noopener">Dragon Mounts: Legacy</a> (Kay9Unit), licence GPL-3.0.</p>
+                <ul class="chips"><li>Code source</li><li>Java</li><li>Minecraft</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/Dragon-Mounts-Legacy/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/Dragon-Mounts-Legacy.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/Dragon-Mounts-Legacy" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="dl-empty" id="dl-empty" hidden>Aucun projet ne correspond à ta recherche.</p>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">02 — Activité</p>
+            <h2>Radar des releases</h2>
+            <p class="sub">Chaque point est une version publiée. Survole ou sélectionne-en une.</p>
+          </header>
+          <div class="radar-dl reveal">
+            <div class="tl" id="tl" aria-label="Chronologie des releases"></div>
+            <div class="bars-dl" id="bars" aria-label="Téléchargements par projet"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="guide" class="block">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">03 — Guide</p>
+            <h2>Installer et vérifier</h2>
+          </header>
+          <div class="guide reveal">
+            <details open>
+              <summary>Vérifier l'empreinte SHA-256 d'un fichier</summary>
+              <p>Chaque fichier est affiché avec son empreinte. Compare-la à celle de ton téléchargement : si elles diffèrent, ne lance pas le fichier.</p>
+              <div class="cmd"><code>Get-FileHash .\installer.exe -Algorithm SHA256</code><button type="button" class="copy" data-copy="Get-FileHash .\installer.exe -Algorithm SHA256">Copier</button></div>
+              <p class="note">À lancer dans PowerShell, dans le dossier où se trouve le fichier.</p>
+            </details>
+            <details>
+              <summary>Windows SmartScreen affiche un avertissement</summary>
+              <p>Mes exécutables ne sont pas toujours signés numériquement (les notes de J.A.R.V.I.S le précisent). Windows peut alors afficher « Windows a protégé votre ordinateur ». Après avoir vérifié l'empreinte, clique sur <b>Informations complémentaires</b> puis <b>Exécuter quand même</b>.</p>
+            </details>
+            <details>
+              <summary>J.A.R.V.I.S : première installation</summary>
+              <ol>
+                <li>Télécharge l'installateur et lance-le : aucun droit administrateur n'est nécessaire. Installer par-dessus une ancienne version conserve tes réglages, tes clés et la mémoire.</li>
+                <li>L'installateur met en place Python 3.12 si besoin, puis les dépendances (quelques minutes, connexion internet requise).</li>
+                <li>Lance <b>J.A.R.V.I.S</b> depuis le menu Démarrer ou le raccourci du bureau.</li>
+                <li>Au premier lancement, l'assistant te demande ton nom et une clé d'IA (Gemini en propose une gratuite), teste ton micro et peut enregistrer ton empreinte vocale.</li>
+              </ol>
+            </details>
+            <details>
+              <summary>RL Session Stats : installateur ou portable ?</summary>
+              <p>L'<b>installateur</b> (<code>_x64-setup.exe</code>) installe l'application et ses raccourcis. La version <b>portable</b> est un seul fichier à lancer, sans installation.</p>
+              <p>L'overlay utilise uniquement l'API de statistiques locale et officielle de Rocket League (aucune injection, aucune lecture mémoire), donc il reste compatible avec Easy Anti-Cheat. Le jeu doit être en mode <b>Fenêtré sans bordure</b> pour que l'overlay s'affiche par-dessus.</p>
+            </details>
+            <details>
+              <summary>ModShift : installation avec npm</summary>
+              <p>ModShift demande <b>Node.js 20.17+ ou 22.13+</b>.</p>
+              <div class="cmd"><code>npm install --global modshift</code><button type="button" class="copy" data-copy="npm install --global modshift">Copier</button></div>
+              <p class="note">Une fois installé : <code>modshift ui</code> ouvre une petite interface web locale, <code>modshift interactive</code> te guide mod par mod.</p>
+            </details>
+            <details>
+              <summary>D'où viennent les fichiers ?</summary>
+              <p>Les liens pointent directement vers les releases officielles de mes dépôts GitHub : aucun intermédiaire, aucun hébergement tiers. Les nombres de téléchargements et les empreintes sont ceux que GitHub indique.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> neyor</p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

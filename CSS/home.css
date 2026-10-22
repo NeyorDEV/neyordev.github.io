@@ -1,0 +1,348 @@
+/* Accueil futuriste */
+.stage {
+  position: relative;
+  min-height: calc(100svh - 56px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 4rem 0 6rem;
+  isolation: isolate;
+}
+#net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  cursor: crosshair;
+}
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(209, 25, 25, 0.16), transparent 70%),
+    repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, 0.28) 3px);
+}
+.beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 140px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(209, 25, 25, 0.1), transparent);
+  animation: beam 7s linear infinite;
+}
+@keyframes beam {
+  from {
+    transform: translateY(-160px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+.corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 0 solid var(--accent);
+  pointer-events: none;
+  opacity: 0.8;
+}
+.corner.tl { top: 18px; left: 18px; border-width: 2px 0 0 2px; }
+.corner.tr { top: 18px; right: 18px; border-width: 2px 2px 0 0; }
+.corner.bl { bottom: 18px; left: 18px; border-width: 0 0 2px 2px; }
+.corner.br { bottom: 18px; right: 18px; border-width: 0 2px 2px 0; }
+
+.stage-inner {
+  pointer-events: none;
+}
+.stage-inner a,
+.stage-inner .btn {
+  pointer-events: auto;
+}
+pre.boot {
+  min-height: 4.6em;
+  margin: 0 0 1.4rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+pre.boot .ok {
+  color: var(--accent);
+}
+pre.boot span {
+  display: block;
+  animation: rise 0.4s both;
+}
+
+/* Titre avec effet glitch */
+.glitch {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(2.8rem, 10vw, 7.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 40px rgba(209, 25, 25, 0.35);
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 100% 0);
+}
+.glitch::before {
+  color: var(--accent-hot);
+  animation: glitch-a 4s steps(1) infinite;
+}
+.glitch::after {
+  color: #fff;
+  mix-blend-mode: screen;
+  animation: glitch-b 4s steps(1) infinite 0.05s;
+}
+@keyframes glitch-a {
+  0%, 86%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  88% { clip-path: inset(8% 0 62% 0); transform: translate(-6px, 1px); }
+  91% { clip-path: inset(52% 0 18% 0); transform: translate(5px, -1px); }
+  94% { clip-path: inset(30% 0 44% 0); transform: translate(-3px, 0); }
+  97% { clip-path: inset(74% 0 4% 0); transform: translate(4px, 0); }
+}
+@keyframes glitch-b {
+  0%, 86%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  89% { clip-path: inset(60% 0 12% 0); transform: translate(6px, 0); }
+  92% { clip-path: inset(14% 0 66% 0); transform: translate(-5px, 1px); }
+  95% { clip-path: inset(44% 0 30% 0); transform: translate(3px, 0); }
+}
+
+/* Barre d'infos (HUD) */
+.hudbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.9rem max(1.5rem, calc((100% - var(--wrap)) / 2));
+  border-top: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.hudbar b {
+  color: var(--ink);
+  margin-left: 0.3rem;
+}
+.hudbar .last {
+  margin-left: auto;
+}
+.led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent-hot);
+  box-shadow: 0 0 10px var(--accent-hot);
+  animation: blink 1.4s steps(1) infinite;
+}
+
+/* Terminal */
+.console {
+  background: #060404;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(209, 25, 25, 0.12);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+}
+.console-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.console-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.console-bar i:first-child {
+  background: var(--accent-hot);
+}
+.console-bar span {
+  margin-left: auto;
+}
+.console-out {
+  height: 320px;
+  overflow-y: auto;
+  padding: 1rem 1.2rem 0;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.console-out .cmd {
+  color: var(--ink);
+}
+.console-out .cmd::before {
+  content: "$ ";
+  color: var(--accent);
+}
+.console-out .res {
+  color: var(--muted);
+}
+.console-out .err {
+  color: var(--accent-hot);
+}
+.console-out a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.console-in {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem 1.2rem 0.9rem;
+}
+.console-in .prompt {
+  color: var(--accent);
+  opacity: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.console-in input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  color: var(--ink);
+  font: inherit;
+  caret-color: var(--accent);
+}
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.suggest button {
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.suggest button:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+/* Modules */
+.modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+.module {
+  position: relative;
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+  min-height: 210px;
+  padding: 1.6rem;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.15s ease-out, border-color 0.25s, opacity 0.7s;
+}
+.module::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(
+    240px circle at var(--x, 50%) var(--y, 50%),
+    rgba(209, 25, 25, 0.28),
+    transparent 70%
+  );
+}
+.module:hover {
+  border-color: var(--accent);
+}
+.module:hover::after {
+  opacity: 1;
+}
+.js .module.reveal.in {
+  transition: transform 0.15s ease-out, border-color 0.25s, opacity 0.7s;
+}
+.js .module.reveal.in:hover {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px);
+}
+.module .num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.module h3 {
+  font-size: 1.7rem;
+}
+.module p {
+  color: var(--muted);
+}
+.module .go {
+  align-self: end;
+  margin-top: 0.6rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .hudbar .last {
+    margin-left: 0;
+  }
+  .console {
+    font-size: 0.82rem;
+  }
+  .console-in .prompt {
+    display: none;
+  }
+}
+
+/* Terminal : nouvelles sorties */
+.console-out .dim {
+  color: var(--muted);
+  opacity: 0.75;
+}
+.console-out .acc {
+  color: var(--accent-hot);
+}
+.console-out .cmd-title {
+  color: var(--ink);
+  font-weight: 500;
+}

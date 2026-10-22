@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cette page n'existe pas ou a été déplacée." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <title>404 — Page introuvable — neyor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script>(function(d){d.classList.add("js");var L="fr";try{L=localStorage.getItem("lang")||((navigator.language||"fr").slice(0,2)==="fr"?"fr":"en")}catch(e){}if(L==="en")d.classList.add("i18n-wait");try{if(localStorage.getItem("calm")==="1")d.classList.add("calm");else if(sessionStorage.getItem("wipe")==="1")d.classList.add("wipe");else if(!sessionStorage.getItem("boot"))d.classList.add("boot")}catch(e){}})(document.documentElement)</script>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <script src="JS/i18n-en.js" defer></script>
+    <script src="JS/i18n.js" defer></script>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/ui.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">neyor</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="projets.html">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="apropos.html">À propos</a>
+        <a href="cv.html">CV</a>
+        <a href="downloads.html">Téléchargements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="stage nf" id="top">
+        <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i>
+        <i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
+        <div class="wrap stage-inner">
+          <p class="eyebrow rise">Erreur 404</p>
+          <h1 class="glitch" data-text="404">404</h1>
+          <div class="nf-term rise" aria-live="polite">
+            <p><span class="p">$</span> cd <span id="nf-path">…</span></p>
+            <p class="err" id="nf-err">bash: cd: aucun fichier ou dossier de ce type</p>
+            <p id="nf-hint"></p>
+          </div>
+          <div class="cta rise">
+            <a class="btn primary" href="index.html">Retour à l'accueil</a>
+            <a class="btn" href="projets.html">Voir mes projets</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> neyor</p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var tr = window.t || function (s, v) { return v ? s.replace(/\{(\w+)\}/g, function (m, k) { return k in v ? v[k] : m; }) : s; };
+        var path = decodeURIComponent(location.pathname);
+        document.getElementById("nf-path").textContent = path;
+        document.getElementById("nf-err").textContent = tr("bash: cd: aucun fichier ou dossier de ce type");
+        var last = path.split("/").filter(Boolean).pop() || "";
+        var pages = ["index.html", "projets.html", "competences.html", "apropos.html", "cv.html", "downloads.html"];
+        var old = { "presentation.html": "apropos.html", "caracteristiques.html": "apropos.html", "contact.html": "index.html#contact", "lirelasuite.html": "apropos.html", "projects.html": "projets.html", "download.html": "downloads.html", "skills.html": "competences.html", "about.html": "apropos.html" };
+        function lev(a, b) {
+          var d = [], i, j;
+          for (i = 0; i <= a.length; i++) { d[i] = [i]; }
+          for (j = 1; j <= b.length; j++) { d[0][j] = j; }
+          for (i = 1; i <= a.length; i++) for (j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+          return d[a.length][b.length];
+        }
+        var guess = old[last.toLowerCase()];
+        if (!guess && last) {
+          var best = pages.map(function (p) { return [p, lev(last.toLowerCase().replace(/\.html$/, ""), p.replace(/\.html$/, ""))]; }).sort(function (a, b) { return a[1] - b[1]; })[0];
+          var base = last.replace(/\.html$/, "");
+          if (best && best[1] <= Math.min(2, Math.floor(base.length / 3))) guess = best[0];
+        }
+        var hint = document.getElementById("nf-hint");
+        if (guess) {
+          hint.append(tr("Tu cherchais peut-être :") + " ");
+          var a = document.createElement("a");
+          a.href = guess;
+          a.textContent = guess;
+          hint.append(a);
+        } else {
+          hint.textContent = tr("Cette page n'existe pas ou a été déplacée.");
+        }
+      });
+    </script>
+  </body>
+</html>

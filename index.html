@@ -5,117 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio de Mylan Perrier : projets, compétences et code open source."
+      content="Portfolio de neyor : projets, compétences et code open source."
     />
     <meta name="color-scheme" content="dark" />
-    <title>Mylan Perrier — Portfolio</title>
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://neyordev.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="neyor — Portfolio" />
+    <meta property="og:description" content="Portfolio de neyor : projets, compétences et code open source." />
+    <meta property="og:url" content="https://neyordev.github.io/" />
+    <meta property="og:image" content="https://neyordev.github.io/images/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>neyor — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     />
+    <script>(function(d){d.classList.add("js");var L="fr";try{L=localStorage.getItem("lang")||((navigator.language||"fr").slice(0,2)==="fr"?"fr":"en")}catch(e){}if(L==="en")d.classList.add("i18n-wait");try{if(localStorage.getItem("calm")==="1")d.classList.add("calm");else if(sessionStorage.getItem("wipe")==="1")d.classList.add("wipe");else if(!sessionStorage.getItem("boot"))d.classList.add("boot")}catch(e){}})(document.documentElement)</script>
     <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <script src="JS/i18n-en.js" defer></script>
+    <script src="JS/i18n.js" defer></script>
     <script src="JS/main.js" defer></script>
+    <script src="JS/ui.js" defer></script>
+    <script src="JS/home.js" defer></script>
   </head>
-  <body>
+  <body class="home">
     <div class="progress" aria-hidden="true"></div>
     <header class="topbar">
-      <a href="index.html" class="brand">mylan<span>.</span>perrier</a>
+      <a href="index.html" class="brand">neyor</a>
       <nav class="menu" aria-label="Navigation principale">
         <a href="index.html" aria-current="page">Accueil</a>
         <a href="projets.html">Projets</a>
+        <a href="competences.html">Compétences</a>
         <a href="apropos.html">À propos</a>
+        <a href="cv.html">CV</a>
+        <a href="downloads.html">Téléchargements</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-fx" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="wrap">
-          <p class="kicker rise"><span class="dot"></span> Étudiant en BUT Informatique · Clermont-Ferrand</p>
-          <h1 data-split>Je conçois des outils utiles, du script à l'application complète.</h1>
-          <p class="role rise">
+    <main id="main">
+      <section class="stage" id="top">
+        <canvas id="net" aria-hidden="true"></canvas>
+        <div class="beam" aria-hidden="true"></div>
+        <i class="corner tl" aria-hidden="true"></i><i class="corner tr" aria-hidden="true"></i>
+        <i class="corner bl" aria-hidden="true"></i><i class="corner br" aria-hidden="true"></i>
+
+        <div class="wrap stage-inner">
+          <pre class="boot" id="boot" aria-hidden="true"></pre>
+          <h1 class="glitch" data-text="neyor">neyor</h1>
+          <p class="role">
             <span class="prompt">&gt;</span>
-            <span class="typing" data-words='["assistants vocaux et IA","outils pour les moddeurs","applications de bureau en Rust","plateformes web complètes"]'></span>
+            <span class="typing" data-words='["développeur en formation","assistants vocaux et IA","outils pour les moddeurs","applications de bureau en Rust","plateformes web complètes"]'></span>
           </p>
-          <p class="lede rise">
-            Je construis des projets de bout en bout, je les publie en open
-            source et j'apprends en livrant.
+          <p class="lede">
+            Étudiant en BUT Informatique à Clermont-Ferrand, alternant chez
+            Electronique du Mazet.<br />
+            Je code aussi des outils perso, tout est sur mon GitHub.<br />
+            Clique n'importe où sur le réseau, ou lance une commande plus bas.
           </p>
-          <div class="cta rise">
+          <div class="cta">
             <a class="btn primary" href="projets.html">Voir mes projets</a>
-            <a class="btn" href="apropos.html">En savoir plus</a>
+            <a class="btn" href="#terminal">Ouvrir le terminal</a>
           </div>
-          <dl class="stats rise" aria-live="polite">
-            <div><dt>Dépôts publics</dt><dd data-stat="repos">—</dd></div>
-            <div><dt>Langages</dt><dd data-stat="langs">—</dd></div>
-            <div><dt>Étoiles</dt><dd data-stat="stars">—</dd></div>
-          </dl>
         </div>
+
+        <ul class="hudbar" aria-live="polite" aria-label="Statistiques GitHub">
+          <li><span class="led"></span> SYSTÈME EN LIGNE</li>
+          <li>DÉPÔTS <b data-stat="repos">—</b></li>
+          <li>FORKS <b data-stat="forks">—</b></li>
+          <li>ÉTOILES <b data-stat="stars">—</b></li>
+          <li class="last">DERNIER PUSH <b id="lastpush">—</b></li>
+        </ul>
       </section>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="track">
-          <span>Python</span><span>TypeScript</span><span>Rust</span><span>Java</span><span>Kotlin</span><span>PHP</span><span>C# / Blazor</span><span>MySQL</span><span>Docker</span><span>Git</span><span>Tauri</span>
-          <span>Python</span><span>TypeScript</span><span>Rust</span><span>Java</span><span>Kotlin</span><span>PHP</span><span>C# / Blazor</span><span>MySQL</span><span>Docker</span><span>Git</span><span>Tauri</span>
-        </div>
-      </div>
-
-      <section class="block">
+      <section id="terminal" class="block">
         <div class="wrap">
           <header class="head reveal">
-            <p class="eyebrow">01 — Récents</p>
-            <h2>Derniers projets</h2>
+            <p class="eyebrow">01 — Interface</p>
+            <h2>Parle à mon portfolio</h2>
+            <p class="sub">Tape une commande, ou clique sur une suggestion.</p>
           </header>
-          <div class="featured three" data-stagger>
-            <article class="project reveal">
-              <div class="shot" data-img="images/projects/jarvis.png"><span>J.A.R.V.I.S</span></div>
-              <div class="body">
-                <h3>J.A.R.V.I.S</h3>
-                <p>Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA.</p>
-                <ul class="chips"><li>Python</li><li>IA</li><li>3D</li></ul>
-                <a class="link" href="https://github.com/neyordev/J.A.R.V.I.S" target="_blank" rel="noopener">Voir le code ↗</a>
-              </div>
-            </article>
-            <article class="project reveal">
-              <div class="shot" data-img="images/projects/modshift.png"><span>ModShift</span></div>
-              <div class="body">
-                <h3>ModShift</h3>
-                <p>Migration de modpacks Minecraft vers d'autres versions ou mod loaders.</p>
-                <ul class="chips"><li>TypeScript</li><li>Outillage</li></ul>
-                <a class="link" href="https://github.com/neyordev/ModShift" target="_blank" rel="noopener">Voir le code ↗</a>
-              </div>
-            </article>
-            <article class="project reveal">
-              <div class="shot" data-img="images/projects/rl-session-stats.png"><span>rl-session-stats</span></div>
-              <div class="body">
-                <h3>rl-session-stats</h3>
-                <p>Overlay de statistiques de session pour Rocket League.</p>
-                <ul class="chips"><li>Rust</li><li>Tauri</li></ul>
-                <a class="link" href="https://github.com/neyordev/rl-session-stats" target="_blank" rel="noopener">Voir le code ↗</a>
-              </div>
-            </article>
+          <div class="console reveal" id="console" role="region" aria-label="Terminal interactif">
+            <div class="console-bar">
+              <i></i><i></i><i></i>
+              <span>neyor@portfolio:~</span>
+            </div>
+            <div class="console-out" id="out" role="log" aria-live="polite"></div>
+            <form class="console-in" id="cmd" autocomplete="off">
+              <label for="cmdline" class="prompt">neyor@portfolio:~$</label>
+              <input id="cmdline" type="text" spellcheck="false" autocapitalize="off" aria-label="Commande" />
+            </form>
+            <div class="suggest" id="suggest"></div>
           </div>
-          <p class="more reveal"><a class="btn" href="projets.html">Tous les projets →</a></p>
         </div>
       </section>
 
-      <section class="block alt">
-        <div class="wrap split">
-          <div class="reveal">
-            <p class="eyebrow">02 — Qui suis-je</p>
-            <h2>Curieux, rigoureux, toujours en train de construire.</h2>
-          </div>
-          <div class="reveal">
-            <p class="lede flush">
-              Je m'appelle Mylan, je suis étudiant en BUT Informatique à
-              l'Université Clermont Auvergne. Ce qui me motive : comprendre
-              comment les choses marchent, puis en faire quelque chose qui
-              sert vraiment.
-            </p>
-            <p class="more left"><a class="btn" href="apropos.html">Mon parcours →</a></p>
+      <section id="modules" class="block alt">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">02 — Modules</p>
+            <h2>Explorer</h2>
+          </header>
+          <div class="modules" data-stagger>
+            <a class="module reveal" href="projets.html">
+              <span class="num">01</span>
+              <h3>Projets</h3>
+              <p>Ce que j'ai construit, avec le code sur GitHub.</p>
+              <span class="go">Ouvrir →</span>
+            </a>
+            <a class="module reveal" href="competences.html">
+              <span class="num">02</span>
+              <h3>Compétences</h3>
+              <p>Langages, frameworks et outils que j'utilise.</p>
+              <span class="go">Ouvrir →</span>
+            </a>
+            <a class="module reveal" href="apropos.html">
+              <span class="num">03</span>
+              <h3>À propos</h3>
+              <p>Mon parcours et ce qui m'intéresse hors du code.</p>
+              <span class="go">Ouvrir →</span>
+            </a>
+            <a class="module reveal" href="downloads.html">
+              <span class="num">04</span>
+              <h3>Téléchargements</h3>
+              <p>Installateurs, versions portables et paquets de mes projets.</p>
+              <span class="go">Ouvrir →</span>
+            </a>
+            <a class="module reveal" href="#contact">
+              <span class="num">05</span>
+              <h3>Contact</h3>
+              <p>Une question, une collaboration : écris-moi.</p>
+              <span class="go">Ouvrir →</span>
+            </a>
           </div>
         </div>
       </section>
@@ -133,7 +161,7 @@
         </p>
       </div>
       <div class="wrap foot">
-        <p>© <span id="year">2026</span> Mylan Perrier</p>
+        <p>© <span id="year">2026</span> neyor</p>
         <a href="#top">Haut de page ↑</a>
       </div>
     </footer>

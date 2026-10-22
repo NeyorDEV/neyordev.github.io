@@ -1,0 +1,5 @@
+noyau ............ chargé ||| kernel ........... loaded
+réseau github.com/neyordev ... connecté ||| network github.com/neyordev ... connected
+interface ........ prête ||| interface ........ ready
+Historique · {n} ||| History · {n}
+Reprendre la rotation ||| Resume rotation

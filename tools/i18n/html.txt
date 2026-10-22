@@ -84,8 +84,8 @@ Projets de neyor et liste de ses dépôts GitHub. ||| neyor's projects and GitHu
 Activité récente ||| Recent activity
 Filtrer par langage ||| Filter by language
 Compétences — neyor ||| Skills — neyor
-Je conçois des outils utiles, du script à l'application complète. ||| I design useful tools, from a simple script to a complete application.
-Je construis des projets de bout en bout, je les publie en open source et j'apprends en livrant. ||| I build projects end to end, publish them as open source and learn by shipping.
+Du script à l'application complète. ||| From a simple script to a complete application.
+Chaque projet ici a son code et ses versions à télécharger. ||| Every project here comes with its code and downloadable releases.
 En savoir plus ||| Learn more
 Dépôts publics ||| Public repositories
 Forks ||| =

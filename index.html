@@ -3,68 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Mylan Perrier : projets, compétences et code open source."
+    />
+    <meta name="color-scheme" content="dark" />
+    <title>Mylan Perrier — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     />
-    <link rel="stylesheet" href="/CSS/style.css" />
-    <title>Site Mylan Perrier</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="JS/main.js" defer></script>
   </head>
   <body>
-    <header>
-      <a href="index.html" class="logo" title="Logo"
-        ><i class="fa-solid fa-house-chimney"></i
-      ></a>
-
-      <nav>
-        <a href="index.html"> Page d'Accueil</a>
-        <a href="presentation.html">Cursus Scolaire</a>
-        <a href="caracteristiques.html">Planning Extra-Scolaire</a>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">mylan<span>.</span>perrier</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html" aria-current="page">Accueil</a>
         <a href="projets.html">Projets</a>
-        <a href="contact.html">Contact</a>
+        <a href="apropos.html">À propos</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
-    <section class="home">
-      <div class="home-img">
-        <img src="/images/main.jpg" alt="" />
+
+    <main>
+      <section class="hero">
+        <div class="hero-fx" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="wrap">
+          <p class="kicker rise"><span class="dot"></span> Étudiant en BUT Informatique · Clermont-Ferrand</p>
+          <h1 data-split>Je conçois des outils utiles, du script à l'application complète.</h1>
+          <p class="role rise">
+            <span class="prompt">&gt;</span>
+            <span class="typing" data-words='["assistants vocaux et IA","outils pour les moddeurs","applications de bureau en Rust","plateformes web complètes"]'></span>
+          </p>
+          <p class="lede rise">
+            Je construis des projets de bout en bout, je les publie en open
+            source et j'apprends en livrant.
+          </p>
+          <div class="cta rise">
+            <a class="btn primary" href="projets.html">Voir mes projets</a>
+            <a class="btn" href="apropos.html">En savoir plus</a>
+          </div>
+          <dl class="stats rise" aria-live="polite">
+            <div><dt>Dépôts publics</dt><dd data-stat="repos">—</dd></div>
+            <div><dt>Langages</dt><dd data-stat="langs">—</dd></div>
+            <div><dt>Étoiles</dt><dd data-stat="stars">—</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="track">
+          <span>Python</span><span>TypeScript</span><span>Rust</span><span>Java</span><span>Kotlin</span><span>PHP</span><span>C# / Blazor</span><span>MySQL</span><span>Docker</span><span>Git</span><span>Tauri</span>
+          <span>Python</span><span>TypeScript</span><span>Rust</span><span>Java</span><span>Kotlin</span><span>PHP</span><span>C# / Blazor</span><span>MySQL</span><span>Docker</span><span>Git</span><span>Tauri</span>
+        </div>
       </div>
-      <div class="home-content">
-        <img class="image2" src="/images/user_myperrier.jpeg" alt="" />
-        <h1>Bonjour, je suis <span>Mylan</span></h1>
-        <h3 class="typing-text">Je suis <span></span></h3>
-        <p><strong>
-          Je me nomme Perrier Mylan, né le <span>[date supprimée]</span> et suis
-          originaire de la ville de Monistrol-Sur-Loire.<br />
-            Je suis actuellement en 1ère année du <span>BUT Informatique à l'UCA.</span><br/><a href="lirelasuite.html" class="lirelasuite"
-              >Lire la suite :</a
-            ></strong
-          ><br />
+
+      <section class="block">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">01 — Récents</p>
+            <h2>Derniers projets</h2>
+          </header>
+          <div class="featured three" data-stagger>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/jarvis.png"><span>J.A.R.V.I.S</span></div>
+              <div class="body">
+                <h3>J.A.R.V.I.S</h3>
+                <p>Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA.</p>
+                <ul class="chips"><li>Python</li><li>IA</li><li>3D</li></ul>
+                <a class="link" href="https://github.com/neyordev/J.A.R.V.I.S" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/modshift.png"><span>ModShift</span></div>
+              <div class="body">
+                <h3>ModShift</h3>
+                <p>Migration de modpacks Minecraft vers d'autres versions ou mod loaders.</p>
+                <ul class="chips"><li>TypeScript</li><li>Outillage</li></ul>
+                <a class="link" href="https://github.com/neyordev/ModShift" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/rl-session-stats.png"><span>rl-session-stats</span></div>
+              <div class="body">
+                <h3>rl-session-stats</h3>
+                <p>Overlay de statistiques de session pour Rocket League.</p>
+                <ul class="chips"><li>Rust</li><li>Tauri</li></ul>
+                <a class="link" href="https://github.com/neyordev/rl-session-stats" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+          </div>
+          <p class="more reveal"><a class="btn" href="projets.html">Tous les projets →</a></p>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap split">
+          <div class="reveal">
+            <p class="eyebrow">02 — Qui suis-je</p>
+            <h2>Curieux, rigoureux, toujours en train de construire.</h2>
+          </div>
+          <div class="reveal">
+            <p class="lede flush">
+              Je m'appelle Mylan, je suis étudiant en BUT Informatique à
+              l'Université Clermont Auvergne. Ce qui me motive : comprendre
+              comment les choses marchent, puis en faire quelque chose qui
+              sert vraiment.
+            </p>
+            <p class="more left"><a class="btn" href="apropos.html">Mon parcours →</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
         </p>
       </div>
-    </section>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> Mylan Perrier</p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
   </body>
-  <footer class="home">
-    <div class="social-icons">
-      <a
-        href="https://www.linkedin.com/in/mylan-perrier-57364732b/"
-        title="Linkdin"
-        ><i class="fa-brands fa-linkedin"></i
-      ></a>
-      <a href="https://github.com/neyorrrr" title="GitHub"
-        ><i class="fa-brands fa-github"></i
-      ></a>
-      <a href="https://x.com/mylan_perrier/" title="X"
-        ><i class="fa-brands fa-x-twitter"></i
-      ></a>
-      <a href="https://www.instagram.com/mylan_perrier/" title="Instagram"
-        ><i class="fa-brands fa-instagram"></i
-      ></a>
-      <a href="https://m.facebook.com/mylan.perrier/" title="Facebook"
-        ><i class="fa-brands fa-facebook"></i
-      ></a>
-      <a href="mailto:suis.neyor@gmail.com" title="Mail"
-        ><i aria-hidden="true" class="far fa-envelope"></i
-      ></a>
-    </div>
-  </footer>
 </html>

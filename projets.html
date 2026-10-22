@@ -1,23 +1,115 @@
 <!DOCTYPE html>
 <html lang="fr">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/CSS/style.css">
-    <title>Site Mylan Perrier</title>
-</head>
-<body>
-    <header>
-        <a href="index.html" class="logo"><i class="fa-solid fa-house-chimney"></i></a>
-        <nav>
-            <a href="index.html" > Page d'Accueil</a>
-            <a href="presentation.html" >Cursus Scolaire</a>
-            <a href="caracteristiques.html" >Planning Extra-Scolaire</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html" >Contact</a>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projets de Mylan Perrier et liste de ses dépôts GitHub." />
+    <meta name="color-scheme" content="dark" />
+    <title>Projets — Mylan Perrier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="JS/main.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">mylan<span>.</span>perrier</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="projets.html" aria-current="page">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
-</body>
+
+    <main>
+      <section class="pagehead">
+        <div class="hero-fx" aria-hidden="true"><i></i><i></i></div>
+        <div class="wrap">
+          <p class="eyebrow rise">Projets</p>
+          <h1 data-split>Ce que j'ai construit.</h1>
+          <p class="lede rise">Quatre projets à la une, puis tous mes dépôts GitHub, mis à jour automatiquement.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap">
+          <div class="featured" data-stagger>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/jarvis.png"><span>J.A.R.V.I.S</span></div>
+              <div class="body">
+                <h3>J.A.R.V.I.S</h3>
+                <p>Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA.</p>
+                <ul class="chips"><li>Python</li><li>IA</li><li>Biométrie</li><li>3D</li></ul>
+                <a class="link" href="https://github.com/neyordev/J.A.R.V.I.S" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/modshift.png"><span>ModShift</span></div>
+              <div class="body">
+                <h3>ModShift</h3>
+                <p>Outil de migration de modpacks Minecraft vers d'autres versions ou d'autres mod loaders.</p>
+                <ul class="chips"><li>TypeScript</li><li>Outillage</li><li>Minecraft</li></ul>
+                <a class="link" href="https://github.com/neyordev/ModShift" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/rl-session-stats.png"><span>rl-session-stats</span></div>
+              <div class="body">
+                <h3>rl-session-stats</h3>
+                <p>Overlay de statistiques de session pour Rocket League, application de bureau légère.</p>
+                <ul class="chips"><li>Rust</li><li>Tauri</li><li>Desktop</li></ul>
+                <a class="link" href="https://github.com/neyordev/rl-session-stats" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+            <article class="project reveal">
+              <div class="shot" data-img="images/projects/rentpark.png"><span>RentPark</span></div>
+              <div class="body">
+                <h3>RentPark</h3>
+                <p>Plateforme de gestion de location de places de parking : site web, application mobile et base de données.</p>
+                <ul class="chips"><li>PHP</li><li>Blazor</li><li>Kotlin</li><li>MySQL</li></ul>
+                <a class="link" href="https://github.com/neyordev/RentPark" target="_blank" rel="noopener">Voir le code ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap">
+          <header class="head reveal">
+            <p class="eyebrow">Open source</p>
+            <h2>Tous mes dépôts</h2>
+            <p class="sub">Liste chargée en direct depuis GitHub.</p>
+          </header>
+          <div class="filters" id="filters" role="group" aria-label="Filtrer par langage"></div>
+          <ul class="repos" id="repos">
+            <li class="repo placeholder">Chargement…</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> Mylan Perrier</p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
+  </body>
 </html>

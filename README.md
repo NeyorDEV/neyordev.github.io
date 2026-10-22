@@ -1,5 +1,10 @@
-[![Build Status](https://codefirst.iut.uca.fr/api/badges/mylan.perrier/portfolio_web/status.svg)](https://codefirst.iut.uca.fr/mylan.perrier/portfolio_web)  
+# Portfolio — Mylan Perrier
 
-# portfolio_web
- 
-A simple template for a web site.
+Site statique (HTML, CSS, JavaScript) hébergé sur GitHub Pages.
+
+- `index.html` : accueil
+- `projets.html` : projets phares et liste des dépôts GitHub (chargée via l'API)
+- `apropos.html` : présentation, parcours, compétences
+- `CSS/style.css` : thème clair / sombre et animations
+- `JS/main.js` : animations, bascule de thème, API GitHub
+- `images/projects/` : captures d'écran (`jarvis.png`, `modshift.png`, `rl-session-stats.png`, `rentpark.png`, format 16:9)

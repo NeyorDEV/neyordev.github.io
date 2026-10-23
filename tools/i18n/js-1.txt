@@ -129,7 +129,7 @@ fiche détaillée d'un projet ||| detailed project sheet
 fiche récapitulative façon terminal ||| summary card, terminal style
 fork ||| =
 fork du mod Minecraft (Java) ||| fork of the Minecraft mod (Java)
-gestion de parkings (PHP, Blazor, Kotlin) ||| parking management (PHP, Blazor, Kotlin)
+location de voitures (PHP, Blazor, Kotlin) ||| car rental (PHP, Blazor, Kotlin)
 goto <page> ||| =
 grep <mot> ||| grep <word>
 help [commande] ||| help [command]

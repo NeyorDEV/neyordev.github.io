@@ -350,7 +350,7 @@
     ["J.A.R.V.I.S", "assistant vocal ia python"],
     ["ModShift", "minecraft modpacks typescript"],
     ["rl-session-stats", "rocket league rust tauri"],
-    ["RentPark", "parking php blazor kotlin"],
+    ["RentPark", "location voitures php blazor kotlin"],
     ["Dragon-Mounts-Legacy", "fork minecraft mod java"],
   ];
   const commands = () => [

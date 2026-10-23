@@ -23,9 +23,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle 55vmax at 50% 45%, rgba(209, 25, 25, 0.1), transparent),
+    radial-gradient(circle 75vmax at 50% 45%, rgba(209, 25, 25, 0.12), transparent),
     repeating-linear-gradient(transparent 0 2px, rgba(0, 0, 0, 0.28) 3px);
-  mask-image: linear-gradient(#000 55%, transparent);
 }
 .beam {
   position: absolute;

@@ -667,26 +667,42 @@ body {
   mask-image: radial-gradient(circle 320px at var(--mx) var(--my), #000, transparent);
   pointer-events: none;
 }
-/* Halos : dégradés doux (pas de flou CSS, qui laissait des anneaux visibles)
-   et un grain très léger pour casser les paliers de couleur. */
 .hero-fx {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle 55vmax at 88% 0%, rgba(209, 25, 25, 0.16), rgba(209, 25, 25, 0.05) 55%, transparent),
-    radial-gradient(circle 45vmax at 10% 100%, rgba(209, 25, 25, 0.1), rgba(209, 25, 25, 0.03) 55%, transparent);
-  mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
-}
-.hero-fx::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* fondu sur les bords : plus de coupure nette en bas ni sur les côtés */
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 100%),
+    linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
 }
 .hero-fx i {
-  display: none;
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  background: var(--accent);
+  animation: drift 14s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-fx i:nth-child(1) {
+  top: -120px;
+  right: -80px;
+}
+.hero-fx i:nth-child(2) {
+  bottom: -160px;
+  left: 20%;
+  background: var(--mark);
+  animation-delay: -5s;
+}
+.hero-fx i:nth-child(3) {
+  top: 30%;
+  left: -160px;
+  opacity: 0.2;
+  animation-delay: -9s;
 }
 .hero .wrap,
 .pagehead .wrap {

@@ -667,16 +667,6 @@ body {
   mask-image: radial-gradient(circle 320px at var(--mx) var(--my), #000, transparent);
   pointer-events: none;
 }
-.hero-fx {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* fondu sur les bords : plus de coupure nette en bas ni sur les côtés */
-  mask-image: linear-gradient(to bottom, #000 30%, transparent 100%),
-    linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
-  mask-composite: intersect;
-  -webkit-mask-composite: source-in;
-}
 .hero-fx i {
   position: absolute;
   width: 420px;

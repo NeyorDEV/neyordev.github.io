@@ -1,0 +1,75 @@
+ModShift, documentation — neyor ||| ModShift, documentation — neyor
+Documentation de ModShift, l'outil qui migre un modpack Minecraft vers une autre version ou un autre mod loader. ||| ModShift documentation: the tool that moves a Minecraft modpack to another version or another mod loader.
+Documentation ||| =
+ModShift ||| =
+Migrer un modpack Minecraft vers une autre version ou un autre mod loader. ||| Move a Minecraft modpack to another version or another mod loader.
+Documentation complète ↗ ||| Full documentation ↗
+Ouvrir la documentation complète ↗ ||| Open the full documentation ↗
+Documentation → ||| Documentation →
+← Retour aux projets ||| ← Back to projects
+01 — Principe ||| 01 — Overview
+Ce que fait ModShift ||| What ModShift does
+Passer un modpack de la 1.20.1 Forge à la 1.21.1 NeoForge oblige à vérifier chaque mod à la main : existe-t-il une version pour la nouvelle cible, sinon par quoi le remplacer, quelles dépendances manquent maintenant ? ModShift automatise ce travail. Il lit ton pack, identifie chaque mod sur Modrinth, trouve une version compatible, propose des alternatives, résout les dépendances et peut écrire un .mrpack migré. ||| Moving a modpack from 1.20.1 Forge to 1.21.1 NeoForge means checking every mod by hand: is there a version for the new target, if not what replaces it, which dependencies are now missing? ModShift automates that work. It reads your pack, identifies each mod on Modrinth, finds a compatible version, suggests alternatives, resolves dependencies and can write a migrated .mrpack.
+ModShift ne convertit pas le code des mods. Il cherche des versions ou des équivalents pour la cible : un mod sans portage reste un mod sans portage. ||| ModShift does not convert mod code. It looks for versions or equivalents for the target: a mod with no port stays a mod with no port.
+02 — Fonctionnalités ||| 02 — Features
+Ce qu'il sait faire ||| What it can do
+03 — Résultats ||| 03 — Results
+Les statuts d'un mod ||| Mod statuses
+04 — Démarrage ||| 04 — Getting started
+Premiers pas ||| First steps
+ModShift demande Node.js 20.17+ ou 22.13+. ||| ModShift needs Node.js 20.17+ or 22.13+.
+Exemple de sortie ||| Example output
+Extrait d'une sortie réelle de ModShift sur les jeux de test (données factices), pas sur l'API Modrinth en direct. ||| Excerpt of real ModShift output on the test fixtures (fake data), not produced against the live Modrinth API.
+05 — Compatibilité ||| 05 — Compatibility
+Formats et loaders ||| Formats and loaders
+06 — FAQ ||| =
+Questions fréquentes ||| Frequently asked questions
+La référence complète de la ligne de commande et le journal des modifications sont sur le site de documentation dédié. ||| The full command-line reference and the changelog are on the dedicated documentation site.
+Analyse mod par mod ||| Mod by mod analysis
+Compatible, mise à jour trouvée, alternatives (classées et expliquées, à vérifier) ou introuvable, avec la raison. Les dépendances manquantes et les conflits sont expliqués. ||| Compatible, update found, alternatives (ranked and explained, to verify) or not found, with the reason. Missing dependencies and conflicts are explained.
+.mrpack migré ||| Migrated .mrpack
+Un pack qui respecte les règles de validation de Modrinth, avec un MIGRATION_REPORT.md qui liste ce qui a été exclu et pourquoi. ||| A pack that follows Modrinth's own validation rules, with a MIGRATION_REPORT.md listing what was excluded and why.
+Changement de loader ||| Changing loader
+Les mods multi-loaders gardent le même projet ; les couches de compatibilité sont seulement signalées, comme expérimentales et sans garantie. ||| Multi-loader mods keep the same project; compatibility layers are only reported, as experimental and not guaranteed.
+Client et serveur ||| Client and server
+Mods client seuls ou serveur seuls d'après les métadonnées Modrinth, et l'option --side server pour fabriquer un pack de serveur dédié. ||| Client-only and server-only mods from Modrinth metadata, and the --side server option to build a dedicated-server pack.
+Trois façons de l'utiliser ||| Three ways to use it
+La ligne de commande pour les scripts et la CI, un mode interactif guidé, et une page web locale sur 127.0.0.1. ||| The command line for scripts and CI, a guided interactive mode, and a local web page on 127.0.0.1.
+Dans tes pull requests ||| In your pull requests
+L'action GitHub ModShift Check publie le rapport sur chaque pull request. ||| The ModShift Check GitHub Action posts the report on each pull request.
+Mise à jour trouvée ||| Update found
+Ton fichier actuel supporte déjà la cible. ||| Your current file already supports the target.
+Une autre version du même projet la supporte. ||| Another version of the same project supports it.
+Alternative suggérée ||| Alternative suggested
+Pas de version, mais des mods similaires existent. Ce sont des suggestions, à vérifier. ||| No version, but similar mods exist. These are suggestions, to verify.
+Introuvable ||| Not found
+Rien d'utilisable, avec la raison. ||| Nothing usable, with the reason.
+Compatible ||| =
+Entrées ||| Inputs
+Modpack Modrinth .mrpack, export CurseForge .zip, ou dossier de fichiers .jar (instance avec mods/, ou serveur avec plugins/). ||| Modrinth .mrpack, CurseForge export .zip, or a folder of .jar files (an instance with mods/, or a server with plugins/).
+Loaders ||| Loaders
+Forge, NeoForge, Fabric, Quilt et anciens loaders ; plugins Bukkit, Spigot, Paper, Purpur et Sponge ; proxys BungeeCord, Waterfall et Velocity. ||| Forge, NeoForge, Fabric, Quilt and older loaders; Bukkit, Spigot, Paper, Purpur and Sponge plugins; BungeeCord, Waterfall and Velocity proxies.
+Identification ||| Identification
+Par empreinte SHA-1 ou SHA-512 sur Modrinth (exacte). À défaut, l'identifiant du mod dans le jar est essayé comme slug Modrinth, et signalé comme non vérifié. ||| By SHA-1 or SHA-512 hash on Modrinth (exact). As a fallback, the mod id inside the jar is tried as a Modrinth slug and reported as unverified.
+Rapports ||| Reports
+Tableau en console, JSON ou Markdown. ||| Console table, JSON or Markdown.
+Hors ligne ||| Offline
+Cache local des réponses de l'API et option --offline. ||| Local cache of API responses and the --offline option.
+Configuration ||| Configuration
+Un fichier modshift.config.json optionnel : cible par défaut, listes d'exclusion et correspondances manuelles. ||| An optional modshift.config.json file: default target, exclusion lists and manual mappings.
+Installer ModShift ||| Install ModShift
+Voir ce qui poserait problème en passant à la 1.21.1 NeoForge ||| See what would break when moving to 1.21.1 NeoForge
+Prévisualiser la migration sans rien écrire ||| Preview the migration without writing anything
+Écrire le pack migré et son MIGRATION_REPORT.md ||| Write the migrated pack and its MIGRATION_REPORT.md
+Le pack migré est-il garanti de fonctionner ? ||| Is the migrated pack guaranteed to work?
+Non. ModShift n'utilise que les métadonnées publiées par les auteurs sur Modrinth. Teste toujours le pack et sauvegarde tes mondes avant de les ouvrir avec une nouvelle version. ||| No. ModShift only uses the metadata authors publish on Modrinth. Always test the pack, and back up your worlds before opening them with a new version.
+Pourquoi migrate demande --loader-version ? ||| Why does migrate ask for --loader-version?
+Un .mrpack doit nommer la version exacte du loader. ModShift reprend celle du pack source si le loader et la version de Minecraft ne changent pas. Sinon, choisis-en une sur le site du loader, ou renseigne target.loaderVersion dans la config. ||| A .mrpack must name the exact loader version. ModShift reuses the source pack's version when the loader and Minecraft version do not change. Otherwise, pick one on the loader's website, or set target.loaderVersion in the config.
+Pourquoi des mods sont « introuvables » alors qu'ils existent ? ||| Why are some mods "not found" although they exist?
+Le fichier vient peut-être d'un autre site (CurseForge, GitHub) ou a été modifié, donc son empreinte est inconnue de Modrinth. Utilise les correspondances de la config pour l'associer au bon projet. ||| The file may come from another site (CurseForge, GitHub) or have been modified, so its hash is unknown to Modrinth. Use mappings in the config to point it at the right project.
+Les alternatives suggérées sont-elles équivalentes ? ||| Are suggested alternatives equivalent to the original mod?
+Non. Ce sont des résultats de recherche classés par catégories communes, nom proche, mots-clés et popularité ; le rapport explique pourquoi chacun est proposé. Vérifie-les avant de les utiliser. ||| No. They are search results ranked by shared categories, similar name, keywords and popularity; the report says why each one was suggested. Check them before use.
+Fonctionne-t-il sans Internet ? ||| Does it work without internet?
+Oui, avec --offline, une fois le cache rempli par une exécution précédente. ||| Yes, with --offline, once the cache has been filled by a previous run.
+Les packs de ressources et les shaders sont-ils gérés ? ||| Does ModShift support resource packs and shaders?
+Ils sont conservés tels quels dans les .mrpack migrés, mais pas encore vérifiés. ||| They are kept unchanged in migrated .mrpack files but not checked yet.

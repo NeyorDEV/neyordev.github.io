@@ -1262,3 +1262,161 @@ html.i18n-wait body {
     padding: 0.45rem 0.35rem;
   }
 }
+
+/* ---------- Documentation d'un projet ---------- */
+.doc-text {
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 72ch;
+}
+.doc-note {
+  margin-top: 1.2rem;
+  padding: 0.9rem 1.1rem;
+  max-width: 72ch;
+  border-left: 3px solid var(--accent);
+  background: rgba(209, 25, 25, 0.07);
+  border-radius: 0 10px 10px 0;
+  font-size: 0.95rem;
+}
+.doc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 1rem;
+}
+.doc-card {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.doc-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.doc-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.doc-card p {
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+.doc-list > div {
+  display: grid;
+  grid-template-columns: minmax(130px, 200px) 1fr;
+  gap: 0.4rem 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+.doc-list > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.doc-list dt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+.doc-list dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.doc-steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.4rem;
+}
+.doc-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.6rem;
+}
+.doc-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.doc-steps p {
+  margin-bottom: 0.5rem;
+}
+.doc pre {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #060404;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #e8dcdc;
+}
+.doc-sub {
+  margin: 2.6rem 0 0.6rem;
+  font-size: 1.2rem;
+}
+.doc-sub + .doc-note {
+  margin: 0 0 1rem;
+}
+.doc-faq {
+  margin-bottom: 2rem;
+}
+.doc-faq details {
+  border-top: 1px solid var(--line);
+  padding: 0.2rem 0;
+}
+.doc-faq details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.doc-faq summary {
+  cursor: pointer;
+  padding: 0.9rem 0;
+  font-weight: 500;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.doc-faq summary::-webkit-details-marker {
+  display: none;
+}
+.doc-faq summary::after {
+  content: "+";
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+}
+.doc-faq details[open] summary::after {
+  content: "–";
+}
+.doc-faq details p {
+  padding-bottom: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 70ch;
+}
+.doc .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+  .doc-list > div {
+    grid-template-columns: 1fr;
+  }
+}

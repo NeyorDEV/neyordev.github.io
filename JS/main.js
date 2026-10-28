@@ -3,7 +3,8 @@ const USER = "neyordev";
 const FALLBACK = [
   { name: "J.A.R.V.I.S", description: "Voice assistant with biometric authentication, a 3D interface, and AI-powered home automation.", language: "Python", stargazers_count: 1, fork: false, pushed_at: "2026-10-22" },
   { name: "ModShift", description: "Tool for migrating Minecraft modpacks to other versions or mod loaders.", language: "TypeScript", stargazers_count: 1, fork: false, pushed_at: "2026-10-22" },
-  { name: "rl-session-stats", description: "Session stats overlay for Rocket League, built with Tauri and Rust.", language: "Rust", stargazers_count: 1, fork: false, pushed_at: "2026-10-22" },
+  { name: "ghostmesh", description: "Decentralized P2P encrypted mesh overlay network in Rust. Zero central relay, Noise Protocol (Curve25519) and UDP hole-punching NAT traversal.", language: "Rust", stargazers_count: 1, fork: false, pushed_at: "2026-10-27" },
+  { name: "rl-tracker-suite", description: "Session stats and pre-match lobby radar for Rocket League in one app. MMR tracking, smurf detection, transparent overlays, OBS. EAC-safe: no injection. Tauri + Rust.", language: "Rust", stargazers_count: 1, fork: false, pushed_at: "2026-10-27" },
   { name: "RentPark", description: "Car rental management platform built with PHP, Blazor, Kotlin, and MySQL.", language: "PHP", stargazers_count: 0, fork: false, pushed_at: "2026-09-15" },
   { name: "Dragon-Mounts-Legacy", description: "Repository for the Dragon Mounts: Legacy Minecraft mod.", language: "Java", stargazers_count: 0, fork: true, pushed_at: "2026-09-29" },
 ];
@@ -229,7 +230,8 @@ async function loadRepos() {
   try {
     const res = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=pushed`);
     if (!res.ok) throw new Error(res.status);
-    repos = await res.json();
+    /* les dépôts archivés (projets fusionnés ailleurs) ne sont plus montrés */
+    repos = (await res.json()).filter((r) => !r.archived);
   } catch {
     /* API indisponible ou limite atteinte : on affiche la liste intégrée */
   }

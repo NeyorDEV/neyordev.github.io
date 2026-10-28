@@ -128,22 +128,42 @@
                 </div>
               </div>
             </article>
-            <article class="project dl-card reveal" id="dl-rlss" data-id="rlss" data-repo="rl-session-stats" data-art="bars" data-kinds="installer portable" data-name="RL Session Stats">
-              <div class="shot" data-img="images/projects/rl-session-stats.png"><span>RL Session Stats</span></div>
+            <article class="project dl-card reveal" id="dl-rts" data-id="rts" data-repo="rl-tracker-suite" data-art="bars" data-kinds="installer portable" data-name="RL Tracker Suite">
+              <div class="shot" data-img="images/projects/rl-tracker-suite.png"><span>RL Tracker Suite</span></div>
               <div class="body">
                 <div class="dl-head">
-                  <div><p class="dl-tag">Overlay · Rocket League</p><h3>RL Session Stats</h3></div>
+                  <div><p class="dl-tag">Overlays · Rocket League</p><h3>RL Tracker Suite</h3></div>
                   <span class="ver" data-ver>…</span>
                 </div>
-                <p class="dl-desc">Overlay de statistiques de session pour Rocket League. Aucune injection : compatible Easy Anti-Cheat.</p>
+                <p class="dl-desc">Statistiques de session et radar de lobby pour Rocket League, dans une seule application. Aucune injection : compatible Easy Anti-Cheat.</p>
                 <ul class="chips"><li>Windows</li><li>Installateur</li><li>Portable</li><li>Rust · Tauri</li></ul>
                 <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
                 <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
                 <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
                 <div class="dl-src">
-                  <a class="link" href="https://github.com/neyordev/rl-session-stats/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
-                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/rl-session-stats.git">git clone</button>
-                  <a class="link" href="https://github.com/neyordev/rl-session-stats" target="_blank" rel="noopener">Dépôt ↗</a>
+                  <a class="link" href="https://github.com/neyordev/rl-tracker-suite/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/rl-tracker-suite.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/rl-tracker-suite" target="_blank" rel="noopener">Dépôt ↗</a>
+                </div>
+              </div>
+            </article>
+            <article class="project dl-card reveal" id="dl-ghostmesh" data-id="ghostmesh" data-repo="ghostmesh" data-art="mesh" data-kinds="portable" data-name="GhostMesh">
+              <div class="shot"><span>GhostMesh</span></div>
+              <div class="body">
+                <div class="dl-head">
+                  <div><p class="dl-tag">Réseau P2P · chiffré</p><h3>GhostMesh</h3></div>
+                  <span class="ver" data-ver>…</span>
+                </div>
+                <p class="dl-desc">Réseau overlay maillé, décentralisé et chiffré de bout en bout. Tes appareils se connectent directement, sans serveur central.</p>
+                <ul class="chips"><li>Windows</li><li>Portable</li><li>Application + CLI</li><li>Rust</li></ul>
+                <div class="dl-main" data-main><p class="dl-loading">Recherche de la dernière version…</p></div>
+                <details class="dl-notes" data-notes hidden><summary>Notes de version</summary><div class="md" data-md></div></details>
+                <details class="dl-hist" data-hist hidden><summary data-hist-sum>Historique des versions</summary><ol class="hist" data-hist-list></ol></details>
+                <div class="dl-src">
+                  <a class="link" href="https://github.com/neyordev/ghostmesh/archive/HEAD.zip" rel="noopener">Code source (.zip)</a>
+                  <button type="button" class="copy" data-copy="git clone https://github.com/neyordev/ghostmesh.git">git clone</button>
+                  <a class="link" href="https://github.com/neyordev/ghostmesh" target="_blank" rel="noopener">Dépôt ↗</a>
+                  <a class="link" href="https://neyordev.github.io/ghostmesh/" target="_blank" rel="noopener">Documentation ↗</a>
                 </div>
               </div>
             </article>
@@ -251,9 +271,15 @@
               </ol>
             </details>
             <details>
-              <summary>RL Session Stats : installateur ou portable ?</summary>
+              <summary>RL Tracker Suite : installateur ou portable ?</summary>
               <p>L'<b>installateur</b> (<code>_x64-setup.exe</code>) installe l'application et ses raccourcis. La version <b>portable</b> est un seul fichier à lancer, sans installation.</p>
               <p>L'overlay utilise uniquement l'API de statistiques locale et officielle de Rocket League (aucune injection, aucune lecture mémoire), donc il reste compatible avec Easy Anti-Cheat. Le jeu doit être en mode <b>Fenêtré sans bordure</b> pour que l'overlay s'affiche par-dessus.</p>
+              <p>Au premier lancement, ferme Rocket League puis clique sur « Activer la Stats API » dans l'onglet Session Stats : l'application configure le jeu pour toi. Les réglages de l'ancienne application RL Session Stats sont importés automatiquement.</p>
+            </details>
+            <details>
+              <summary>GhostMesh : application ou ligne de commande ?</summary>
+              <p>ghostmesh-gui.exe est l'application de bureau : un double-clic suffit, sans installation. ghostmesh-cli.exe est un binaire console pour les terminaux, les serveurs sans écran et les scripts.</p>
+              <p>Les deux fonctionnent sous Windows 64 bits. Les appareils se connectent directement entre eux : aucun serveur central ne relaie tes données, tout est chiffré de bout en bout.</p>
             </details>
             <details>
               <summary>ModShift : installation avec npm</summary>

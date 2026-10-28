@@ -1,0 +1,32 @@
+rl-tracker-suite ||| =
+ghostmesh ||| =
+GhostMesh ||| =
+RL Tracker Suite ||| =
+P2P ||| =
+Rust ||| =
+Statistiques de session et radar de lobby pour Rocket League, dans une seule application : suivi du MMR, détection de smurfs, overlays transparents et OBS. ||| Session stats and pre-match lobby radar for Rocket League in one app: MMR tracking, smurf detection, transparent overlays and OBS.
+Statistiques de session et radar de lobby pour Rocket League. ||| Session stats and lobby radar for Rocket League.
+Statistiques de session et radar de lobby pour Rocket League (Rust, Tauri). ||| Session stats and lobby radar for Rocket League (Rust, Tauri).
+Réseau overlay maillé, décentralisé et chiffré de bout en bout, en Rust : aucun relais central, traversée de NAT par UDP hole-punching. ||| Decentralized, end-to-end encrypted mesh overlay network in Rust: no central relay, NAT traversal through UDP hole-punching.
+Réseau P2P chiffré et décentralisé, en Rust. ||| Decentralized, encrypted P2P network in Rust.
+Réseau overlay P2P chiffré et décentralisé, sans relais central (Rust). ||| Decentralized, encrypted P2P overlay network with no central relay (Rust).
+Chiffrement ||| Encryption
+Réseau ||| Network
+Documentation ↗ ||| Documentation ↗
+Overlays · Rocket League ||| Overlays · Rocket League
+Réseau P2P · chiffré ||| P2P network · encrypted
+Statistiques de session et radar de lobby pour Rocket League, dans une seule application. Aucune injection : compatible Easy Anti-Cheat. ||| Session stats and pre-match lobby radar for Rocket League in one app. No injection: compatible with Easy Anti-Cheat.
+Réseau overlay maillé, décentralisé et chiffré de bout en bout. Tes appareils se connectent directement, sans serveur central. ||| Decentralized, end-to-end encrypted mesh overlay network. Your devices connect directly, with no central server.
+Application + CLI ||| App + CLI
+RL Tracker Suite : installateur ou portable ? ||| RL Tracker Suite: installer or portable?
+Au premier lancement, ferme Rocket League puis clique sur « Activer la Stats API » dans l'onglet Session Stats : l'application configure le jeu pour toi. Les réglages de l'ancienne application RL Session Stats sont importés automatiquement. ||| On first launch, close Rocket League, then click "Activer la Stats API" in the Session Stats tab: the app sets the game up for you. Settings from the former RL Session Stats app are imported automatically.
+GhostMesh : application ou ligne de commande ? ||| GhostMesh: app or command line?
+ghostmesh-gui.exe est l'application de bureau : un double-clic suffit, sans installation. ghostmesh-cli.exe est un binaire console pour les terminaux, les serveurs sans écran et les scripts. ||| ghostmesh-gui.exe is the desktop app: just double-click it, no installation. ghostmesh-cli.exe is a console binary for terminals, headless servers and scripts.
+Les deux fonctionnent sous Windows 64 bits. Les appareils se connectent directement entre eux : aucun serveur central ne relaie tes données, tout est chiffré de bout en bout. ||| Both run on 64-bit Windows. Devices connect directly to each other: no central server relays your data, and everything is end-to-end encrypted.
+Application ||| Application
+Ligne de commande ||| Command line
+Statistiques de session et radar de lobby pour Rocket League, en une seule application, sans injection (compatible Easy Anti-Cheat). ||| Session stats and pre-match lobby radar for Rocket League in one app, no injection (compatible with Easy Anti-Cheat).
+stats de session et radar de lobby Rocket League (Rust, Tauri) ||| session stats and lobby radar for Rocket League (Rust, Tauri)
+Réseau overlay maillé P2P, décentralisé et chiffré de bout en bout, en Rust : aucun relais central. ||| Decentralized, end-to-end encrypted P2P mesh overlay network in Rust: no central relay.
+réseau P2P chiffré (Rust) ||| encrypted P2P network (Rust)
+En ce moment : GhostMesh, RL Tracker Suite et J.A.R.V.I.S. ||| Right now: GhostMesh, RL Tracker Suite and J.A.R.V.I.S.

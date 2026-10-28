@@ -343,13 +343,15 @@
   ];
   const DOWNLOADS = [
     ["J.A.R.V.I.S", "jarvis", "assistant vocal ia installateur exe"],
-    ["RL Session Stats", "rlss", "rocket league overlay installateur portable exe"],
+    ["RL Tracker Suite", "rts", "rocket league overlay lobby radar installateur portable exe"],
+    ["GhostMesh", "ghostmesh", "p2p reseau mesh vpn chiffre exe cli"],
     ["ModShift", "modshift", "minecraft modpack npm"],
   ];
   const REPOS = [
     ["J.A.R.V.I.S", "assistant vocal ia python"],
     ["ModShift", "minecraft modpacks typescript"],
-    ["rl-session-stats", "rocket league rust tauri"],
+    ["rl-tracker-suite", "rocket league lobby radar rust tauri"],
+    ["ghostmesh", "p2p mesh reseau chiffre rust vpn"],
     ["RentPark", "location voitures php blazor kotlin"],
     ["Dragon-Mounts-Legacy", "fork minecraft mod java"],
   ];
@@ -507,6 +509,7 @@
       .join("")}<text x="189" y="122" class="park" text-anchor="middle" dominant-baseline="central">P</text></svg>`,
   };
   ART.cube = `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="iso"><path d="M160 18 232 58 232 128 160 168 88 128 88 58Z"/><path d="M160 18 232 58 160 98 88 58Z"/><path d="M160 98 160 168"/></g></svg>`;
+  ART.mesh = `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="mlinks"><path d="M60 50 160 30 260 60"/><path d="M60 50 90 130 200 140"/><path d="M160 30 200 140"/><path d="M260 60 200 140"/><path d="M60 50 200 140"/><path d="M160 30 90 130"/></g><path class="mpkt" d="M60 50 160 30 260 60 200 140 90 130Z"/><g class="mnodes"><circle style="--i:0" cx="60" cy="50" r="7"/><circle style="--i:1" cx="160" cy="30" r="7"/><circle style="--i:2" cx="260" cy="60" r="7"/><circle style="--i:3" cx="200" cy="140" r="7"/><circle style="--i:4" cx="90" cy="130" r="7"/></g></svg>`;
   ART.code = `<svg viewBox="0 0 320 180" aria-hidden="true"><path class="br" d="M110 55 60 90 110 125"/><path class="br" d="M210 55 260 90 210 125"/><path class="sl" d="M175 50 145 130"/></svg>`;
   $$(".project[data-repo]").forEach((card) => {
     const shot = $(".shot", card);
@@ -524,7 +527,7 @@
     const repos = e.detail;
     $$(".project[data-repo]").forEach((card) => {
       const live = $(".live", card);
-      const r = repos.find((x) => x.name === card.dataset.repo);
+      const r = repos.find((x) => x.name.toLowerCase() === card.dataset.repo.toLowerCase());
       if (live && r)
         live.textContent = `${r.language || "—"} · ★ ${r.stargazers_count} · push ${fmt(r.pushed_at)}`;
     });

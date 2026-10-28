@@ -1420,3 +1420,36 @@ html.i18n-wait body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Visuel : réseau maillé (ghostmesh) */
+.art .mlinks path {
+  fill: none;
+  stroke: rgba(183, 75, 75, 0.55);
+  stroke-width: 1.6;
+}
+.art .mpkt {
+  fill: none;
+  stroke: var(--accent-hot);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 14 420;
+  animation: mesh-flow 4.5s linear infinite;
+}
+@keyframes mesh-flow {
+  to {
+    stroke-dashoffset: -434;
+  }
+}
+.art .mnodes circle {
+  fill: #0e0b0b;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  animation: mesh-node 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.6s);
+}
+@keyframes mesh-node {
+  50% {
+    fill: rgba(209, 25, 25, 0.55);
+    stroke: var(--accent-hot);
+  }
+}

@@ -16,7 +16,7 @@ Site statique (HTML, CSS, JavaScript) hébergé sur GitHub Pages.
 - `JS/main.js` : animations communes, menu, API GitHub · `JS/ui.js` : palette Ctrl+K, contact terminal, transitions, radar · `JS/home.js` : accueil · `JS/interests.js` : scènes des centres d'intérêt · `JS/downloads.js` + `CSS/downloads.css` : page Téléchargements · `JS/downloads-data.js` : copie hors-ligne des releases
 
 ## Captures des projets
-Dépose une image ou un GIF dans `images/projects/` : `jarvis`, `modshift`, `rl-session-stats`, `rentpark` en `.png`, `.gif` ou `.jpg` (format 16:9). Elle remplace automatiquement le visuel animé.
+Dépose une image ou un GIF dans `images/projects/` : `jarvis`, `modshift`, `rl-tracker-suite`, `rentpark` en `.png`, `.gif` ou `.jpg` (format 16:9). Elle remplace automatiquement le visuel animé.
 
 ## Raccourcis
 `Ctrl+K` (ou `/`) palette de commandes · `M` menu · `1`–`6` pages dans le menu · `Échap` fermer.

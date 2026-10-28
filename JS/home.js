@@ -191,10 +191,14 @@ document.addEventListener("repos", (e) => {
       desc: t("Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA."),
       short: t("assistant vocal, IA, interface 3D"),
       techs: "Python IA AI biométrie biometrics 3D Windows assistant vocal voice assistant" },
-    { id: "rlss", aliases: ["rlss", "rl", "rl-session-stats", "rocket"], repo: "rl-session-stats", name: "RL Session Stats",
-      desc: t("Overlay de statistiques de session pour Rocket League, sans injection (compatible Easy Anti-Cheat)."),
-      short: t("overlay Rocket League (Rust, Tauri)"),
-      techs: "Rust Tauri overlay Rocket League Windows" },
+    { id: "rts", aliases: ["rts", "rl-tracker-suite", "rltrackersuite", "rl", "rlss", "lobbytracker", "rocket"], repo: "rl-tracker-suite", name: "RL Tracker Suite",
+      desc: t("Statistiques de session et radar de lobby pour Rocket League, en une seule application, sans injection (compatible Easy Anti-Cheat)."),
+      short: t("stats de session et radar de lobby Rocket League (Rust, Tauri)"),
+      techs: "Rust Tauri overlay Rocket League Windows lobby radar smurf MMR OBS" },
+    { id: "ghostmesh", aliases: ["ghostmesh", "ghost", "mesh"], repo: "ghostmesh", name: "GhostMesh",
+      desc: t("Réseau overlay maillé P2P, décentralisé et chiffré de bout en bout, en Rust : aucun relais central."),
+      short: t("réseau P2P chiffré (Rust)"),
+      techs: "Rust P2P réseau network chiffrement encryption Noise UDP mesh VPN NAT" },
     { id: "modshift", aliases: ["modshift"], repo: "ModShift", name: "ModShift",
       desc: t("Migre un modpack Minecraft vers une autre version ou un autre mod loader."),
       short: t("migration de modpacks Minecraft"),
@@ -284,7 +288,7 @@ document.addEventListener("repos", (e) => {
       null
     );
   }
-  const repoData = (name) => repos.find((r) => r.name === name);
+  const repoData = (name) => repos.find((r) => r.name.toLowerCase() === name.toLowerCase());
 
   const normRel = (x) => ({
     tag: x.tag_name,
@@ -336,7 +340,7 @@ document.addEventListener("repos", (e) => {
     return relPromise;
   }
   const latestOf = (list) => [...(list || [])].sort((a, b) => new Date(b.date) - new Date(a.date))[0];
-  const mainAsset = (r) => r.assets.find((a) => /(setup|install)/i.test(a.name)) || r.assets[0];
+  const mainAsset = (r) => r.assets.find((a) => /(setup|install)/i.test(a.name)) || r.assets.find((a) => /-gui\.exe$/i.test(a.name)) || r.assets[0];
 
   /* ---------- Commandes ---------- */
   const commands = {};
@@ -371,7 +375,7 @@ document.addEventListener("repos", (e) => {
   def("about", t("qui je suis"), "about", () => {
     print(t("Mylan PERRIER — étudiant en BUT Informatique à l'UCA, Clermont-Ferrand."));
     print(t("Alternant chez Electronique du Mazet."));
-    print(t("En ce moment : J.A.R.V.I.S, RL Session Stats et ModShift."));
+    print(t("En ce moment : GhostMesh, RL Tracker Suite et J.A.R.V.I.S."));
   });
   def("whoami", t("qui es-tu ?"), "whoami", () => print(t("visiteur@portfolio — bienvenue.")));
 

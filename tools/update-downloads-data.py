@@ -13,7 +13,7 @@ import subprocess
 from pathlib import Path
 
 USER = "neyordev"
-REPOS = ["J.A.R.V.I.S", "rl-session-stats", "ModShift", "RentPark", "Dragon-Mounts-Legacy"]
+REPOS = ["J.A.R.V.I.S", "rl-tracker-suite", "ghostmesh", "ModShift", "RentPark", "Dragon-Mounts-Legacy"]
 OUT = Path(__file__).resolve().parent.parent / "JS" / "downloads-data.js"
 
 

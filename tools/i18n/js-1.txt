@@ -41,7 +41,6 @@ Décompresse l'archive, puis suis le README du dépôt pour lancer le projet. ||
 Dépôts en cours de chargement… ||| Repositories are loading…
 Détail d'un projet : "info <projet>". ||| Project details: "info <project>".
 Empreinte SHA-256 connue ||| SHA-256 fingerprint known
-En ce moment : J.A.R.V.I.S, RL Session Stats et ModShift. ||| Right now: J.A.R.V.I.S, RL Session Stats and ModShift.
 Envoyer un mail à {mail} ||| Send an email to {mail}
 Erreur inattendue. ||| Unexpected error.
 FERMER ||| CLOSE
@@ -65,7 +64,6 @@ Node.js 20.17+ ou 22.13+ est nécessaire. ||| Node.js 20.17+ or 22.13+ is requir
 Ouverture de {label}… ||| Opening {label}…
 Ouvrir la page Téléchargements ||| Open the Downloads page
 Ouvrir la palette de commandes ||| Open the command palette
-Overlay de statistiques de session pour Rocket League, sans injection (compatible Easy Anti-Cheat). ||| Session statistics overlay for Rocket League, no injection (compatible with Easy Anti-Cheat).
 Page ||| =
 Page de la release ↗ ||| Release page ↗
 Page de téléchargement ||| Download page
@@ -157,7 +155,6 @@ o ||| B
 ouvre le CV (cv pdf : version à imprimer) ||| opens the CV (cv pdf: printable version)
 ouvre le téléchargement d'un projet ||| opens a project's download
 ouvre une page (projets, competences, apropos, cv, downloads) ||| opens a page (projects, skills, about, cv, downloads)
-overlay Rocket League (Rust, Tauri) ||| Rocket League overlay (Rust, Tauri)
 page ||| =
 page des téléchargements ||| downloads page
 parcours et centres d'intérêt ||| background and interests

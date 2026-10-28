@@ -13,9 +13,9 @@
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
   const USER = "neyordev";
-  const REPOS = ["J.A.R.V.I.S", "rl-session-stats", "ModShift", "RentPark", "Dragon-Mounts-Legacy"];
-  const COLORS = { jarvis: "#d11919", rlss: "#f0a4a4", modshift: "#ff6b6b" };
-  const SHORT = { jarvis: "JARVIS", rlss: "RLSS", modshift: "ModShift" };
+  const REPOS = ["J.A.R.V.I.S", "rl-tracker-suite", "ghostmesh", "ModShift", "RentPark", "Dragon-Mounts-Legacy"];
+  const COLORS = { jarvis: "#d11919", rts: "#f0a4a4", ghostmesh: "#e8854d", modshift: "#ff6b6b" };
+  const SHORT = { jarvis: "JARVIS", rts: "RLTS", ghostmesh: "GhostMesh", modshift: "ModShift" };
 
   /* ---------- Formats ---------- */
   const fmtSize = (b) => {
@@ -39,11 +39,13 @@
   const kindOf = (name) =>
     /portable/i.test(name) ? "Portable"
     : /(setup|install)/i.test(name) ? "Installateur"
+    : /-gui\.exe$/i.test(name) ? "Application"
+    : /-cli\.exe$/i.test(name) ? "Ligne de commande"
     : /\.tgz$/i.test(name) ? "Paquet npm"
     : /\.(zip|7z)$/i.test(name) ? "Archive"
     : /\.jar$/i.test(name) ? "Mod (.jar)"
     : "Fichier";
-  const ICONS = { Installateur: "⬇", Portable: "▣", "Paquet npm": "◈", Archive: "▤", "Mod (.jar)": "◆", Fichier: "▪" };
+  const ICONS = { Installateur: "⬇", Portable: "▣", Application: "▣", "Ligne de commande": "›_", "Paquet npm": "◈", Archive: "▤", "Mod (.jar)": "◆", Fichier: "▪" };
 
   function countUp(node, target) {
     if (isCalm() || target === 0) {
@@ -317,7 +319,7 @@
     meta.append(time, el("span", "dim", `${plural(list.length, "version", "versions")} · ${plural(total, "téléchargement", "téléchargements")}`));
     main.append(meta);
 
-    const rec = latest.assets.findIndex((a) => /(setup|install)/i.test(a.name));
+    const rec = latest.assets.findIndex((a) => /(setup|install)/i.test(a.name) || /-gui\.exe$/i.test(a.name));
     latest.assets.forEach((a, i) => main.append(assetRow(a, i === (rec >= 0 ? rec : 0), name)));
     if (!latest.assets.length) main.append(el("p", "dl-none", t("Cette release ne contient pas de fichier : voir le code source.")));
 

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Documentation de GhostMesh, le réseau overlay P2P chiffré et décentralisé : fonctionnement, démarrage, commandes et dépannage." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://neyordev.github.io/ghostmesh.html" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GhostMesh, documentation — neyor" />
+    <meta property="og:description" content="Documentation de GhostMesh, le réseau overlay P2P chiffré et décentralisé : fonctionnement, démarrage, commandes et dépannage." />
+    <meta property="og:url" content="https://neyordev.github.io/ghostmesh.html" />
+    <meta property="og:image" content="https://neyordev.github.io/images/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>GhostMesh, documentation — neyor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script>(function(d){d.classList.add("js");var L="fr";try{L=localStorage.getItem("lang")||((navigator.language||"fr").slice(0,2)==="fr"?"fr":"en")}catch(e){}if(L==="en")d.classList.add("i18n-wait");try{if(localStorage.getItem("calm")==="1")d.classList.add("calm");else if(sessionStorage.getItem("wipe")==="1")d.classList.add("wipe");else if(!sessionStorage.getItem("boot"))d.classList.add("boot")}catch(e){}})(document.documentElement)</script>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <script src="JS/i18n-en.js" defer></script>
+    <script src="JS/i18n.js" defer></script>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/ui.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">neyor</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="projets.html" aria-current="page">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="apropos.html">À propos</a>
+        <a href="cv.html">CV</a>
+        <a href="downloads.html">Téléchargements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+            <main id="main">
+      <section class="pagehead">
+        <div class="hero-fx" aria-hidden="true"><i></i><i></i></div>
+        <div class="wrap">
+          <p class="eyebrow rise">Documentation</p>
+          <h1 data-split>GhostMesh</h1>
+          <p class="lede rise">Un réseau overlay P2P chiffré et décentralisé : tes appareils se connectent directement, sans serveur central.</p>
+          <div class="cta rise">
+            <a class="btn primary" href="downloads.html#dl-ghostmesh">Télécharger GhostMesh</a>
+            <a class="btn" href="https://neyordev.github.io/ghostmesh/" target="_blank" rel="noopener">Documentation complète ↗</a>
+            <a class="btn" href="https://github.com/neyordev/ghostmesh" target="_blank" rel="noopener">Voir le code ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">01 — Principe</p>
+            <h2>Ce que fait GhostMesh</h2>
+          </header>
+          <p class="doc-text reveal">GhostMesh est un réseau overlay maillé, chiffré et sans configuration, écrit en Rust avec Tauri v2. Il relie tes appareils directement en UDP, à travers les box et les pare-feu, sans serveur qui relaie les données. Seuls des serveurs STUN publics servent à la découverte : tout le trafic passe d'un appareil à l'autre.</p>
+          <p class="doc-note reveal">Contrairement à un VPN classique, il n'y a pas de serveur central par lequel tout transite.</p>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">02 — Fonctionnalités</p>
+            <h2>Ce qu'il sait faire</h2>
+          </header>
+          <div class="doc-cards" data-stagger>
+            <article class="doc-card reveal"><h3>Connexion directe</h3><p>Traversée de NAT par UDP hole-punching synchronisé, avec ouverture automatique d'un port par UPnP.</p></article>
+            <article class="doc-card reveal"><h3>Chiffrement de bout en bout</h3><p>Poignée de main Noise_XX avec Curve25519, ChaCha20-Poly1305 et BLAKE2s, et authentification mutuelle.</p></article>
+            <article class="doc-card reveal"><h3>Appareils connus</h3><p>Les appareils déjà appairés sont mémorisés. Chaque reconnexion déclenche une demande que l'autre appareil accepte ou refuse.</p></article>
+            <article class="doc-card reveal"><h3>Pare-feu par appareil</h3><p>Droits réglables pour chaque appareil : bureau à distance, GhostDrop, ou session temporaire révoquée à la déconnexion.</p></article>
+            <article class="doc-card reveal"><h3>GhostDrop</h3><p>Transfert direct de fichiers et de dossiers, sans limite de taille, avec reprise automatique après une coupure.</p></article>
+            <article class="doc-card reveal"><h3>Bureau à distance</h3><p>Lance le client Windows (mstsc) vers l'adresse virtuelle de l'appareil distant, sans logiciel tiers.</p></article>
+            <article class="doc-card reveal"><h3>GhostChat</h3><p>Messagerie instantanée chiffrée de bout en bout, éphémère, sans journal sur un serveur.</p></article>
+            <article class="doc-card reveal"><h3>Passerelle Internet</h3><p>Fait passer toute ta connexion par un appareil de confiance, par exemple ton PC maison depuis un Wi-Fi public.</p></article>
+            <article class="doc-card reveal"><h3>Presse-papiers et dossiers</h3><p>Partage du presse-papiers entre appareils, et synchronisation continue d'un dossier avec GhostSync.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">03 — Fonctionnement</p>
+            <h2>Sous le capot</h2>
+          </header>
+          <dl class="doc-list reveal">
+            <div><dt>Aucun relais central</dt><dd>Seuls des serveurs STUN publics servent à découvrir ton adresse. Toutes les données circulent directement d'un appareil à l'autre.</dd></div>
+            <div><dt>Format des paquets</dt><dd>Chaque paquet UDP commence par un en-tête fixe de 43 octets (octets magiques « GM », type de paquet, identifiants de destination et de source, numéro de séquence), suivi de la charge chiffrée et de son étiquette Poly1305.</dd></div>
+            <div><dt>Chiffrement</dt><dd>Schéma Noise_XX_25519_ChaChaPoly_BLAKE2s : clés Curve25519 éphémères et statiques, chiffrement ChaCha20-Poly1305, hachage BLAKE2s.</dd></div>
+            <div><dt>Traversée de NAT</dt><dd>STUN pour découvrir l'adresse publique, UPnP pour ouvrir le port UDP 4242, sondes de hole-punching synchronisées et signaux de maintien toutes les 10 secondes.</dd></div>
+            <div><dt>Routage multi-sauts</dt><dd>Si A ne peut pas joindre C mais que les deux joignent B, B transfère les paquets sans pouvoir les déchiffrer.</dd></div>
+            <div><dt>Relais de secours</dt><dd>Quand un réseau d'entreprise filtre tout l'UDP sortant, un tunnel de repli passe par le port HTTPS 443.</dd></div>
+            <div><dt>Réseau virtuel</dt><dd>Une interface virtuelle ghost0 (Wintun, sous Windows) reçoit une adresse du sous-réseau 10.42.0.0/16 : ping, SSH ou partage de fichiers fonctionnent comme sur un réseau local.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="block alt" id="demarrage">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">04 — Démarrage</p>
+            <h2>Premiers pas</h2>
+            <p class="sub">Application de bureau ou binaire en ligne de commande, pour Windows 64 bits.</p>
+          </header>
+          <ol class="doc-steps">
+            <li class="reveal"><p>Sur la machine A : créer une invitation</p><pre><code>ghostmesh-cli invite</code></pre></li>
+            <li class="reveal"><p>Sur la machine B : rejoindre avec le ticket reçu</p><pre><code>ghostmesh-cli join <ticket></code></pre></li>
+            <li class="reveal"><p>Ou lancer un nœud autonome en arrière-plan</p><pre><code>ghostmesh-cli up</code></pre></li>
+            <li class="reveal"><p>Compiler depuis les sources (Rust et Cargo requis)</p><pre><code>git clone https://github.com/NeyorDEV/ghostmesh.git
+cd ghostmesh
+cargo build --release</code></pre></li>
+          </ol>
+          <p class="cta reveal"><a class="btn primary" href="downloads.html#dl-ghostmesh">Télécharger GhostMesh</a></p>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">05 — Commandes</p>
+            <h2>Ligne de commande</h2>
+          </header>
+          <dl class="doc-list reveal">
+            <div><dt>ghostmesh keygen</dt><dd>Génère une nouvelle identité cryptographique.</dd></div>
+            <div><dt>ghostmesh discover</dt><dd>Interroge un serveur STUN pour connaître ton adresse publique.</dd></div>
+            <div><dt>ghostmesh invite</dt><dd>Génère un ticket d'invitation et attend un appareil (options --port et --ip).</dd></div>
+            <div><dt>ghostmesh join <ticket></dt><dd>Rejoint un appareil et négocie le hole-punching UDP.</dd></div>
+            <div><dt>ghostmesh send <cible> <fichier></dt><dd>Envoie un fichier avec GhostDrop.</dd></div>
+            <div><dt>ghostmesh receive</dt><dd>Reçoit des fichiers GhostDrop (option --dir pour le dossier).</dd></div>
+            <div><dt>ghostmesh up</dt><dd>Lance un nœud autonome en arrière-plan.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">06 — Tableau de bord</p>
+            <h2>L'application de bureau</h2>
+          </header>
+          <dl class="doc-list reveal">
+            <div><dt>Indicateurs en direct</dt><dd>Adresse virtuelle (10.42.X.Y/16), adresse publique STUN et identifiant du nœud.</dd></div>
+            <div><dt>Invitation en un clic</dt><dd>Crée un ticket chiffré gm1_… (clé publique Curve25519 et adresse UDP), affichable en QR code pour un appairage rapide.</dd></div>
+            <div><dt>Liens actifs</dt><dd>Adresses des appareils connectés, latence en temps réel et état de chaque connexion.</dd></div>
+            <div><dt>Appareils connus</dt><dd>Les appareils appairés sont enregistrés dans la configuration locale. « Connect » envoie une demande que l'autre accepte ou refuse, « Forget » révoque l'appareil.</dd></div>
+            <div><dt>Pare-feu par appareil</dt><dd>Autoriser ou bloquer le bureau à distance et GhostDrop, ou marquer un appareil comme invité temporaire.</dd></div>
+            <div><dt>Démarrage silencieux</dt><dd>Option de lancement avec Windows, réduit dans la zone de notification.</dd></div>
+            <div><dt>Mises à jour</dt><dd>Une bannière signale les nouvelles versions publiées sur GitHub.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">07 — FAQ</p>
+            <h2>Questions fréquentes</h2>
+          </header>
+          <div class="doc-faq reveal">
+            <details><summary>Pourquoi mon nœud affiche 0.0.0.0:4242 ?</summary><p>Le réseau (entreprise ou campus) bloque probablement l'UDP sortant ou la découverte STUN, et le P2P direct a besoin d'UDP. Essaie depuis un partage de connexion 4G ou 5G.</p></details>
+            <details><summary>Faut-il ouvrir un port sur ma box ?</summary><p>Normalement non : GhostMesh négocie l'ouverture du port UDP 4242 par UPnP. Si ta box refuse, redirige ce port UDP vers l'adresse locale de ton PC dans l'interface d'administration de la box.</p></details>
+            <details><summary>Pourquoi la connexion échoue avec certains réseaux ?</summary><p>Le hole-punching fonctionne avec les NAT de type cône. Avec un NAT symétrique, fréquent en entreprise, les ports externes changent à chaque destination : il faut alors une redirection de port ou un relais.</p></details>
+            <details><summary>Mes données passent-elles par un serveur ?</summary><p>Non. Les serveurs STUN publics ne servent qu'à découvrir ton adresse, et les données voyagent directement entre tes appareils, chiffrées de bout en bout.</p></details>
+            <details><summary>Comment prendre le contrôle d'un PC à distance ?</summary><p>Active le Bureau à distance dans les paramètres Windows de l'appareil distant (son compte doit avoir un mot de passe), puis clique sur « Remote Desktop » dans le tableau de bord. GhostMesh lance mstsc vers son adresse virtuelle.</p></details>
+            <details><summary>Où sont enregistrés les fichiers reçus avec GhostDrop ?</summary><p>Dans le dossier Téléchargements, sous GhostMesh-Transfers. Les transferts passent par le port TCP 4243 et reprennent après une coupure.</p></details>
+          </div>
+          <p class="doc-text reveal">Le détail de chaque fonction (protocole, routage, GhostDrop, GhostSync) est sur le site de documentation dédié.</p>
+          <p class="cta reveal">
+            <a class="btn primary" href="https://neyordev.github.io/ghostmesh/" target="_blank" rel="noopener">Ouvrir la documentation complète ↗</a>
+            <a class="btn" href="projets.html">← Retour aux projets</a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> neyor</p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

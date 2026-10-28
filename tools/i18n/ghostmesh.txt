@@ -1,0 +1,95 @@
+GhostMesh, documentation — neyor ||| GhostMesh, documentation — neyor
+Documentation de GhostMesh, le réseau overlay P2P chiffré et décentralisé : fonctionnement, démarrage, commandes et dépannage. ||| GhostMesh documentation: the decentralized, encrypted P2P overlay network. How it works, getting started, commands and troubleshooting.
+Un réseau overlay P2P chiffré et décentralisé : tes appareils se connectent directement, sans serveur central. ||| A decentralized, encrypted P2P overlay network: your devices connect directly, with no central server.
+Télécharger GhostMesh ||| Download GhostMesh
+01 — Principe ||| 01 — Overview
+Ce que fait GhostMesh ||| What GhostMesh does
+GhostMesh est un réseau overlay maillé, chiffré et sans configuration, écrit en Rust avec Tauri v2. Il relie tes appareils directement en UDP, à travers les box et les pare-feu, sans serveur qui relaie les données. Seuls des serveurs STUN publics servent à la découverte : tout le trafic passe d'un appareil à l'autre. ||| GhostMesh is a zero-configuration, encrypted mesh overlay network written in Rust with Tauri v2. It connects your devices directly over UDP, across home routers and firewalls, with no server relaying the data. Only public STUN servers are used for discovery: all traffic goes from one device to the other.
+Contrairement à un VPN classique, il n'y a pas de serveur central par lequel tout transite. ||| Unlike a traditional VPN, there is no central server that all traffic goes through.
+02 — Fonctionnalités ||| 02 — Features
+03 — Fonctionnement ||| 03 — How it works
+Sous le capot ||| Under the hood
+04 — Démarrage ||| 04 — Getting started
+Application de bureau ou binaire en ligne de commande, pour Windows 64 bits. ||| Desktop app or command-line binary, for 64-bit Windows.
+05 — Commandes ||| 05 — Commands
+Ligne de commande ||| Command line
+06 — Tableau de bord ||| 06 — Dashboard
+L'application de bureau ||| The desktop app
+07 — FAQ ||| =
+Le détail de chaque fonction (protocole, routage, GhostDrop, GhostSync) est sur le site de documentation dédié. ||| The details of each feature (protocol, routing, GhostDrop, GhostSync) are on the dedicated documentation site.
+Connexion directe ||| Direct connection
+Traversée de NAT par UDP hole-punching synchronisé, avec ouverture automatique d'un port par UPnP. ||| NAT traversal through synchronized UDP hole-punching, with the port opened automatically through UPnP.
+Chiffrement de bout en bout ||| End-to-end encryption
+Poignée de main Noise_XX avec Curve25519, ChaCha20-Poly1305 et BLAKE2s, et authentification mutuelle. ||| Noise_XX handshake with Curve25519, ChaCha20-Poly1305 and BLAKE2s, with mutual authentication.
+Appareils connus ||| Known devices
+Les appareils déjà appairés sont mémorisés. Chaque reconnexion déclenche une demande que l'autre appareil accepte ou refuse. ||| Devices you have already paired are remembered. Every reconnection triggers a request that the other device accepts or declines.
+Pare-feu par appareil ||| Per-device firewall
+Droits réglables pour chaque appareil : bureau à distance, GhostDrop, ou session temporaire révoquée à la déconnexion. ||| Permissions you can set for each device: remote desktop, GhostDrop, or a temporary session revoked on disconnect.
+GhostDrop ||| =
+Transfert direct de fichiers et de dossiers, sans limite de taille, avec reprise automatique après une coupure. ||| Direct transfer of files and folders, with no size limit and automatic resume after a network cut.
+Bureau à distance ||| Remote desktop
+Lance le client Windows (mstsc) vers l'adresse virtuelle de l'appareil distant, sans logiciel tiers. ||| Starts the Windows client (mstsc) towards the remote device's virtual address, with no third-party software.
+GhostChat ||| =
+Messagerie instantanée chiffrée de bout en bout, éphémère, sans journal sur un serveur. ||| End-to-end encrypted instant messaging, ephemeral, with no log kept on a server.
+Passerelle Internet ||| Internet gateway
+Fait passer toute ta connexion par un appareil de confiance, par exemple ton PC maison depuis un Wi-Fi public. ||| Routes your whole connection through a trusted device, for example your home PC while on public Wi-Fi.
+Presse-papiers et dossiers ||| Clipboard and folders
+Partage du presse-papiers entre appareils, et synchronisation continue d'un dossier avec GhostSync. ||| Clipboard sharing between devices, and continuous folder synchronization with GhostSync.
+Aucun relais central ||| No central relay
+Seuls des serveurs STUN publics servent à découvrir ton adresse. Toutes les données circulent directement d'un appareil à l'autre. ||| Only public STUN servers are used to discover your address. All data travels directly from one device to the other.
+Format des paquets ||| Packet format
+Chaque paquet UDP commence par un en-tête fixe de 43 octets (octets magiques « GM », type de paquet, identifiants de destination et de source, numéro de séquence), suivi de la charge chiffrée et de son étiquette Poly1305. ||| Every UDP packet starts with a fixed 43-byte header ("GM" magic bytes, packet type, destination and source identifiers, sequence number), followed by the encrypted payload and its Poly1305 tag.
+Chiffrement ||| Encryption
+Schéma Noise_XX_25519_ChaChaPoly_BLAKE2s : clés Curve25519 éphémères et statiques, chiffrement ChaCha20-Poly1305, hachage BLAKE2s. ||| Noise_XX_25519_ChaChaPoly_BLAKE2s pattern: ephemeral and static Curve25519 keys, ChaCha20-Poly1305 encryption, BLAKE2s hashing.
+Traversée de NAT ||| NAT traversal
+STUN pour découvrir l'adresse publique, UPnP pour ouvrir le port UDP 4242, sondes de hole-punching synchronisées et signaux de maintien toutes les 10 secondes. ||| STUN to discover the public address, UPnP to open UDP port 4242, synchronized hole-punching probes and keep-alives every 10 seconds.
+Routage multi-sauts ||| Multi-hop routing
+Si A ne peut pas joindre C mais que les deux joignent B, B transfère les paquets sans pouvoir les déchiffrer. ||| If A cannot reach C but both can reach B, B forwards the packets without being able to decrypt them.
+Relais de secours ||| Fallback relay
+Quand un réseau d'entreprise filtre tout l'UDP sortant, un tunnel de repli passe par le port HTTPS 443. ||| When a corporate network filters all outbound UDP, a fallback tunnel goes through HTTPS port 443.
+Réseau virtuel ||| Virtual network
+Une interface virtuelle ghost0 (Wintun, sous Windows) reçoit une adresse du sous-réseau 10.42.0.0/16 : ping, SSH ou partage de fichiers fonctionnent comme sur un réseau local. ||| A virtual interface ghost0 (Wintun, on Windows) gets an address in the 10.42.0.0/16 subnet: ping, SSH or file sharing work as on a local network.
+Sur la machine A : créer une invitation ||| On machine A: create an invitation
+Sur la machine B : rejoindre avec le ticket reçu ||| On machine B: join with the ticket you received
+Ou lancer un nœud autonome en arrière-plan ||| Or start a standalone node in the background
+Compiler depuis les sources (Rust et Cargo requis) ||| Build from source (Rust and Cargo required)
+Génère une nouvelle identité cryptographique. ||| Generates a new cryptographic identity.
+Interroge un serveur STUN pour connaître ton adresse publique. ||| Queries a STUN server to find your public address.
+Génère un ticket d'invitation et attend un appareil (options --port et --ip). ||| Generates an invitation ticket and waits for a device (--port and --ip options).
+Rejoint un appareil et négocie le hole-punching UDP. ||| Joins a device and negotiates UDP hole-punching.
+Envoie un fichier avec GhostDrop. ||| Sends a file with GhostDrop.
+Reçoit des fichiers GhostDrop (option --dir pour le dossier). ||| Receives GhostDrop files (--dir option for the folder).
+Lance un nœud autonome en arrière-plan. ||| Starts a standalone node in the background.
+Indicateurs en direct ||| Live indicators
+Adresse virtuelle (10.42.X.Y/16), adresse publique STUN et identifiant du nœud. ||| Virtual address (10.42.X.Y/16), public STUN address and node identifier.
+Invitation en un clic ||| One-click invitation
+Crée un ticket chiffré gm1_… (clé publique Curve25519 et adresse UDP), affichable en QR code pour un appairage rapide. ||| Creates an encrypted gm1_… ticket (Curve25519 public key and UDP address), which can be shown as a QR code for quick pairing.
+Liens actifs ||| Active links
+Adresses des appareils connectés, latence en temps réel et état de chaque connexion. ||| Addresses of connected devices, real-time latency and the state of each connection.
+Les appareils appairés sont enregistrés dans la configuration locale. « Connect » envoie une demande que l'autre accepte ou refuse, « Forget » révoque l'appareil. ||| Paired devices are saved in the local configuration. "Connect" sends a request that the other device accepts or declines, "Forget" revokes the device.
+Autoriser ou bloquer le bureau à distance et GhostDrop, ou marquer un appareil comme invité temporaire. ||| Allow or block remote desktop and GhostDrop, or mark a device as a temporary guest.
+Démarrage silencieux ||| Silent startup
+Option de lancement avec Windows, réduit dans la zone de notification. ||| Option to start with Windows, minimized to the notification area.
+Mises à jour ||| Updates
+Une bannière signale les nouvelles versions publiées sur GitHub. ||| A banner announces new versions published on GitHub.
+Pourquoi mon nœud affiche 0.0.0.0:4242 ? ||| Why does my node show 0.0.0.0:4242?
+Le réseau (entreprise ou campus) bloque probablement l'UDP sortant ou la découverte STUN, et le P2P direct a besoin d'UDP. Essaie depuis un partage de connexion 4G ou 5G. ||| The network (company or campus) probably blocks outbound UDP or STUN discovery, and direct P2P needs UDP. Try from a 4G or 5G connection share.
+Faut-il ouvrir un port sur ma box ? ||| Do I need to open a port on my router?
+Normalement non : GhostMesh négocie l'ouverture du port UDP 4242 par UPnP. Si ta box refuse, redirige ce port UDP vers l'adresse locale de ton PC dans l'interface d'administration de la box. ||| Normally no: GhostMesh negotiates the opening of UDP port 4242 through UPnP. If your router refuses, forward that UDP port to your PC's local address in the router's admin interface.
+Pourquoi la connexion échoue avec certains réseaux ? ||| Why does the connection fail on some networks?
+Le hole-punching fonctionne avec les NAT de type cône. Avec un NAT symétrique, fréquent en entreprise, les ports externes changent à chaque destination : il faut alors une redirection de port ou un relais. ||| Hole-punching works with cone NATs. With a symmetric NAT, common in companies, external ports change for each destination: you then need port forwarding or a relay.
+Mes données passent-elles par un serveur ? ||| Does my data go through a server?
+Non. Les serveurs STUN publics ne servent qu'à découvrir ton adresse, et les données voyagent directement entre tes appareils, chiffrées de bout en bout. ||| No. Public STUN servers are only used to discover your address, and data travels directly between your devices, end-to-end encrypted.
+Comment prendre le contrôle d'un PC à distance ? ||| How do I take control of a PC remotely?
+Active le Bureau à distance dans les paramètres Windows de l'appareil distant (son compte doit avoir un mot de passe), puis clique sur « Remote Desktop » dans le tableau de bord. GhostMesh lance mstsc vers son adresse virtuelle. ||| Turn on Remote Desktop in the remote device's Windows settings (its account must have a password), then click "Remote Desktop" in the dashboard. GhostMesh starts mstsc towards its virtual address.
+Où sont enregistrés les fichiers reçus avec GhostDrop ? ||| Where are files received with GhostDrop saved?
+Dans le dossier Téléchargements, sous GhostMesh-Transfers. Les transferts passent par le port TCP 4243 et reprennent après une coupure. ||| In the Downloads folder, under GhostMesh-Transfers. Transfers use TCP port 4243 and resume after a cut.
+ghostmesh keygen ||| =
+ghostmesh discover ||| =
+ghostmesh invite ||| =
+ghostmesh join <ticket> ||| =
+ghostmesh send <cible> <fichier> ||| =
+ghostmesh receive ||| =
+ghostmesh up ||| =
+Documentation ||| =
+GhostMesh ||| =

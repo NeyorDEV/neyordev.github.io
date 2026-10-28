@@ -36,4 +36,16 @@ OUT.write_text(
     encoding="utf-8",
     newline="\n",
 )
+# Numéro de version sur la balise <script> de chaque page : le navigateur recharge
+# le dictionnaire dès qu'il change (sans cela, il peut garder l'ancien 10 minutes).
+import hashlib
+import re
+
+version = hashlib.sha1(OUT.read_bytes()).hexdigest()[:8]
+for page in sorted(HERE.parent.glob("*.html")):
+    html = page.read_text(encoding="utf-8", newline="")
+    new = re.sub(r'src="JS/i18n-en\.js(\?v=[0-9a-f]+)?"', f'src="JS/i18n-en.js?v={version}"', html)
+    if new != html:
+        page.write_text(new, encoding="utf-8", newline="")
+
 print("entrées traduites :", len(en), "· identiques :", len(same))

@@ -37,3 +37,6 @@ Tab complète les commandes et leurs arguments, ↑ ↓ rappellent l'historique,
 Le français est la langue source : c'est le texte écrit dans le HTML et dans les scripts. L'anglais vient du dictionnaire `JS/i18n-en.js` (clé = texte français, valeur = anglais), appliqué par `JS/i18n.js`. La langue est choisie d'après le navigateur, puis mémorisée (bouton FR/EN en haut, palette Ctrl+K ou commande `lang` du terminal).
 Dans les scripts, tout texte visible passe par `t("texte français")` (ou `t("… {nom}", { nom })` avec des variables).
 Pour ajouter ou corriger une traduction : modifier les fichiers `tools/i18n/*.txt` (format `français ||| anglais`, `=` si identique) puis régénérer le dictionnaire avec `python tools/build_i18n.py`.
+
+## Licence
+Tous droits réservés (voir `LICENSE`). Les mentions légales du site sont dans `mentions-legales.html`.

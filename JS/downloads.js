@@ -528,9 +528,6 @@
   function applyFilters() {
     const q = norm(state.q).trim();
     const order = [...cards].sort((a, b) => {
-      /* J.A.R.V.I.S reste toujours en tête, quel que soit le tri */
-      const pin = (b.dataset.id === "jarvis") - (a.dataset.id === "jarvis");
-      if (pin) return pin;
       if (state.sort === "az") return a.dataset.name.localeCompare(b.dataset.name, "fr");
       if (state.sort === "dl") return b.dataset.dl - a.dataset.dl || b.dataset.date - a.dataset.date;
       return (b.dataset.date || 0) - (a.dataset.date || 0);

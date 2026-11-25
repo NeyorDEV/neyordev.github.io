@@ -573,22 +573,70 @@ html.cc textarea {
     stroke-dashoffset: 0;
   }
 }
-.art .slot {
+/* RentPark : voiture de location et sa clé */
+.art .road {
   stroke: rgba(183, 75, 75, 0.6);
-  stroke-dasharray: 5 4;
+  stroke-dasharray: 14 10;
+  animation: road 0.8s linear infinite;
 }
-.art .slot.me {
-  stroke: var(--accent-hot);
-  stroke-dasharray: none;
+.art .car {
+  animation: carbob 1.6s ease-in-out infinite;
+}
+.art .car .body {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  fill: rgba(183, 75, 75, 0.12);
+}
+.art .car .win {
+  stroke: var(--accent);
   fill: rgba(209, 25, 25, 0.25);
-  animation: glowbox 2s ease-in-out infinite;
 }
-.art .park {
-  fill: var(--ink);
-  stroke: none;
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 700;
-  font-size: 26px;
+.art .car .lamp {
+  stroke: var(--ink);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.art .wheel {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-dasharray: 7 5;
+  fill: var(--bg);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wheel 1s linear infinite;
+}
+.art .key {
+  stroke: var(--accent-hot);
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  transform-origin: 0 0;
+  animation: keyswing 2.4s ease-in-out infinite;
+}
+@keyframes road {
+  to {
+    stroke-dashoffset: 24;
+  }
+}
+@keyframes carbob {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+@keyframes wheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes keyswing {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
 }
 
 /* ---------- Radar GitHub ---------- */

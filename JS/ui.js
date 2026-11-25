@@ -500,13 +500,7 @@
     ).join("")}</svg>`,
     blocks: `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="old"><rect x="40" y="50" width="60" height="60"/><rect x="70" y="80" width="60" height="60"/></g><path class="arrow" d="M140 90h40m-12-12 12 12-12 12"/><g class="new"><rect x="200" y="50" width="60" height="60"/><rect x="230" y="80" width="60" height="60"/></g></svg>`,
     bars: `<svg viewBox="0 0 320 180" aria-hidden="true"><g transform="translate(30 20)">${bars(11)}</g><path class="trend" d="M30 130 90 100 140 112 200 70 250 80 300 40"/></svg>`,
-    grid: `<svg viewBox="0 0 320 180" aria-hidden="true">${[0, 1, 2, 3]
-      .flatMap((c) =>
-        [0, 1].map(
-          (r) => `<rect class="slot${c === 2 && r === 1 ? " me" : ""}" x="${40 + c * 62}" y="${35 + r * 62}" width="50" height="50" rx="4"/>`
-        )
-      )
-      .join("")}<text x="189" y="122" class="park" text-anchor="middle" dominant-baseline="central">P</text></svg>`,
+    car: `<svg viewBox="0 0 320 180" aria-hidden="true"><path class="road" d="M24 142H296"/><g class="car"><path class="body" d="M48 126V108Q50 99 62 97L94 93 118 71Q124 66 133 66H180Q190 66 197 72L222 95Q244 97 250 105V126H221A22 22 0 0 0 177 126H109A22 22 0 0 0 65 126Z"/><path class="win" d="M104 92 121 75Q125 72 131 72H154V92Z"/><path class="win" d="M160 72H179Q186 72 191 77L207 92H160Z"/><path class="lamp" d="M243 106H250"/></g><circle class="wheel" cx="87" cy="126" r="15"/><circle class="wheel" cx="199" cy="126" r="15"/><g transform="translate(262 34)"><g class="key"><circle r="11"/><circle r="4"/><path d="M11 0H42M33 0V8M40 0V6"/></g></g></svg>`,
   };
   ART.cube = `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="iso"><path d="M160 18 232 58 232 128 160 168 88 128 88 58Z"/><path d="M160 18 232 58 160 98 88 58Z"/><path d="M160 98 160 168"/></g></svg>`;
   ART.mesh = `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="mlinks"><path d="M60 50 160 30 260 60"/><path d="M60 50 90 130 200 140"/><path d="M160 30 200 140"/><path d="M260 60 200 140"/><path d="M60 50 200 140"/><path d="M160 30 90 130"/></g><path class="mpkt" d="M60 50 160 30 260 60 200 140 90 130Z"/><g class="mnodes"><circle style="--i:0" cx="60" cy="50" r="7"/><circle style="--i:1" cx="160" cy="30" r="7"/><circle style="--i:2" cx="260" cy="60" r="7"/><circle style="--i:3" cx="200" cy="140" r="7"/><circle style="--i:4" cx="90" cy="130" r="7"/></g></svg>`;

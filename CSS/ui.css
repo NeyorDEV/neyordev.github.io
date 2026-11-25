@@ -1139,6 +1139,11 @@ html.cc textarea {
   object-position: 50% 30%;
 }
 
+/* Dragon Mounts : bannière plus large que 16:9, le titre est au centre */
+.project[data-repo="Dragon-Mounts-Legacy"] .shot.has-img > img {
+  object-position: 50% 50%;
+}
+
 /* Visuels : fork de mod (cube) et site (code) */
 .art .iso path {
   stroke: var(--accent);

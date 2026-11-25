@@ -991,6 +991,3 @@ details[open] > summary::after {
 .credit a {
   color: var(--accent-text, var(--accent));
 }
-.project[data-repo="Dragon-Mounts-Legacy"] .shot.has-img > img {
-  object-position: 50% 35%;
-}

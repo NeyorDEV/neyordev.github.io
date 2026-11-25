@@ -487,13 +487,50 @@ html.cc textarea {
   inset: 0;
 }
 /* Animations des illustrations */
-.art .pulse {
-  stroke-width: 1.5;
-  transform-origin: 160px 90px;
-  animation: ring 2.4s ease-out infinite;
+.art .cyl {
+  stroke: var(--accent);
 }
-.art .pulse.p2 {
-  animation-delay: 1.2s;
+.art .cyl .lines {
+  stroke-width: 1;
+  opacity: 0.35;
+}
+.art .cyl .side,
+.art .cyl .band {
+  stroke-width: 1.5;
+}
+.art .cyl .band {
+  opacity: 0.5;
+}
+.art .cyl .cap {
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  fill: rgba(183, 75, 75, 0.15);
+}
+.art .cyl .in {
+  stroke: var(--accent-hot);
+  stroke-width: 1.5;
+}
+.art .cyl .scan {
+  stroke: var(--accent-hot);
+  stroke-width: 2;
+  fill: rgba(209, 25, 25, 0.18);
+  animation: cylscan 3s ease-in-out infinite;
+}
+.art .floor ellipse {
+  stroke: rgba(183, 75, 75, 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  transform-origin: 160px 142px;
+  animation: floorpulse 3s ease-in-out infinite;
+}
+.art .floor .f2 {
+  stroke-dasharray: 3 6;
+  animation-delay: 0.4s;
+}
+@keyframes cylscan {
+  50% {
+    transform: translateY(92px);
+  }
 }
 @keyframes ring {
   from {
@@ -505,17 +542,10 @@ html.cc textarea {
     opacity: 0;
   }
 }
-.art .wv {
-  fill: var(--accent);
-  stroke: none;
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: wave 1.1s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.09s);
-}
-@keyframes wave {
+@keyframes floorpulse {
   50% {
-    transform: scaleY(1.9);
+    transform: scale(1.06);
+    opacity: 0.45;
   }
 }
 .art .old rect,

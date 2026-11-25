@@ -494,10 +494,8 @@
   const bars = (n) =>
     Array.from({ length: n }, (_, i) => `<rect class="b" style="--i:${i}" x="${20 + i * 22}" y="40" width="12" height="100" rx="2"/>`).join("");
   const ART = {
-    voice: `<svg viewBox="0 0 320 180" aria-hidden="true"><circle class="pulse" cx="160" cy="90" r="40"/><circle class="pulse p2" cx="160" cy="90" r="40"/>${Array.from(
-      { length: 11 },
-      (_, i) => `<rect class="wv" style="--i:${i}" x="${70 + i * 18}" y="60" width="8" height="60" rx="4"/>`
-    ).join("")}</svg>`,
+    /* J.A.R.V.I.S : le cylindre holographique de son interface */
+    voice: `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="floor"><ellipse cx="160" cy="142" rx="84" ry="18"/><ellipse class="f2" cx="160" cy="142" rx="122" ry="27"/></g><g class="cyl"><g class="lines"><path d="M118 44V136"/><path d="M130 44V136"/><path d="M142 44V136"/><path d="M154 44V136"/><path d="M166 44V136"/><path d="M178 44V136"/><path d="M190 44V136"/><path d="M202 44V136"/></g><path class="side" d="M112 40V140M208 40V140"/><ellipse class="band" cx="160" cy="92" rx="48" ry="12"/><ellipse class="cap" cx="160" cy="140" rx="48" ry="12"/><ellipse class="cap" cx="160" cy="40" rx="48" ry="12"/><ellipse class="in" cx="160" cy="40" rx="34" ry="8"/><ellipse class="in" cx="160" cy="40" rx="20" ry="5"/><ellipse class="scan" cx="160" cy="44" rx="47" ry="11"/></g></svg>`,
     blocks: `<svg viewBox="0 0 320 180" aria-hidden="true"><g class="old"><rect x="40" y="50" width="60" height="60"/><rect x="70" y="80" width="60" height="60"/></g><path class="arrow" d="M140 90h40m-12-12 12 12-12 12"/><g class="new"><rect x="200" y="50" width="60" height="60"/><rect x="230" y="80" width="60" height="60"/></g></svg>`,
     bars: `<svg viewBox="0 0 320 180" aria-hidden="true"><g transform="translate(30 20)">${bars(11)}</g><path class="trend" d="M30 130 90 100 140 112 200 70 250 80 300 40"/></svg>`,
     car: `<svg viewBox="0 0 320 180" aria-hidden="true"><path class="road" d="M24 142H296"/><g class="car"><path class="body" d="M48 126V108Q50 99 62 97L94 93 118 71Q124 66 133 66H180Q190 66 197 72L222 95Q244 97 250 105V126H221A22 22 0 0 0 177 126H109A22 22 0 0 0 65 126Z"/><path class="win" d="M104 92 121 75Q125 72 131 72H154V92Z"/><path class="win" d="M160 72H179Q186 72 191 77L207 92H160Z"/><path class="lamp" d="M243 106H250"/></g><circle class="wheel" cx="87" cy="126" r="15"/><circle class="wheel" cx="199" cy="126" r="15"/><g transform="translate(262 34)"><g class="key"><circle r="11"/><circle r="4"/><path d="M11 0H42M33 0V8M40 0V6"/></g></g></svg>`,

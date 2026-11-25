@@ -522,11 +522,51 @@
     $$(".project[data-repo]").forEach((card) => {
       const live = $(".live", card);
       const r = repos.find((x) => x.name.toLowerCase() === card.dataset.repo.toLowerCase());
-      if (live && r)
-        live.textContent = `${r.language || "—"} · ★ ${r.stargazers_count} · push ${fmt(r.pushed_at)}`;
+      if (!live || !r) return;
+      const base = `${r.language || "—"} · ★ ${r.stargazers_count} · push ${fmt(r.pushed_at)}`;
+      live.textContent = base;
+      commitCount(r).then((n) => {
+        if (n == null) return;
+        live.textContent = `${base} · ${tp(n, "commit", "commits")}${r.fork ? ` ${t("sur le fork")}` : ""}`;
+      });
     });
+    const total = $("[data-commits]");
+    if (total)
+      Promise.all(repos.map(commitCount)).then((ns) => {
+        if (ns.some((n) => n != null)) countUp(total, ns.reduce((s, n) => s + (n || 0), 0));
+      });
     radar(repos);
   });
+
+  /* Nombre de commits : l'API n'en donne pas, on demande 1 commit par page et on lit
+     le numéro de la dernière page. Sur un fork, seuls mes commits comptent.
+     Une seule requête par dépôt et par page, même si plusieurs endroits le demandent. */
+  const commitReqs = new Map();
+  function commitCount(r) {
+    if (!commitReqs.has(r.name)) commitReqs.set(r.name, fetchCommitCount(r));
+    return commitReqs.get(r.name);
+  }
+  async function fetchCommitCount(r) {
+    const key = `commits:${r.name}`;
+    try {
+      const c = JSON.parse(sessionStorage.getItem(key) || "null");
+      if (c && Date.now() - c.t < 600000) return c.n;
+    } catch {}
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${USER}/${encodeURIComponent(r.name)}/commits?per_page=1${r.fork ? `&author=${USER}` : ""}`
+      );
+      if (!res.ok) return null;
+      const last = /[?&]page=(\d+)>; rel="last"/.exec(res.headers.get("Link") || "");
+      const n = last ? +last[1] : (await res.json()).length;
+      try {
+        sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), n }));
+      } catch {}
+      return n;
+    } catch {
+      return null;
+    }
+  }
 
   /* ---------- Radar GitHub ---------- */
   function radar(repos) {

@@ -199,3 +199,6 @@ Archive ||| =
 Mod (.jar) ||| =
 Fichier ||| File
 inconnu ||| unknown
+commit ||| =
+commits ||| =
+sur le fork ||| on the fork

@@ -1140,8 +1140,6 @@ html.cc textarea {
 /* Cadrage par projet : l'interface de J.A.R.V.I.S est centrée */
 .project[data-repo="J.A.R.V.I.S"] .shot.has-img > img {
   object-position: 50% 50%;
-  transform-origin: center;
-  scale: 1.35;
 }
 
 /* Contour lumineux qui tourne autour des cartes projets au survol */

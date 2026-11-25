@@ -117,14 +117,17 @@ $$(".project, .module").forEach((card) => {
   });
 });
 
-/* Captures des projets : image ou GIF si elle existe (png, gif, jpg), sinon le visuel animé */
+/* Captures des projets : l'image indiquée dans data-img, sinon la même en png, gif, jpg ou webp,
+   sinon le visuel animé. L'extension indiquée est essayée d'abord (pas de requêtes 404 inutiles). */
 $$(".shot[data-img]").forEach((shot) => {
   const base = shot.dataset.img.replace(/\.\w+$/, "");
   const label = shot.textContent.trim();
-  const exts = ["png", "gif", "jpg", "webp"];
+  const given = (/\.(\w+)$/.exec(shot.dataset.img) || [])[1];
+  const exts = [...new Set([given, "webp", "png", "gif", "jpg"].filter(Boolean))];
   const attempt = (i) => {
     if (i >= exts.length) return;
     const img = new Image();
+    img.decoding = "async";
     img.alt = t("Capture d'écran de {name}", { name: label });
     img.onload = () => {
       shot.classList.add("has-img");

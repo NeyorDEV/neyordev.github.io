@@ -516,6 +516,19 @@
     hud.append(el("i"), el("i"), el("i"), el("i"));
     shot.append(hud);
   });
+  /* Projets : un clic sur la carte ouvre sa fiche dans la page Téléchargements */
+  $$(".project[data-dl]").forEach((card) => {
+    const go = () => navigate(`downloads.html#${card.dataset.dl}`);
+    card.tabIndex = 0;
+    card.setAttribute("role", "link");
+    card.setAttribute("aria-label", t("{name} : voir les téléchargements", { name: $("h3", card).textContent }));
+    card.addEventListener("click", (e) => {
+      if (!e.target.closest("a, button")) go();
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && e.target === card) go();
+    });
+  });
   const fmt = (iso) => new Date(iso).toLocaleDateString(I18N.locale, { day: "numeric", month: "short", year: "numeric" });
   document.addEventListener("repos", (e) => {
     const repos = e.detail;

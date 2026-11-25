@@ -459,6 +459,7 @@ window.I18N_EN = {
  "Fichier": "File",
  "inconnu": "unknown",
  "sur le fork": "on the fork",
+ "{name} : voir les téléchargements": "{name}: see downloads",
  "noyau ............ chargé": "kernel ........... loaded",
  "réseau github.com/neyordev ... connecté": "network github.com/neyordev ... connected",
  "interface ........ prête": "interface ........ ready",

@@ -40,3 +40,6 @@ Pour ajouter ou corriger une traduction : modifier les fichiers `tools/i18n/*.tx
 
 ## Licence
 Tous droits réservés (voir `LICENSE`). Les mentions légales du site sont dans `mentions-legales.html`.
+
+## Cache des fichiers CSS/JS
+Après une modification d'un fichier `CSS/` ou `JS/`, lancer `python tools/version_assets.py` : il ajoute `?v=empreinte` aux liens de chaque page, pour que les navigateurs chargent la nouvelle version au lieu de garder l'ancienne en cache.

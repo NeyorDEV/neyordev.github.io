@@ -1,0 +1,53 @@
+# Publie le site sur GitHub Pages.
+# - à chaque push sur main, et toutes les heures pour rafraîchir les données GitHub ;
+# - génère data/github.json (dépôts, releases, commits) : les visiteurs ne touchent plus à l'API GitHub ;
+# - régénère le dictionnaire anglais et les numéros de version des fichiers CSS/JS,
+#   donc plus besoin de lancer ces scripts à la main avant de pousser.
+name: Déploiement du site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Données GitHub (dépôts, releases, commits)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/update-downloads-data.py
+
+      - name: Dictionnaire anglais et versions des fichiers CSS/JS
+        run: |
+          python tools/build_i18n.py
+          python tools/version_assets.py
+
+      - name: Fichiers publiés
+        run: rsync -a --exclude .git --exclude .github ./ _site/
+
+      - uses: actions/upload-pages-artifact@v3
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

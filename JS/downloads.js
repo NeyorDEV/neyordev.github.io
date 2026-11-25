@@ -207,6 +207,9 @@
     })),
   });
   async function loadData() {
+    const d = await ghData();
+    if (d && d.releases)
+      return { data: Object.fromEntries(REPOS.map((r) => [r, d.releases[r] || []])), live: true, at: d.generatedAt };
     try {
       const c = JSON.parse(sessionStorage.getItem("dl-cache") || "null");
       if (c && Date.now() - c.t < 600000) return { data: c.data, live: true };
@@ -708,7 +711,10 @@
 
     const status = $("#dl-status");
     const chip = $("#src-chip");
-    if (live) {
+    if (live && at) {
+      status.textContent = t("Données GitHub mises à jour {when} · {rel} · {dl} au total.", { when: rel(at), rel: plural(all.length, "release", "releases"), dl: plural(nDl, "téléchargement", "téléchargements") });
+      chip.replaceChildren(el("span", "led"), t("Données : GitHub (mise à jour horaire)"));
+    } else if (live) {
       status.textContent = t("Données en direct depuis GitHub · {rel} · {dl} au total.", { rel: plural(all.length, "release", "releases"), dl: plural(nDl, "téléchargement", "téléchargements") });
       chip.replaceChildren(el("span", "led"), t("Données : GitHub en direct"));
     } else {

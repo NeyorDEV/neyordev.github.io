@@ -225,9 +225,23 @@ function renderRepos(repos) {
   draw();
 }
 
+/* Données GitHub générées par la GitHub Action (data/github.json, mises à jour toutes les heures).
+   Les pages les lisent d'abord : l'API GitHub n'accepte que 60 requêtes par heure et par visiteur.
+   Absentes (aperçu local) : null, et chaque script retombe sur l'API en direct. */
+let ghDataReq = null;
+function ghData() {
+  if (!ghDataReq)
+    ghDataReq = fetch("data/github.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+  return ghDataReq;
+}
+
 async function loadRepos() {
   let repos = FALLBACK;
-  try {
+  const d = await ghData();
+  if (d && d.repos) repos = d.repos;
+  else try {
     const res = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=pushed`);
     if (!res.ok) throw new Error(res.status);
     /* les dépôts archivés (projets fusionnés ailleurs) ne sont plus montrés */

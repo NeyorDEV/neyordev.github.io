@@ -26,7 +26,7 @@ Le mode calme (palette → « Réduire les animations ») coupe les animations e
 `images/og.png` (1200×630) est utilisée par les aperçus de liens ; `favicon.svg` est l'icône d'onglet.
 
 ## Téléchargements
-La page lit les releases de chaque dépôt via l'API GitHub (cache de 10 min). Si l'API est indisponible, elle affiche la copie `JS/downloads-data.js`, à régénérer après une release avec `python tools/update-downloads-data.py` (CLI `gh` requise).
+Les pages lisent `data/github.json` (dépôts, releases, nombre de commits), généré par la GitHub Action `.github/workflows/deploy.yml` à chaque push et toutes les heures : les visiteurs n'appellent plus l'API GitHub, limitée à 60 requêtes par heure. Sans ce fichier (aperçu local), elles retombent sur l'API, puis sur la copie `JS/downloads-data.js`. Pour le générer en local : `python tools/update-downloads-data.py` (CLI `gh` requise).
 Pour ajouter un projet, ajoute une carte `.dl-card` dans `downloads.html` et son dépôt dans la liste `REPOS` de `JS/downloads.js`.
 
 ## Terminal de l'accueil
@@ -42,4 +42,4 @@ Pour ajouter ou corriger une traduction : modifier les fichiers `tools/i18n/*.tx
 Tous droits réservés (voir `LICENSE`). Les mentions légales du site sont dans `mentions-legales.html`.
 
 ## Cache des fichiers CSS/JS
-Après une modification d'un fichier `CSS/` ou `JS/`, lancer `python tools/version_assets.py` : il ajoute `?v=empreinte` aux liens de chaque page, pour que les navigateurs chargent la nouvelle version au lieu de garder l'ancienne en cache.
+`tools/version_assets.py` ajoute `?v=empreinte` aux liens CSS/JS de chaque page, pour que les navigateurs chargent la nouvelle version au lieu de garder l'ancienne en cache. La GitHub Action le lance à chaque déploiement, ainsi que `tools/build_i18n.py` : inutile de les lancer à la main avant de pousser.

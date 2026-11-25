@@ -1,6 +1,6 @@
 /* Copie hors-ligne des releases GitHub (utilisée si l'API est indisponible). Générée automatiquement. */
 window.DL_SNAPSHOT = {
- "generatedAt": "2026-11-25T08:52:57Z",
+ "generatedAt": "2026-11-25T10:03:31Z",
  "releases": {
   "J.A.R.V.I.S": [
    {
@@ -594,7 +594,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "dragonmounts-fabric-26.2.jar",
       "size": 604898,
-      "dl": 0,
+      "dl": 1,
       "sha": "9e83e832351cd908999c9d7143094ecf9619810ec3dd3de49afcf53243f4751b",
       "url": "https://github.com/NeyorDEV/Dragon-Mounts-Legacy/releases/download/v26.2/dragonmounts-fabric-26.2.jar"
      }

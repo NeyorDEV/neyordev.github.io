@@ -312,6 +312,8 @@ document.addEventListener("repos", (e) => {
   function getReleases() {
     if (relPromise) return relPromise;
     relPromise = (async () => {
+      const d = await ghData();
+      if (d && d.releases) return { data: Object.fromEntries(REL_REPOS.map((r) => [r, d.releases[r] || []])), live: true };
       for (const key of ["dl-cache", "dl-home"]) {
         try {
           const c = JSON.parse(sessionStorage.getItem(key) || "null");

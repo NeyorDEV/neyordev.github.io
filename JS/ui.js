@@ -558,6 +558,8 @@
     return commitReqs.get(r.name);
   }
   async function fetchCommitCount(r) {
+    const d = await ghData();
+    if (d && d.commits && r.name in d.commits) return d.commits[r.name];
     const key = `commits:${r.name}`;
     try {
       const c = JSON.parse(sessionStorage.getItem(key) || "null");

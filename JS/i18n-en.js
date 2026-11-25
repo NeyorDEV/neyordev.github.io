@@ -460,6 +460,8 @@ window.I18N_EN = {
  "inconnu": "unknown",
  "sur le fork": "on the fork",
  "{name} : voir les téléchargements": "{name}: see downloads",
+ "Données GitHub mises à jour {when} · {rel} · {dl} au total.": "GitHub data updated {when} · {rel} · {dl} in total.",
+ "Données : GitHub (mise à jour horaire)": "Data: GitHub (hourly update)",
  "noyau ............ chargé": "kernel ........... loaded",
  "réseau github.com/neyordev ... connecté": "network github.com/neyordev ... connected",
  "interface ........ prête": "interface ........ ready",

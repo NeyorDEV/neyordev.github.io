@@ -563,6 +563,10 @@ details[open] > summary::after {
   font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.2;
+  /* un nom trop long ne passe pas sur deux lignes (il décalerait sa rangée) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ltrack {
   position: relative;

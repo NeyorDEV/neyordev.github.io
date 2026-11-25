@@ -15,7 +15,7 @@
   const USER = "neyordev";
   const REPOS = ["J.A.R.V.I.S", "rl-tracker-suite", "ghostmesh", "ModShift", "RentPark", "Dragon-Mounts-Legacy"];
   const COLORS = { jarvis: "#d11919", rts: "#f0a4a4", ghostmesh: "#e8854d", modshift: "#ff6b6b" };
-  const SHORT = { jarvis: "JARVIS", rts: "RLTS", ghostmesh: "GhostMesh", modshift: "ModShift" };
+  const SHORT = { jarvis: "JARVIS", rts: "RLTS", ghostmesh: "GhostMesh", modshift: "ModShift", dragon: "Dragon" };
 
   /* ---------- Formats ---------- */
   const fmtSize = (b) => {

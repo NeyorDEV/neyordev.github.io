@@ -272,6 +272,7 @@ window.I18N_EN = {
  "Fork du mod Minecraft de Kay9Unit, que j'ai porté de Forge 1.21 vers Fabric pour Minecraft 26.2, avec deux nouvelles races de dragons : Améthyste et Sculk.": "Fork of Kay9Unit's Minecraft mod, which I ported from Forge 1.21 to Fabric for Minecraft 26.2, with two new dragon breeds: Amethyst and Sculk.",
  "Projet d'origine ↗": "Original project ↗",
  "Télécharger →": "Download →",
+ "Projets phares": "Featured projects",
  "(copie impossible : sélectionne-le)": "(copy failed: select it manually)",
  "(copié dans le presse-papiers)": "(copied to clipboard)",
  "Activer les animations": "Turn animations on",

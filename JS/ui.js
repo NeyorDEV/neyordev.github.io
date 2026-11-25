@@ -516,16 +516,17 @@
   });
   /* Projets : un clic sur la carte ouvre sa fiche dans la page Téléchargements */
   $$(".project[data-dl]").forEach((card) => {
-    const go = () => navigate(`downloads.html#${card.dataset.dl}`);
-    card.tabIndex = 0;
-    card.setAttribute("role", "link");
-    card.setAttribute("aria-label", t("{name} : voir les téléchargements", { name: $("h3", card).textContent }));
+    const url = `downloads.html#${card.dataset.dl}`;
     card.addEventListener("click", (e) => {
-      if (!e.target.closest("a, button")) go();
+      if (!e.target.closest("a, button")) navigate(url);
     });
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && e.target === card) go();
-    });
+    /* lien visible pour le clavier et les lecteurs d'écran (sauf si la carte en a déjà un) */
+    const last = $$("a.link", card).pop();
+    if (last && !$('a[href^="downloads.html"]', card)) {
+      const a = el("a", "link", t("Télécharger →"));
+      a.href = url;
+      last.after(" ", a);
+    }
   });
   const fmt = (iso) => new Date(iso).toLocaleDateString(I18N.locale, { day: "numeric", month: "short", year: "numeric" });
   document.addEventListener("repos", (e) => {

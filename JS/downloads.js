@@ -413,6 +413,7 @@
     const tips = el("div", "dlm-tips");
     const actions = el("div", "dlm-actions");
     const again = el("a", "btn primary", t("Relancer le téléchargement"));
+    again.href = "#";
     const dismiss = el("button", "btn", t("Fermer"));
     dismiss.type = "button";
     actions.append(again, dismiss);

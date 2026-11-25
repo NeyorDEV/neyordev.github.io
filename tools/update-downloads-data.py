@@ -15,6 +15,8 @@ import datetime
 import json
 import re
 import subprocess
+import sys
+import time
 from pathlib import Path
 
 USER = "neyordev"
@@ -28,8 +30,15 @@ REPO_KEYS = ["name", "description", "language", "stargazers_count", "forks_count
 
 
 def gh(path, headers=False):
+    """Appel à l'API GitHub, avec 3 essais : une erreur passagère ne fait pas échouer le déploiement."""
     args = ["gh", "api", path] + (["--include"] if headers else [])
-    return subprocess.run(args, capture_output=True, text=True, encoding="utf-8", check=True).stdout
+    for attempt in range(3):
+        r = subprocess.run(args, capture_output=True, text=True, encoding="utf-8")
+        if r.returncode == 0:
+            return r.stdout
+        print(f"gh api {path} : essai {attempt + 1} échoué : {r.stderr.strip()[:300]}", file=sys.stderr)
+        time.sleep(5 * (attempt + 1))
+    raise subprocess.CalledProcessError(r.returncode, args, r.stdout, r.stderr)
 
 
 def fetch(repo):

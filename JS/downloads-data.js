@@ -1,6 +1,6 @@
 /* Copie hors-ligne des releases GitHub (utilisée si l'API est indisponible). Générée automatiquement. */
 window.DL_SNAPSHOT = {
- "generatedAt": "2026-11-25T10:03:31Z",
+ "generatedAt": "2026-11-25T10:27:48Z",
  "releases": {
   "J.A.R.V.I.S": [
    {

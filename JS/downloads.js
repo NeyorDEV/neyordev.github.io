@@ -349,6 +349,7 @@
           const d = el("details");
           const s = el("summary");
           s.append(el("b", "", r.tag), el("span", "vname", r.name.replace(new RegExp(`^${name}\\s*`, "i"), "")), el("time", "", fmtDate(r.date)));
+          s.append(el("span", "vdl", `⬇ ${plural(r.assets.reduce((n, a) => n + a.dl, 0), "téléchargement", "téléchargements")}`));
           if (i === 0) s.append(el("span", "pill", t("dernière")));
           d.append(s);
           const body = el("div", "vbody");

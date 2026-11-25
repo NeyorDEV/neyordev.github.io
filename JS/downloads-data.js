@@ -1,8 +1,76 @@
 /* Copie hors-ligne des releases GitHub (utilisée si l'API est indisponible). Générée automatiquement. */
 window.DL_SNAPSHOT = {
- "generatedAt": "2026-10-28T09:36:05Z",
+ "generatedAt": "2026-11-25T08:52:57Z",
  "releases": {
   "J.A.R.V.I.S": [
+   {
+    "tag": "v11.0.2",
+    "name": "J.A.R.V.I.S 11.0.2 — first-launch assistant in 5 steps",
+    "date": "2026-11-18T14:52:54Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/tag/v11.0.2",
+    "body": "## J.A.R.V.I.S 11.0.2\n\nThis release shortens the **first-launch assistant** from 7 to **5 steps**.\n\n### Install\n\n1. Download **JARVIS-Setup-11.0.2.exe** below and run it (no administrator rights needed). Installing over an older version keeps your settings, keys and memory.\n2. The installer sets up Python 3.12 if needed, then the dependencies (a few minutes, internet connection required).\n3. Start **J.A.R.V.I.S** from the Start menu or the desktop shortcut. No console window opens.\n4. On a first install, the first-launch assistant guides you through everything (see below).\n\n> The installer is **not code-signed yet**. Windows SmartScreen may show \"Windows protected your PC\": click *More info*, then *Run anyway*.\n> SHA-256: `d01519e54b0b420134db349a7a988605c76f1b409ef0227b1b5b903f46bdd8b6`\n\n### What's new\n\n- **First-launch assistant in 5 steps**: Profile, AI key, **Microphone and voice** (microphone test and voiceprint on one page), **Options** (offline mode and the optional services on one page, the services folded by default), Done.\n- The offline page detects Ollama, the fallback model `qwen3:4b-instruct` and your NVIDIA card, and gives the `ollama pull` command to copy.\n\nEverything else is as in 11.0.0 and 11.0.1 (faster answers, lighter offline fallback, routines, skills import, local API): see `CHANGELOG.md`.\n",
+    "assets": [
+     {
+      "name": "JARVIS-Setup-11.0.2.exe",
+      "size": 6310370,
+      "dl": 1,
+      "sha": "d01519e54b0b420134db349a7a988605c76f1b409ef0227b1b5b903f46bdd8b6",
+      "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v11.0.2/JARVIS-Setup-11.0.2.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v11.0.1",
+    "name": "J.A.R.V.I.S 11.0.1 — complete first-launch assistant",
+    "date": "2026-11-18T14:42:56Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/tag/v11.0.1",
+    "body": "## J.A.R.V.I.S 11.0.1\n\nThis release completes the **first-launch assistant**: it now explains everything a new install needs, including the offline mode and the optional services.\n\n### Install\n\n1. Download **JARVIS-Setup-11.0.1.exe** below and run it (no administrator rights needed). Installing over an older version keeps your settings, keys and memory.\n2. The installer sets up Python 3.12 if needed, then the dependencies (a few minutes, internet connection required).\n3. Start **J.A.R.V.I.S** from the Start menu or the desktop shortcut. No console window opens.\n4. On a first install, the first-launch assistant guides you through everything (see below).\n\n> The installer is **not code-signed yet**. Windows SmartScreen may show \"Windows protected your PC\": click *More info*, then *Run anyway*.\n> SHA-256: `ca7421ec85fca0d08ebfd42850d3d61a9ac29610f5a1c2dbd7efe025623827d0`\n\n### What's new\n\n- **Two new steps in the first-launch assistant** (now 7 steps: Profile, AI key, Microphone, Voice, Offline, Services, Done).\n  - **Offline**: detects Ollama (installed / running), the fallback model `qwen3:4b-instruct` and your NVIDIA graphics card, shows the `ollama pull` command with a Copy button and a \"Check again\" button, and explains what happens without a GPU (the offline model runs on the processor and speech recognition goes through Groq, which needs a key).\n  - **Services**: tells you where to set up the optional services (Spotify / Deezer, Google, Home Assistant, other API keys, God's Eye View) and how to list every command by voice.\n- The final summary also shows the state of the offline mode.\n\nThis is the same as 11.0.0 otherwise (faster answers, lighter offline fallback, one-shot and interval routines, skills import, local API): see the 11.0.0 notes and `CHANGELOG.md`.\n",
+    "assets": [
+     {
+      "name": "JARVIS-Setup-11.0.1.exe",
+      "size": 6310143,
+      "dl": 1,
+      "sha": "ca7421ec85fca0d08ebfd42850d3d61a9ac29610f5a1c2dbd7efe025623827d0",
+      "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v11.0.1/JARVIS-Setup-11.0.1.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v11.0.0",
+    "name": "J.A.R.V.I.S 11.0.0 — faster answers, lighter offline fallback",
+    "date": "2026-11-18T14:23:19Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/tag/v11.0.0",
+    "body": "## J.A.R.V.I.S 11.0.0\n\nThis release makes JARVIS **faster**, gives it a **lighter offline fallback**, and adds new routines, skills import and a local API.\n\n### Install\n\n1. Download **JARVIS-Setup-11.0.0.exe** below and run it (no administrator rights needed). Installing over an older version keeps your settings, keys and memory.\n2. The installer sets up Python 3.12 if needed, then the dependencies (a few minutes, internet connection required).\n3. Start **J.A.R.V.I.S** from the Start menu or the desktop shortcut. No console window opens.\n4. On a first install, the first-launch assistant asks for your name, an AI key (Gemini is free: https://aistudio.google.com/apikey), checks your microphone and can record your voiceprint.\n\n> The installer is **not code-signed yet**. Windows SmartScreen may show \"Windows protected your PC\": click *More info*, then *Run anyway*.\n> SHA-256: `9ea05027610699d5062e5618f6e0e92a7e68ca9ca8f4621ab8ee2e1286b8bf54`\n\n### What's new\n\n- **Faster answers.** Questions (\"how many...\", \"which...\", \"when...\", \"how...\", \"who...\") no longer wait for an intent-routing call: \"how much is 7 times 8\" went from 4.7 s to 2.0 s. The memory search runs in the background (the voice and the HUD no longer freeze during it), and the connection to Gemini is opened at startup.\n- **Lighter offline fallback.** The local model is now `qwen3:4b-instruct` (2.5 GB, about 4 GB of VRAM, answers in 1 to 3.6 s) instead of 6.6 to 8 GB models. Your own Ollama models are never touched. Fixed: the local prompt (about 6,400 tokens) was refused by Ollama's default 4,096-token context; and saying \"disable local mode\" used to enable it.\n- **One-shot and interval routines.** \"In 2 hours, ...\", \"tomorrow at 8, ...\", \"on December 3 at 9:30, ...\" run once; \"every 2 hours, give me the weather\" repeats (5 minutes minimum).\n- **Voice engines with automatic fallback.** The speech engines are tried in order and a failing one is set aside for 30 s. ElevenLabs is supported as an optional engine (off by default, needs your own key).\n- **Long conversations are summarised** (old exchanges compressed in the background), so the history sent to the model stays small.\n- **Deep research with numbered sources.** The model cites [1], [2]... and a Sources card shows the links in the HUD; the voice does not read them.\n- **Skills import.** \"Import the skill https://github.com/...\" downloads an open-format skill (agentskills.io); it is never approved automatically and must be reviewed first.\n- **Local OpenAI-compatible API** (off by default, 127.0.0.1 only, bearer token, text only, no actions), so other tools on your PC can talk to JARVIS.\n- **Security.** A prompt-injection detector and isolation of external text, SSRF protection on fetched URLs, and a series of audit fixes (confirmations for sensitive actions, stricter handling of unrecognised voices).\n\nFull changes: `CHANGELOG.md`.\n",
+    "assets": [
+     {
+      "name": "JARVIS-Setup-11.0.0.exe",
+      "size": 6307709,
+      "dl": 1,
+      "sha": "9ea05027610699d5062e5618f6e0e92a7e68ca9ca8f4621ab8ee2e1286b8bf54",
+      "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v11.0.0/JARVIS-Setup-11.0.0.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v10.0.0",
+    "name": "J.A.R.V.I.S 10.0.0 — cylindre et recherche",
+    "date": "2026-11-02T17:18:34Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/tag/v10.0.0",
+    "body": "## J.A.R.V.I.S 10.0.0\n\nThis release rebuilds the interface around the **holographic cylinder**: everything JARVIS does now goes through the cylinder's search wheel.\n\n### Install\n\n1. Download **JARVIS-Setup-10.0.0.exe** below and run it (no administrator rights needed). Installing over an older version keeps your settings, keys and memory.\n2. The installer sets up Python 3.12 if needed, then the dependencies (a few minutes, internet connection required).\n3. Start **J.A.R.V.I.S** from the Start menu or the desktop shortcut. No console window opens.\n4. On a first install, the first-launch assistant asks for your name, an AI key (Gemini is free: https://aistudio.google.com/apikey), checks your microphone and can record your voiceprint.\n\n> The installer is **not code-signed yet**. Windows SmartScreen may show \"Windows protected your PC\": click *More info*, then *Run anyway*.\n> SHA-256: `a846541946c7d37481922ea9e83a868c7ef5f3184ce61510ee12260f81f9c65b`\n\n### What's new\n\n- **Everything goes through the cylinder search.** Every screen, panel and widget (settings, help, timer, website builder, project workshop, weather, music, calendar, winget, antivirus, vault...) now appears after the search wheel has found its category, and the backend tells the HUD which module it really ran, so the wheel stops on the right one.\n- **New wheel menu.** The bottom button carousel is replaced by a menu drawn on the cylinder itself, in the style of the search wheel (three groups that unfold in a cascade).\n- **New loading screen**, drawn on the real orb so the hand-over to the HUD is seamless. Vite and the heavy libraries now load in parallel, which shortens the start.\n- **The colour theme applies to the whole HUD**, not only the cylinder, and is kept when you reopen the settings.\n- **Virtual cursors removed** (HUD commands act directly); the OS autopilot keeps a pulsing frame as its visual marker. The CPU/RAM block is gone and the microphone moved to the bottom right.\n- **\"Iron Man mode\" removed** (it only set a flag nothing read).\n- **Deezer** playlists play from the most recently added track, and every Deezer command runs in the background without stealing focus.\n- **Fixes:** audio anti-aliasing filter warning at launch, dependency updates (pyasn1 0.6.5, pypdf 6.21.4) for published vulnerabilities.\n\nFull changes: `CHANGELOG.md`.\n",
+    "assets": [
+     {
+      "name": "JARVIS-Setup-10.0.0.exe",
+      "size": 6003528,
+      "dl": 9,
+      "sha": "a846541946c7d37481922ea9e83a868c7ef5f3184ce61510ee12260f81f9c65b",
+      "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v10.0.0/JARVIS-Setup-10.0.0.exe"
+     }
+    ]
+   },
    {
     "tag": "v9.5.2",
     "name": "J.A.R.V.I.S 9.5.2 — mises à jour",
@@ -14,7 +82,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "JARVIS-Setup-9.5.2.exe",
       "size": 5961654,
-      "dl": 1,
+      "dl": 2,
       "sha": "53f4b91b71527ed5064899cd411fb3bedcc52207ca733d115a0e58a07f9a6ef6",
       "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v9.5.2/JARVIS-Setup-9.5.2.exe"
      }
@@ -31,7 +99,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "JARVIS-Setup-9.5.1.exe",
       "size": 5959012,
-      "dl": 1,
+      "dl": 2,
       "sha": "1f6a7b01ba862a0726e109a4d6b884b48f40ff72ee85e916c253d28caa5b9421",
       "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v9.5.1/JARVIS-Setup-9.5.1.exe"
      }
@@ -48,7 +116,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "JARVIS-Setup-9.5.0.exe",
       "size": 5956452,
-      "dl": 3,
+      "dl": 4,
       "sha": "42cdac2654de7b27aece6a3783346c223251c2a8dfd749a5474aca448597e44b",
       "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v9.5.0/JARVIS-Setup-9.5.0.exe"
      }
@@ -56,6 +124,150 @@ window.DL_SNAPSHOT = {
    }
   ],
   "rl-tracker-suite": [
+   {
+    "tag": "v1.4.6",
+    "name": "RL Tracker Suite 1.4.6",
+    "date": "2026-11-12T08:50:09Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.6",
+    "body": "## RL Tracker Suite 1.4.6 - podium fix, faster lobby loading, cleaner ranks, past encounters\n\n### Fixes\n- **A won match is no longer counted as an abandon.** Quitting on the podium (or after the final whistle / an overtime goal) now keeps the win or loss instead of applying an abandon loss.\n- **Faster lobby loading.** A player's profile and match history load in one hidden window with no artificial gap, and the overlay stays up until profiles are loaded (the auto-hide timer waits for loading, up to 30 s, then keeps the overlay for the reading time).\n\n### LobbyTracker\n- **Only the useful ranks are shown**: the rank in the mode being played, the 1v1 rank of a 1v1 specialist, the best rank of a smurf, and the current and peak ranks of a former high-level player.\n- **Past encounters (new)**: every finished match is remembered locally (`encounters.json`, no network call). When you meet a player again, the overlay adds \"Already met: against him 2W-1L, with him 1W-0L, 3 d ago\". Abandoned matches are not counted.\n\n### Downloads\n- `RL Tracker Suite (portable).exe`: no installation needed.\n- `RL Tracker Suite_1.4.6_x64-setup.exe`: installer.\n\nNot yet verified in a long real session: the podium timing and the past-encounters line were tested with simulated events.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11326976,
+      "dl": 2,
+      "sha": "7a57644fbabd716f0e809064b086f699bc4186cb10aa8a504a08c3a4e0fa5a49",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.6/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.6_x64-setup.exe",
+      "size": 3610577,
+      "dl": 2,
+      "sha": "68a16428e3c52153d0c0b263a6cd2828385fcc6ef4a85ed932a9d125ab87b52f",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.6/RL.Tracker.Suite_1.4.6_x64-setup.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v1.4.5",
+    "name": "RL Tracker Suite 1.4.5",
+    "date": "2026-10-31T08:37:00Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.5",
+    "body": "## RL Tracker Suite 1.4.5 - fix: wrong account detected when the game starts\n\n### Problem fixed\nWhen Rocket League was launched on another account than the previous session (for example `neyor.` after `neyorbb`), the app stayed on the previous account: its MMR and its Tracker Network profile were the old ones.\n\n**Cause.** Right after the game starts, the old `Launch.log` is still in place for a few seconds before the game renames it to a backup and creates the new one. The app read the old log, found the previous session's account and stopped looking.\n\n### What changed\n- The app reads the start time of the Rocket League process and **ignores any `Launch.log` older than that start**: only the log of the current launch counts.\n- The account is now looked for **for up to one minute** instead of 15 seconds (a Steam account only appears in the log about 20 seconds after the game starts).\n- Quick fix without restarting: **Session Stats tab > Joueur & Compte > \"Détecter maintenant\"** re-reads the current log.\n\nThis release includes everything from 1.4.4 (fewer and better-timed calls to Tracker Network, short pause after a 429, profiles kept in cache) and 1.4.3 (overlay clipping fix).\n\n### Downloads\n- `RL Tracker Suite (portable).exe`: no installation needed.\n- `RL Tracker Suite_1.4.5_x64-setup.exe`: installer.\n\nVerified: the process start time matches Windows' own value, and a test reproduces the old-log / new-log case. Not yet confirmed during a full real account switch.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11270144,
+      "dl": 4,
+      "sha": "39cd19d5b7fd9b63f701b8a275f8123355277f8036f39aeac723d3870be8d5e6",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.5/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.5_x64-setup.exe",
+      "size": 3598931,
+      "dl": 2,
+      "sha": "eb22d76c893c59f9336cfaa373f6f557d8745ebc87e3577f1a576cc4fe87fb2c",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.5/RL.Tracker.Suite_1.4.5_x64-setup.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v1.4.4",
+    "name": "RL Tracker Suite 1.4.4",
+    "date": "2026-10-30T18:21:04Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.4",
+    "body": "## RL Tracker Suite 1.4.4 - fix: lobby profiles \"indisponible\", wrong MMR after an account switch, 429 pause\n\n### Problems fixed\n- **Every player \"profil indisponible\" when a game starts (LobbyTracker).** After an HTTP 429 from Tracker Network, all lookups stopped for 10 minutes, so the whole lobby failed at once. A failed lookup was also remembered for 10 minutes for the wrong reasons (the real error was hidden by the fallback source), so players stayed unavailable in the next matches. Profiles fetched while the lobby was being replaced at match start were thrown away instead of being cached.\n- **Wrong MMR with a freshly detected account (for example 855 instead of 1500).** The first synchronization failed with a 429 and nothing retried it, so the starting value stayed on screen.\n- **The Synchroniser button showed the \"pause\" error.** The button is never delayed by the pause anymore.\n\n### What changed\n- **Calls to Tracker Network only when needed**: once when the game starts (your MMR, retried after 30 s, 1 min and 2 min if the site is busy), on each click on *Synchroniser*, once per lobby player (then cached for 24 h), and once after each finished match. No more call when the app opens, none at the start of a match for a mode change, and one instead of two after a match.\n- **Short, growing pause for automatic lookups only** after a 429: 30 s, then 1, 2, 4 and 5 min at most (it was 10 min for everything).\n- **Real HTTP status** read from the page instead of guessing from its text.\n- **Only a profile that is really not found or private is set aside** (10 minutes). A block, a timeout or a network error never condemns a player.\n- **Every failure is written to the journal** with its real reason (`%APPDATA%\\fr.rltrackersuite.app\\journal.txt`).\n- Lobby lookups are spaced by 2 s instead of 3 s.\n\n### If you are still blocked\nTracker Network rate-limits the connection after too many requests (the older versions sent hundreds per lookup). Close the app and wait a few hours for the block to lift, then start 1.4.4.\n\n### Downloads\n- `RL Tracker Suite (portable).exe`: no installation needed.\n- `RL Tracker Suite_1.4.4_x64-setup.exe`: installer.\n\nNot yet confirmed against an unblocked Tracker Network during a real match.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11269120,
+      "dl": 2,
+      "sha": "e344667e2a31a24c493d15005234688972978eb9006584103717f15a09ca893b",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.4/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.4_x64-setup.exe",
+      "size": 3597732,
+      "dl": 1,
+      "sha": "5238599d46023081b0a99eeb4898afc1a71632512f67a4340977be2f39662681",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.4/RL.Tracker.Suite_1.4.4_x64-setup.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v1.4.3",
+    "name": "RL Tracker Suite 1.4.3",
+    "date": "2026-10-29T22:38:19Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.3",
+    "body": "## RL Tracker Suite 1.4.3 - fix: overlay clipped (cut on the right and bottom)\n\n**Problem fixed.** The overlay could appear cut off on the right and at the bottom (values hidden), not only at launch. It happens with several screens when they use different display scaling (for example 100 % and 150 %): the overlay window is parked off-screen on another screen, and Windows shrank it in proportion (by a third at 150 %) when it was moved back to the main screen.\n\n### What changed\n- The overlay window is moved to the right screen first, then sized in physical pixels, then checked in place.\n- The window is no longer resized while it is parked off-screen.\n- The lobby overlay shares the same code and gets the same fix.\n\nMeasured on a multi-screen setup: window 270x198 for a 270x198 content, on 4 consecutive displays (before: 180x132 for the same content).\n\nThis release also keeps the 1.4.2 protection against Tracker Network rate limiting (one request per lookup, automatic 10-minute pause on HTTP 429).\n\n### Downloads\n- `RL Tracker Suite (portable).exe`: no installation needed.\n- `RL Tracker Suite_1.4.3_x64-setup.exe`: installer.\n\nNot yet tested during a real Rocket League match.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11270144,
+      "dl": 2,
+      "sha": "132ff5fd120c968bc05e7f98018aa06a31d0cc523e7808e310decbdd9019c817",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.3/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.3_x64-setup.exe",
+      "size": 3597709,
+      "dl": 1,
+      "sha": "f33afb8973ee1f4b25b0a4ea7c7a3dd837d3bc8fe1143d6eec71e38cf6466f48",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.3/RL.Tracker.Suite_1.4.3_x64-setup.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v1.4.2",
+    "name": "RL Tracker Suite 1.4.2",
+    "date": "2026-10-29T22:06:28Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.2",
+    "body": "## RL Tracker Suite 1.4.2 - fix: Tracker Network errors (HTTP 400 / 429)\n\n**Problem fixed.** With 1.4.0 and 1.4.1, a lookup could send hundreds of requests to Tracker Network in a few seconds (retry loops in the hidden browser window). Tracker Network then rate-limits your connection (HTTP 429), and its own site can return errors such as 400 when you search for a name, even in your normal browser.\n\n### What changed\n- **One request per lookup**: the hidden window opens the API address once and reads the answer. No more retry loops.\n- **Lookups run one at a time**, with at least 2.5 s between them (3 s between lobby players).\n- **Automatic pause**: if Tracker Network answers 429, every lookup stops for 10 minutes instead of making it worse.\n- **Fewer useless requests**: anonymous names (\"Player 3\") are not looked up, and a player whose lookup just failed is not asked again for 10 minutes.\n- **Names are fully URL-encoded** (spaces, accents, `/`, `?`, `&`, `%`, `#`).\n\n### If you are already blocked\nClose the app for a while (it can take from several minutes to a few hours for Tracker Network to lift the block), then start the new version. The app reports \"recherches en pause\" instead of retrying.\n\n### Downloads\n- `RL Tracker Suite (portable).exe`: no installation needed.\n- `RL Tracker Suite_1.4.2_x64-setup.exe`: installer.\n\nNot yet verified against a live, unblocked Tracker Network (the connection was rate-limited during testing); the pause logic was verified.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11270144,
+      "dl": 2,
+      "sha": "95cb417671b481b732b2c9585c090dbef2e0821fb7713eadd95353d90390ecfa",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.2/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.2_x64-setup.exe",
+      "size": 3597661,
+      "dl": 3,
+      "sha": "7fc3912c3cf670163e5e749b3c5339b2a1dd4026903eb371a787f5039c712ee4",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.2/RL.Tracker.Suite_1.4.2_x64-setup.exe"
+     }
+    ]
+   },
+   {
+    "tag": "v1.4.1",
+    "name": "RL Tracker Suite 1.4.1",
+    "date": "2026-10-29T18:24:06Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/tag/v1.4.1",
+    "body": "## Correctifs & Améliorations (v1.4.1)\n\n### 🖥️ Overlay\n- **Correction du rognage du widget au lancement du jeu** :\n  - Remplacement de la transformation CSS `scale` par la propriété `zoom` (avec repli sur scale) pour éliminer les troncatures graphiques à l'intérieur du conteneur en `overflow: hidden`.\n  - Augmentation de la largeur minimale (`.theme-card` à 270px) et espacement aéré des lignes (`gap: 16px`).\n  - Augmentation des marges de confort lors du redimensionnement dynamique de la fenêtre Tauri (+56px de largeur, +48px de hauteur) afin de compenser les bordures invisibles Windows (`WS_THICKFRAME`).\n\n### 🎮 Détection des joueurs Steam & Tracker Network\n- **Support des pseudonymes contenant des espaces** : correction de l'analyseur des logs Rocket League (`Launch.log`) qui tronquait auparavant les pseudonymes avec des espaces (ex: `Epsilon Drxzm` était tronqué à `Epsilon`).\n- **Résolution Tracker Network par SteamID64** : pour les profils Steam, la synchronisation Tracker Network utilise désormais automatiquement l'identifiant numérique Steam64 (17 chiffres) pour une redirection et une récupération fiables des statistiques.\n",
+    "assets": [
+     {
+      "name": "RL.Tracker.Suite.portable.exe",
+      "size": 11253248,
+      "dl": 5,
+      "sha": "32a02f25e701ce31cbfa60d3a575a1ad339cd54590b3f715a4c5f22a396c247c",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.1/RL.Tracker.Suite.portable.exe"
+     },
+     {
+      "name": "RL.Tracker.Suite_1.4.1_x64-setup.exe",
+      "size": 3588911,
+      "dl": 4,
+      "sha": "1d47af2e52f815e84ef3526134a86fc15a32350e8659dfed981db1e3e65579a4",
+      "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.1/RL.Tracker.Suite_1.4.1_x64-setup.exe"
+     }
+    ]
+   },
    {
     "tag": "v1.4.0",
     "name": "RL Tracker Suite 1.4.0",
@@ -67,14 +279,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "RL.Tracker.Suite.portable.exe",
       "size": 11256832,
-      "dl": 3,
+      "dl": 4,
       "sha": "33a380a15e472b6c74d883a38df78fe609418ee93dfdfa7d858a80bc2e7ab058",
       "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.0/RL.Tracker.Suite.portable.exe"
      },
      {
       "name": "RL.Tracker.Suite_1.4.0_x64-setup.exe",
       "size": 3592614,
-      "dl": 1,
+      "dl": 3,
       "sha": "48646c30e45d02a1034b39cf739f7ab6063b6b20cd25da3816e361bb580f2c7d",
       "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.0/RL.Tracker.Suite_1.4.0_x64-setup.exe"
      }
@@ -345,7 +557,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "modshift-0.1.1.tgz",
       "size": 108932,
-      "dl": 1,
+      "dl": 2,
       "sha": "44aaae88869235484bb07d16bcfcc1f8e792728ad1a317783e2056253d37abc8",
       "url": "https://github.com/NeyorDEV/modshift/releases/download/v0.1.1/modshift-0.1.1.tgz"
      }
@@ -370,6 +582,24 @@ window.DL_SNAPSHOT = {
    }
   ],
   "RentPark": [],
-  "Dragon-Mounts-Legacy": []
+  "Dragon-Mounts-Legacy": [
+   {
+    "tag": "v26.2",
+    "name": "Dragon Mounts: Legacy 26.2 (Fabric)",
+    "date": "2026-11-25T08:52:08Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/Dragon-Mounts-Legacy/releases/tag/v26.2",
+    "body": "## Dragon Mounts: Legacy 26.2 (Fabric)\n\nFirst release of this fork: the mod is ported from Forge 1.21 to **Fabric** on **Minecraft 26.2**.\n\n### Install\n\n1. Install [Fabric Loader](https://fabricmc.net/use/) **0.19.2** or newer for Minecraft 26.2.\n2. Put [Fabric API](https://modrinth.com/mod/fabric-api) in your `mods` folder.\n3. Download **dragonmounts-fabric-26.2.jar** below and drop it into `mods`.\n\n> SHA-256: `9e83e832351cd908999c9d7143094ecf9619810ec3dd3de49afcf53243f4751b`\n\n### What's new\n\n- **Fabric port for Minecraft 26.2**: `fabric.mod.json` and an access widener replace the Forge setup; rendering moved to the new render-state pipeline.\n- **Two new breeds: Amethyst and Sculk.**\n- Fixed a world-creation crash caused by an eager tag lookup and a network codec mismatch on the dragon breed registry.\n- Fixed constant animation jitter, wrong egg / spawn egg names, the spawn egg icon shape and depth-fighting on the saddle layer.\n\nOriginal mod by Kay9Unit: https://github.com/Kay9Unit/Dragon-Mounts-Legacy\n",
+    "assets": [
+     {
+      "name": "dragonmounts-fabric-26.2.jar",
+      "size": 604898,
+      "dl": 0,
+      "sha": "9e83e832351cd908999c9d7143094ecf9619810ec3dd3de49afcf53243f4751b",
+      "url": "https://github.com/NeyorDEV/Dragon-Mounts-Legacy/releases/download/v26.2/dragonmounts-fabric-26.2.jar"
+     }
+    ]
+   }
+  ]
  }
 };

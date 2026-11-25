@@ -487,6 +487,11 @@ details[open] > summary::after {
   font-size: 0.72rem;
   color: var(--muted);
 }
+.hist summary .vdl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--ink);
+}
 .vbody {
   display: grid;
   gap: 0.5rem;

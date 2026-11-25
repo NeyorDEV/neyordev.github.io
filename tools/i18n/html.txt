@@ -224,7 +224,7 @@ Projet d'équipe ||| Team project
 Plateforme de gestion de location de voitures : site web, API, administration Blazor et application Android. ||| Car rental management platform: website, API, Blazor administration and Android app.
 Dragon Mounts: Legacy ||| =
 Fork · mod Minecraft ||| Fork · Minecraft mod
-Fork du mod Minecraft Dragon Mounts: Legacy, migré vers de nouvelles versions. ||| Fork of the Minecraft mod Dragon Mounts: Legacy, migrated to newer versions.
+Fork du mod Minecraft Dragon Mounts: Legacy, porté sur Fabric pour Minecraft 26.2, avec deux nouvelles races : Améthyste et Sculk. ||| Fork of the Minecraft mod Dragon Mounts: Legacy, ported to Fabric for Minecraft 26.2, with two new breeds: Amethyst and Sculk.
 Aucun projet ne correspond à ta recherche. ||| No project matches your search.
 02 — Activité ||| 02 — Activity
 Radar des releases ||| Release radar
@@ -261,3 +261,5 @@ Rechercher un projet… ||| Search for a project…
 Filtrer par type ||| Filter by type
 Chronologie des releases ||| Release timeline
 Téléchargements par projet ||| Downloads by project
+Minecraft 26.2 ||| =
+Fabric ||| =

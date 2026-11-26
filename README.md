@@ -8,6 +8,7 @@ Site statique (HTML, CSS, JavaScript) hébergé sur GitHub Pages.
 - `competences.html` : stack, projets récents et présentation courte
 - `apropos.html` : parcours, compétences en carrousel, centres d'intérêt animés
 - `cv.html` : CV imprimable (bouton « Télécharger en PDF » = impression navigateur)
+- `jarvis.html`, `rl-tracker-suite.html`, `rentpark.html`, `ghostmesh.html`, `modshift.html` : fiches projets
 - `downloads.html` : téléchargements (releases GitHub en direct, SHA-256, historique, radar)
 - `404.html` : page d'erreur (suggère la page la plus proche) · `robots.txt` et `sitemap.xml` : référencement
 
@@ -43,3 +44,6 @@ Tous droits réservés (voir `LICENSE`). Les mentions légales du site sont dans
 
 ## Cache des fichiers CSS/JS
 `tools/version_assets.py` ajoute `?v=empreinte` aux liens CSS/JS de chaque page, pour que les navigateurs chargent la nouvelle version au lieu de garder l'ancienne en cache. La GitHub Action le lance à chaque déploiement, ainsi que `tools/build_i18n.py` : inutile de les lancer à la main avant de pousser.
+
+## Déploiement
+La GitHub Action `.github/workflows/deploy.yml` publie le site à chaque push sur `main` et toutes les heures. Elle génère `data/github.json`, le dictionnaire anglais, les versions des fichiers CSS/JS, les dates de `sitemap.xml` (`tools/update_sitemap.py`, date du dernier commit de chaque page) et les PDF du CV (`cv-fr.pdf`, `cv-en.pdf`, `cv-fr-dark.pdf`, `cv-en-dark.pdf`, imprimés par Chrome). Les images d'aperçu de partage des fiches projets sont dans `images/og/` (1200×630).

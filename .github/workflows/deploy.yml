@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # historique complet : dates du sitemap
 
       - uses: actions/setup-python@v5
         with:
@@ -36,10 +38,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python tools/update-downloads-data.py
 
-      - name: Dictionnaire anglais et versions des fichiers CSS/JS
+      - name: Dictionnaire anglais, versions des fichiers CSS/JS et dates du sitemap
         run: |
           python tools/build_i18n.py
           python tools/version_assets.py
+          python tools/update_sitemap.py
 
       - name: CV en PDF (français, anglais ; fond blanc, noir)
         run: |

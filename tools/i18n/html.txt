@@ -274,3 +274,6 @@ Fork ||| =
 Télécharger → ||| Download →
 COMMITS <b data-commits>—</b> ||| =
 Projets phares ||| Featured projects
+Langues ||| Languages
+Français : langue maternelle ||| French: native
+Anglais : B2 / C1 (Cambridge) ||| English: B2 / C1 (Cambridge)

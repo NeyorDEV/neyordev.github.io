@@ -182,9 +182,9 @@ document.addEventListener("repos", (e) => {
     home: "index.html",
   };
   const SKILLS = {
-    Langages: ["Python", "Java", "Kotlin", "C", "C++", "C#", "PHP", "Ruby", "Rust", "TypeScript", "JavaScript", "Shell", "HTML / CSS"],
-    Frameworks: ["Symfony", "Angular", "Vue.js", "Blazor", "JavaFX", "Tauri"],
-    "Outils & données": ["PostgreSQL", "MongoDB", "Docker", "Git & GitHub"],
+    Langages: ["Python", "Java", "Kotlin", "C", "C++", "C#", "PHP", "Ruby", "Rust", "TypeScript", "JavaScript", "Shell", "HTML / CSS", "SQL"],
+    Frameworks: ["Symfony", "Angular", "Vue.js", "Blazor", ".NET", "JavaFX", "Tauri", "Fabric", "Three.js", "Jetpack Compose"],
+    "Outils & données": ["PostgreSQL", "MySQL", "MongoDB", "Docker", "Gradle", "Node.js / npm", "Git & GitHub", "GitHub Actions (CI/CD)", "API d'IA"],
   };
   const PROJECTS = [
     { id: "jarvis", aliases: ["jarvis", "j.a.r.v.i.s"], repo: "J.A.R.V.I.S", name: "J.A.R.V.I.S",
@@ -208,9 +208,9 @@ document.addEventListener("repos", (e) => {
       short: t("location de voitures (PHP, Blazor, Kotlin)"),
       techs: "PHP Blazor Kotlin MySQL voiture location team projet d'équipe" },
     { id: "dragon", aliases: ["dragon", "dragonmounts", "dragon-mounts-legacy"], repo: "Dragon-Mounts-Legacy", name: "Dragon Mounts: Legacy",
-      desc: t("Fork du mod Minecraft Dragon Mounts: Legacy, migré vers de nouvelles versions."),
-      short: t("fork du mod Minecraft (Java)"),
-      techs: "Java Minecraft mod fork" },
+      desc: t("Fork du mod Minecraft de Kay9Unit, porté de Forge 1.21 vers Fabric pour Minecraft 26.2, avec deux nouvelles races : Améthyste et Sculk."),
+      short: t("mod Minecraft porté sur Fabric (Java)"),
+      techs: "Java Minecraft mod fork Fabric Forge Gradle dragons" },
   ];
   const REL_REPOS = PROJECTS.map((p) => p.repo);
 

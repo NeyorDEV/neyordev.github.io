@@ -205,3 +205,14 @@ sur le fork ||| on the fork
 {name} : voir les téléchargements ||| {name}: see downloads
 Données GitHub mises à jour {when} · {rel} · {dl} au total. ||| GitHub data updated {when} · {rel} · {dl} in total.
 Données : GitHub (mise à jour horaire) ||| Data: GitHub (hourly update)
+Fork du mod Minecraft de Kay9Unit, porté de Forge 1.21 vers Fabric pour Minecraft 26.2, avec deux nouvelles races : Améthyste et Sculk. ||| Fork of Kay9Unit's Minecraft mod, ported from Forge 1.21 to Fabric for Minecraft 26.2, with two new breeds: Amethyst and Sculk.
+mod Minecraft porté sur Fabric (Java) ||| Minecraft mod ported to Fabric (Java)
+SQL ||| =
+.NET ||| =
+Fabric ||| =
+Three.js ||| =
+Jetpack Compose ||| =
+MySQL ||| =
+Gradle ||| =
+Node.js / npm ||| =
+GitHub Actions (CI/CD) ||| =

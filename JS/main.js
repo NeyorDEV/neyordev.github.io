@@ -6,7 +6,7 @@ const FALLBACK = [
   { name: "ghostmesh", description: "Decentralized P2P encrypted mesh overlay network in Rust. Zero central relay, Noise Protocol (Curve25519) and UDP hole-punching NAT traversal.", language: "Rust", stargazers_count: 1, fork: false, pushed_at: "2026-10-27" },
   { name: "rl-tracker-suite", description: "Session stats and pre-match lobby radar for Rocket League in one app. MMR tracking, smurf detection, transparent overlays, OBS. EAC-safe: no injection. Tauri + Rust.", language: "Rust", stargazers_count: 1, fork: false, pushed_at: "2026-10-27" },
   { name: "RentPark", description: "Car rental management platform built with PHP, Blazor, Kotlin, and MySQL.", language: "PHP", stargazers_count: 0, fork: false, pushed_at: "2026-09-15" },
-  { name: "Dragon-Mounts-Legacy", description: "Repository for the Dragon Mounts: Legacy Minecraft mod.", language: "Java", stargazers_count: 0, fork: true, pushed_at: "2026-09-29" },
+  { name: "Dragon-Mounts-Legacy", description: "Fork of the Dragon Mounts: Legacy Minecraft mod, ported to Fabric for Minecraft 26.2.", language: "Java", stargazers_count: 0, fork: true, pushed_at: "2026-09-29" },
 ];
 
 const $ = (sel) => document.querySelector(sel);

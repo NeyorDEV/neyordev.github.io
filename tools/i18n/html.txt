@@ -161,10 +161,15 @@ Python, Java, Kotlin ||| =
 C, C++, C# ||| =
 PHP, Ruby, Rust ||| =
 TypeScript, JavaScript ||| =
-Shell, HTML / CSS ||| =
+Shell, HTML / CSS, SQL ||| =
 Symfony, Angular, Vue.js ||| =
-Blazor, JavaFX, Tauri ||| =
-PostgreSQL, MongoDB ||| =
+Blazor, .NET, JavaFX ||| =
+Tauri, Fabric, Three.js ||| =
+Jetpack Compose ||| =
+PostgreSQL, MySQL, MongoDB ||| =
+Docker, Gradle, Node.js / npm ||| =
+GitHub Actions (CI/CD) ||| =
+API d'IA ||| AI APIs
 Permis ||| Driving licence
 Permis B / A2 ||| Driving licence B / A2
 Expérience ||| Experience

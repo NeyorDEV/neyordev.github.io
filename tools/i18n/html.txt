@@ -129,7 +129,7 @@ Baccalauréat général ||| French general baccalauréat
 Spécialités Mathématiques et Anglais, lycée Léonard de Vinci à Monistrol-sur-Loire. ||| Maths and English specialisms, Léonard de Vinci high school in Monistrol-sur-Loire.
 02 — Compétences ||| 02 — Skills
 Stack ||| Tech stack
-Langages ||| Languages
+Langages ||| Programming languages
 Frameworks ||| =
 Outils & données ||| Tools & data
 Git & GitHub ||| =
@@ -277,3 +277,4 @@ Projets phares ||| Featured projects
 Langues ||| Languages
 Français : langue maternelle ||| French: native
 Anglais : B2 / C1 (Cambridge) ||| English: B2 / C1 (Cambridge)
+Choisis le style, puis télécharge le CV au format PDF (A4, une page). ||| Pick a style, then download the CV as a PDF (A4, one page).

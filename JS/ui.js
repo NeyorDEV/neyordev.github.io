@@ -662,14 +662,17 @@
     }
   }
 
-  /* ---------- CV : impression directe ---------- */
+  /* ---------- CV : PDF généré par la GitHub Action (cv-fr.pdf, cv-en-dark.pdf…), sinon impression ---------- */
+  const params = new URLSearchParams(location.search);
+  let cvStyle = "light";
   const styleBtns = $$("[data-cvstyle]");
   if (styleBtns.length) {
-    let saved = "light";
+    let saved = params.get("style") || "light";
     try {
-      saved = localStorage.getItem("cvstyle") || "light";
+      if (!params.get("style")) saved = localStorage.getItem("cvstyle") || "light";
     } catch {}
     const apply = (v) => {
+      cvStyle = v;
       root.classList.toggle("print-dark", v === "dark");
       styleBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.cvstyle === v)));
       try {
@@ -679,9 +682,24 @@
     styleBtns.forEach((b) => b.addEventListener("click", () => apply(b.dataset.cvstyle)));
     apply(saved);
   }
+  const cvPdf = async () => {
+    const url = `cv-${I18N.lang}${cvStyle === "dark" ? "-dark" : ""}.pdf`;
+    try {
+      const res = await fetch(url, { method: "HEAD", cache: "no-cache" });
+      if (!res.ok) throw new Error(res.status);
+      const a = el("a");
+      a.href = url;
+      a.download = `CV-Mylan-Perrier-${I18N.lang.toUpperCase()}.pdf`;
+      document.body.append(a);
+      a.click();
+      a.remove();
+    } catch {
+      print(); /* PDF absent (aperçu local) : impression du navigateur */
+    }
+  };
   const printBtn = $("[data-print]");
-  if (printBtn) printBtn.addEventListener("click", () => print());
-  if (location.search.includes("print") && $(".cv")) setTimeout(() => print(), 700);
+  if (printBtn) printBtn.addEventListener("click", cvPdf);
+  if (params.has("print") && $(".cv")) setTimeout(cvPdf, 700);
 })();
 
 /* Survol des cartes projets pendant le défilement : le navigateur ne recalcule :hover qu'au mouvement de la souris */

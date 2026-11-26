@@ -7,6 +7,8 @@
   try {
     lang = localStorage.getItem("lang") || ((navigator.language || "fr").slice(0, 2) === "fr" ? "fr" : "en");
   } catch {}
+  const forced = new URLSearchParams(location.search).get("lang");
+  if (forced) lang = forced;
   if (lang !== "fr" && lang !== "en") lang = "fr";
   const EN = window.I18N_EN || {};
   const locale = lang === "en" ? "en-GB" : "fr-FR";

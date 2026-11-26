@@ -185,7 +185,7 @@ Assistant vocal avec authentification biométrique, interface 3D et domotique pi
 Outil de migration de modpacks Minecraft vers d'autres versions ou mod loaders (TypeScript). ||| Tool to migrate Minecraft modpacks to other versions or mod loaders (TypeScript).
 Plateforme de gestion de location de voitures (PHP, Blazor, Kotlin, MySQL). ||| Car rental management platform (PHP, Blazor, Kotlin, MySQL).
 Réalisation de mods Minecraft ||| Minecraft mod development
-Migration du mod Dragon Mounts: Legacy et d'autres mods en Java. ||| Migration of the Dragon Mounts: Legacy mod and other Java mods.
+Création et portage de mods en Java (Fabric), dont Dragon Mounts: Legacy. ||| Creating and porting Java mods (Fabric), including Dragon Mounts: Legacy.
 Certifications ||| =
 Cambridge B2 / C1 ||| =
 Certifications d'anglais. ||| English certifications.

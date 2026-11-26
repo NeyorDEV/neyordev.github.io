@@ -202,7 +202,7 @@ window.I18N_EN = {
  "Outil de migration de modpacks Minecraft vers d'autres versions ou mod loaders (TypeScript).": "Tool to migrate Minecraft modpacks to other versions or mod loaders (TypeScript).",
  "Plateforme de gestion de location de voitures (PHP, Blazor, Kotlin, MySQL).": "Car rental management platform (PHP, Blazor, Kotlin, MySQL).",
  "Réalisation de mods Minecraft": "Minecraft mod development",
- "Migration du mod Dragon Mounts: Legacy et d'autres mods en Java.": "Migration of the Dragon Mounts: Legacy mod and other Java mods.",
+ "Création et portage de mods en Java (Fabric), dont Dragon Mounts: Legacy.": "Creating and porting Java mods (Fabric), including Dragon Mounts: Legacy.",
  "Certifications d'anglais.": "English certifications.",
  "Étudiant en BUT Informatique<br>Alternant chez Electronique du Mazet": "BUT Computer Science student<br>Apprentice at Electronique du Mazet",
  "CV de Mylan PERRIER : formation, expérience, compétences et projets.": "Mylan PERRIER's CV: education, experience, skills and projects.",

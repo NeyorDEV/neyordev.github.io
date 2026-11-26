@@ -47,8 +47,9 @@ jobs:
           sleep 2
           for l in fr en; do
             for s in light dark; do
-              out="cv-$l$([ "$s" = dark ] && echo -dark).pdf"
-              google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer                 --virtual-time-budget=8000 --print-to-pdf="$out" "http://127.0.0.1:8765/cv.html?lang=$l&style=$s"
+              out="cv-$l.pdf"
+              if [ "$s" = dark ]; then out="cv-$l-dark.pdf"; fi
+              google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf="$out" "http://127.0.0.1:8765/cv.html?lang=$l&style=$s"
               test -s "$out"
             done
           done

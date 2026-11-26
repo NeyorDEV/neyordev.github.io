@@ -200,7 +200,7 @@ window.I18N_EN = {
  "Assistant vocal avec authentification biométrique, interface 3D et domotique pilotée par IA (Python).": "Voice assistant with biometric authentication, a 3D interface and AI-driven home automation (Python).",
  "Outil de migration de modpacks Minecraft vers d'autres versions ou mod loaders (TypeScript).": "Tool to migrate Minecraft modpacks to other versions or mod loaders (TypeScript).",
  "Plateforme de gestion de location de voitures (PHP, Blazor, Kotlin, MySQL).": "Car rental management platform (PHP, Blazor, Kotlin, MySQL).",
- "Migration de mods Minecraft": "Minecraft mod migration",
+ "Réalisation de mods Minecraft": "Minecraft mod development",
  "Migration du mod Dragon Mounts: Legacy et d'autres mods en Java.": "Migration of the Dragon Mounts: Legacy mod and other Java mods.",
  "Certifications d'anglais.": "English certifications.",
  "Étudiant en BUT Informatique<br>Alternant chez Electronique du Mazet": "BUT Computer Science student<br>Apprentice at Electronique du Mazet",

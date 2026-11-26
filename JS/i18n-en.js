@@ -204,7 +204,7 @@ window.I18N_EN = {
  "Réalisation de mods Minecraft": "Minecraft mod development",
  "Création et portage de mods en Java (Fabric), dont Dragon Mounts: Legacy.": "Creating and porting Java mods (Fabric), including Dragon Mounts: Legacy.",
  "Certifications d'anglais.": "English certifications.",
- "Étudiant en BUT Informatique<br>Alternant chez Electronique du Mazet": "BUT Computer Science student<br>Apprentice at Electronique du Mazet",
+ "<strong>Développeur full-stack, logiciel et IA</strong><br>Étudiant en BUT Informatique<br>Alternant chez Electronique du Mazet": "<strong>Full-stack, software and AI developer</strong><br>BUT Computer Science student<br>Apprentice at Electronique du Mazet",
  "CV de Mylan PERRIER : formation, expérience, compétences et projets.": "Mylan PERRIER's CV: education, experience, skills and projects.",
  "Style du PDF": "PDF style",
  "Téléchargements — neyor": "Downloads — neyor",

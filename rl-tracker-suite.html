@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RL Tracker Suite : statistiques de session et radar de lobby pour Rocket League, en Rust et Tauri, sans injection et compatible Easy Anti-Cheat." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://neyordev.github.io/rl-tracker-suite.html" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RL Tracker Suite, fiche projet — neyor" />
+    <meta property="og:description" content="RL Tracker Suite : statistiques de session et radar de lobby pour Rocket League, en Rust et Tauri, sans injection et compatible Easy Anti-Cheat." />
+    <meta property="og:url" content="https://neyordev.github.io/rl-tracker-suite.html" />
+    <meta property="og:image" content="https://neyordev.github.io/images/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>RL Tracker Suite, fiche projet — neyor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <script>(function(d){d.classList.add("js");var L="fr";try{L=localStorage.getItem("lang")||((navigator.language||"fr").slice(0,2)==="fr"?"fr":"en")}catch(e){}if(L==="en")d.classList.add("i18n-wait");try{if(localStorage.getItem("calm")==="1")d.classList.add("calm");else if(sessionStorage.getItem("wipe")==="1")d.classList.add("wipe");else if(!sessionStorage.getItem("boot"))d.classList.add("boot")}catch(e){}})(document.documentElement)</script>
+    <link rel="stylesheet" href="CSS/style.css?v=3793f85a" />
+    <link rel="stylesheet" href="CSS/ui.css?v=0ad33e33" />
+    <script src="JS/i18n-en.js?v=7a6c7c8d" defer></script>
+    <script src="JS/i18n.js?v=e0e6ab28" defer></script>
+    <script src="JS/main.js?v=e83daba2" defer></script>
+    <script src="JS/ui.js?v=e5c80d6a" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="index.html" class="brand">neyor</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="projets.html" aria-current="page">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="apropos.html">À propos</a>
+        <a href="cv.html">CV</a>
+        <a href="downloads.html">Téléchargements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="pagehead">
+        <div class="hero-fx" aria-hidden="true"><i></i><i></i></div>
+        <div class="wrap">
+          <p class="eyebrow rise">Fiche projet</p>
+          <h1 data-split>RL Tracker Suite</h1>
+          <p class="lede rise">Statistiques de session et radar de lobby pour Rocket League, dans une seule application. Aucune injection : compatible Easy Anti-Cheat.</p>
+          <div class="cta rise">
+            <a class="btn primary" href="downloads.html#dl-rts">Télécharger RL Tracker Suite</a>
+            <a class="btn" href="https://github.com/neyordev/rl-tracker-suite" target="_blank" rel="noopener">Voir le code ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">01 — Principe</p>
+            <h2>Ce que fait RL Tracker Suite</h2>
+          </header>
+          <p class="doc-text reveal">RL Tracker Suite réunit deux de mes projets, RL Session Stats et LobbyTracker, qui lisaient tous les deux la Stats API officielle de Rocket League. La fusion garde une seule version de ce qu'ils partageaient : connexion à l'API, détection du jeu, overlays et serveur OBS.</p>
+          <p class="doc-note reveal">Aucune injection ni lecture de la mémoire du jeu : l'application lit seulement la Stats API locale et le journal du jeu, et ses overlays sont des fenêtres transparentes séparées.</p>
+          <figure class="doc-shot reveal">
+            <img src="images/projects/rl-tracker-suite.webp" alt="Les réglages de l&#x27;application : un onglet pour les statistiques de session, un pour le radar de lobby." loading="lazy" decoding="async" />
+            <figcaption>Les réglages de l'application : un onglet pour les statistiques de session, un pour le radar de lobby.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">02 — Fonctionnalités</p>
+            <h2>Ce qu'il sait faire</h2>
+          </header>
+          <div class="doc-cards" data-stagger>
+            <article class="doc-card reveal"><h3>Suivi de session</h3><p>MMR en direct, victoires, défaites, série, objectif de session et écart de MMR après chaque match.</p></article>
+            <article class="doc-card reveal"><h3>Historique</h3><p>Navigation jour par jour, courbe de MMR interactive, détail match par match et statistiques par mode de jeu.</p></article>
+            <article class="doc-card reveal"><h3>Radar de lobby</h3><p>Chaque joueur du match est recherché sur Tracker Network, adversaires d'abord, avec un cache SQLite de 24 heures.</p></article>
+            <article class="doc-card reveal"><h3>Badges</h3><p>Détection de smurfs (Smurf Index de 0 à 100), spécialistes du 1v1, gardiens, séries de défaites et anciens hauts rangs.</p></article>
+            <article class="doc-card reveal"><h3>Rencontres passées</h3><p>Un joueur déjà croisé est signalé, avec ton bilan contre lui et avec lui.</p></article>
+            <article class="doc-card reveal"><h3>Overlays sur mesure</h3><p>Plusieurs dispositions, couleurs, opacité, échelle, position sur une grille ou au glisser-déposer, masquage au coup d'envoi.</p></article>
+            <article class="doc-card reveal"><h3>OBS</h3><p>Les mêmes overlays en source navigateur, et des fichiers texte (MMR, victoires, série) pour les scènes.</p></article>
+            <article class="doc-card reveal"><h3>Plusieurs comptes</h3><p>Le compte Epic ou Steam est détecté à chaque lancement du jeu, et chacun garde sa propre session.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">03 — Technique</p>
+            <h2>Sous le capot</h2>
+          </header>
+          <dl class="doc-list reveal">
+            <div><dt>Application</dt><dd>Rust et Tauri v2, interface en HTML et JavaScript.</dd></div>
+            <div><dt>Architecture</dt><dd>Un espace de travail Cargo : analyse des événements, cache SQLite, heuristiques de smurf, accès à Tracker Network et moteur de lobby dans des crates séparées.</dd></div>
+            <div><dt>Données du jeu</dt><dd>Stats API locale de Rocket League (TCP 127.0.0.1:49123) et journal Launch.log, en lecture seule.</dd></div>
+            <div><dt>Tracker Network</dt><dd>Lu depuis une fenêtre WebView2 cachée qui charge la page publique comme un vrai navigateur ; un jeton d'API officiel peut servir de secours.</dd></div>
+            <div><dt>Requêtes limitées</dt><dd>Une recherche à la fois, profils en cache, et attente progressive après une erreur 429.</dd></div>
+            <div><dt>Vie privée</dt><dd>Aucune télémétrie : tout reste sur ta machine.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="block alt">
+        <div class="wrap doc">
+          <header class="head reveal">
+            <p class="eyebrow">04 — Démarrage</p>
+            <h2>Premiers pas</h2>
+          </header>
+          <ol class="doc-steps">
+            <li class="reveal"><p>Fermer Rocket League, puis lancer RL Tracker Suite (installateur ou version portable).</p></li>
+            <li class="reveal"><p>Dans l'onglet Session Stats, cliquer sur « Activer la Stats API » : l'application trouve l'installation Epic ou Steam et règle la configuration du jeu, en gardant une sauvegarde.</p></li>
+            <li class="reveal"><p>Dans Rocket League, choisir le mode fenêtré sans bordure pour que les overlays s'affichent par-dessus le jeu.</p></li>
+            <li class="reveal"><p>Raccourcis : Ctrl+Maj+O pour l'overlay de session, Ctrl+Maj+L pour celui du lobby.</p></li>
+            <li class="reveal"><p>Compiler depuis les sources (Node.js 18+, Rust et les outils de compilation C++)</p><pre><code>git clone https://github.com/NeyorDEV/rl-tracker-suite.git
+cd rl-tracker-suite
+npm install
+npm run build</code></pre></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap doc">
+          <p class="cta reveal">
+            <a class="btn primary" href="downloads.html#dl-rts">Télécharger RL Tracker Suite</a>
+            <a class="btn" href="https://github.com/neyordev/rl-tracker-suite" target="_blank" rel="noopener">Voir le code ↗</a>
+            <a class="btn" href="projets.html">← Retour aux projets</a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="contact" class="contactband">
+      <div class="wrap contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="lede">Une question, une collaboration, une opportunité ? Écris-moi.</p>
+        <a class="mail" href="mailto:suis.neyor@gmail.com">suis.neyor@gmail.com</a>
+        <p class="links">
+          <a href="https://github.com/neyordev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/mylan-perrier-57364732b/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="wrap foot">
+        <p>© <span id="year">2026</span> neyor</p>
+        <p class="legal">Tous droits réservés · <a href="mentions-legales.html">Mentions légales</a></p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

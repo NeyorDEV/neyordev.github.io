@@ -1543,3 +1543,22 @@ html.i18n-wait body {
   outline: 2px solid var(--accent-hot);
   outline-offset: 4px;
 }
+
+/* Capture d'écran dans les fiches projets */
+.doc-shot {
+  margin: 2rem 0 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+}
+.doc-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.doc-shot figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

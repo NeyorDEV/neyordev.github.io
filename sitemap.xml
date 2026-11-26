@@ -45,4 +45,19 @@
     <lastmod>2026-11-03</lastmod>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://neyordev.github.io/jarvis.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://neyordev.github.io/rl-tracker-suite.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://neyordev.github.io/rentpark.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>

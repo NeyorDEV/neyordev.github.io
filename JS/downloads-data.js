@@ -1,6 +1,6 @@
 /* Copie hors-ligne des releases GitHub (utilisée si l'API est indisponible). Générée automatiquement. */
 window.DL_SNAPSHOT = {
- "generatedAt": "2026-11-25T10:27:48Z",
+ "generatedAt": "2026-11-27T09:50:43Z",
  "releases": {
   "J.A.R.V.I.S": [
    {
@@ -65,7 +65,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "JARVIS-Setup-10.0.0.exe",
       "size": 6003528,
-      "dl": 9,
+      "dl": 10,
       "sha": "a846541946c7d37481922ea9e83a868c7ef5f3184ce61510ee12260f81f9c65b",
       "url": "https://github.com/NeyorDEV/J.A.R.V.I.S/releases/download/v10.0.0/JARVIS-Setup-10.0.0.exe"
      }
@@ -135,7 +135,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "RL.Tracker.Suite.portable.exe",
       "size": 11326976,
-      "dl": 2,
+      "dl": 3,
       "sha": "7a57644fbabd716f0e809064b086f699bc4186cb10aa8a504a08c3a4e0fa5a49",
       "url": "https://github.com/NeyorDEV/rl-tracker-suite/releases/download/v1.4.6/RL.Tracker.Suite.portable.exe"
      },
@@ -295,6 +295,37 @@ window.DL_SNAPSHOT = {
   ],
   "ghostmesh": [
    {
+    "tag": "v0.3.0",
+    "name": "GhostMesh v0.3.0 - Relay, Rendezvous, Access Control, .ghost HTTPS",
+    "date": "2026-11-27T08:53:09Z",
+    "pre": false,
+    "url": "https://github.com/NeyorDEV/ghostmesh/releases/tag/v0.3.0",
+    "body": "# Changelog\n\n## 0.3.0\n\n### Relay (new crate `ghost-relay`)\n- Relay server: a node registers by proving it owns its private key (challenge answered with an\n  X25519-derived proof), then hands over sealed packets that are forwarded to the registered\n  destination. Source spoofing is refused, connections and rates are limited per IP and per\n  connection, nothing is stored.\n- Relay client in `ghost-core`: reads incoming packets and injects them into the engine, reconnects\n  with growing back-off, rotates over a configurable list of relays, pins each relay's public key.\n- Path selection: direct UDP when it works, relay otherwise, with a background probe that moves\n  traffic back to the direct path as soon as it becomes possible.\n- CLI: `ghostmesh relay add|remove|list`.\n\n### Rendezvous\n- Signed address records (XEdDSA, made with the existing X25519 identity: no new key), anti-replay by\n  strictly increasing issue time, expiry, lookup only by known NodeId, in-memory storage.\n- Client publishes at start-up, periodically and when candidate addresses change; known devices are\n  looked up again when they are lost. A device can reconnect to a paired device without a new ticket.\n- Configurable server list; none by default. CLI: `ghostmesh rendezvous add|remove|list`.\n- `Dockerfile` and `docs/SELF-HOSTING.md`.\n\n### NAT traversal\n- Several STUN servers (configurable, built-in public defaults), NAT type detection (open, cone,\n  symmetric, unknown, blocked), candidate set (STUN, router mapping, predicted ports, LAN),\n  carrier-grade NAT detection, richer diagnostics and hints.\n- CLI: `ghostmesh status` (uses a running node when there is one), `ghostmesh stun add|remove|list`.\n\n### Keys and sessions\n- Private key moved to the OS vault (Windows Credential Manager, macOS Keychain, Linux Secret\n  Service), with an Argon2id + ChaCha20-Poly1305 encrypted file as fallback. Automatic migration from\n  `config.json` with erasure of the old value after read-back. Zeroization of identity and session\n  keys.\n- Session rekey by time (10 min) and volume (1 GiB) with ephemeral keys (forward secrecy); the epoch\n  is carried in the top byte of the packet sequence number. Peers without support stay on base keys.\n- Device revocation (propagated to connected peers) and expiry. New packet types `Rekey`, `RekeyAck`,\n  `Revoke`. CLI: `ghostmesh revoke`, `expire`, `devices`.\n\n### Access control\n- Per-device profiles (`full`, `phone`, `web`, `rdp`, `custom`, `blocked`) applied to IP packets on\n  the virtual interface: protocol, destination ports, direction, deny by default for restricted\n  profiles, replies allowed through a flow table, anti-spoofing of source addresses.\n- CLI `ghostmesh access`, and a profile selector plus **Revoke** button in the desktop app.\n\n### Names and HTTPS\n- `.ghost` resolver, system integration commands (NRPT, resolvectl, /etc/resolver), certificate\n  authority limited to `.ghost`, `ghostmesh serve` (HTTPS reverse proxy), `ghostmesh ca`,\n  `docs/HTTPS-NAMES.md` with iOS and Android installation steps.\n\n### Service and platforms\n- `ghostmesh up` runs headless and exposes a local control channel (named pipe / Unix socket);\n  `ghostmesh service install|uninstall` (systemd unit, launchd job, Windows logon task).\n- IPv6 inside the tunnel (`fd42:474d::/32`), MTU 1380 by default (was 1420, which fragmented on\n  1500-byte links), configurable.\n- Signed update manifest verification (no release key published yet, nothing is accepted).\n- CI: formatting and clippy checks on all three systems.\n\n### Hardening and tests\n- Tickets longer than 4 KiB are refused before decoding.\n- Malformed-input tests for every decoder; `cargo-fuzz` targets in `fuzz/` for packets, tickets,\n  relay frames, rendezvous frames, DNS queries and the IP filter.\n- Integration tests: relay then direct switch, rendezvous after both addresses change, rekey by time\n  and volume, revocation propagation, phone profile over a real link, HTTPS through the proxy.\n\n### Not done\n- Mobile clients (Android, iOS): left out on request.\n- TLS / WebSocket in front of the relay; ACME certificates; Windows service integration with the\n  service control manager; active path-MTU discovery; automatic update download and install.\n",
+    "assets": [
+     {
+      "name": "ghost-relay.exe",
+      "size": 2930176,
+      "dl": 1,
+      "sha": "a5f2a38c882598ea25892aa37411cf91f6350385e769d3fd25cdd1b4cc0b4fb2",
+      "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.3.0/ghost-relay.exe"
+     },
+     {
+      "name": "ghostmesh-cli.exe",
+      "size": 9814528,
+      "dl": 1,
+      "sha": "35ca55bb0b69d859e0375ebc5f546227b17994facc860a11bb604a040d53436a",
+      "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.3.0/ghostmesh-cli.exe"
+     },
+     {
+      "name": "ghostmesh-gui.exe",
+      "size": 14172160,
+      "dl": 1,
+      "sha": "b1318026790fd09f140c2052cf5c92d8fc9840992259a8a859f8ee10ac1a2f52",
+      "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.3.0/ghostmesh-gui.exe"
+     }
+    ]
+   },
+   {
     "tag": "v0.2.6",
     "name": "GhostMesh v0.2.6 - Instant Modals, UDP Loop Stability & Candidate Discovery",
     "date": "2026-10-27T08:29:50Z",
@@ -305,14 +336,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli.exe",
       "size": 6749184,
-      "dl": 0,
+      "dl": 1,
       "sha": "0eb2c649bdbc169909d1d750af1a44ad5aacaa8ff0e2c851910607998ce128e5",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.6/ghostmesh-cli.exe"
      },
      {
       "name": "ghostmesh-gui.exe",
       "size": 13370880,
-      "dl": 1,
+      "dl": 2,
       "sha": "27b9db492737d3939ecdda280d5bd61a020d46bbce2e0022e6beaa7a1a0a059e",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.6/ghostmesh-gui.exe"
      }
@@ -329,14 +360,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghost.exe",
       "size": 5798912,
-      "dl": 0,
+      "dl": 1,
       "sha": "239bcf5398357fa2d698df593a1a696dea9d8e169db5d4c75f75b87651fa4d7c",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.5/ghost.exe"
      },
      {
       "name": "GhostMesh.exe",
       "size": 12780032,
-      "dl": 1,
+      "dl": 2,
       "sha": "3376d3bf86e58c4a8c6f55cd21d0683a3d1f767aed495c44387b65e96e98b9dc",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.5/GhostMesh.exe"
      }
@@ -353,7 +384,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-gui.exe",
       "size": 12711424,
-      "dl": 1,
+      "dl": 2,
       "sha": "b2744f37eeae64d707df1050bfc3e7897a21f88e981e6d3904ce128031b602f1",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.4/ghostmesh-gui.exe"
      }
@@ -370,14 +401,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli-v0.2.3-windows-x64.zip",
       "size": 2405759,
-      "dl": 1,
+      "dl": 2,
       "sha": "f6f6ede50409a37fe24e3b9a70986b1708e56aa5121db6769713ea9cee2b59a7",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.3/ghostmesh-cli-v0.2.3-windows-x64.zip"
      },
      {
       "name": "ghostmesh-desktop-v0.2.3-windows-x64.zip",
       "size": 3955904,
-      "dl": 2,
+      "dl": 3,
       "sha": "40ffee6ed37c0232a03e249f37648dca78083324b0fdf8ac5a9bc45b45696f64",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.3/ghostmesh-desktop-v0.2.3-windows-x64.zip"
      }
@@ -394,14 +425,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli-v0.2.2-windows-x64.zip",
       "size": 2401347,
-      "dl": 1,
+      "dl": 2,
       "sha": "087b74569e6bcc0b867d464f167fe7a9e60716d4ed5430e0836efa23b6dc0721",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.2/ghostmesh-cli-v0.2.2-windows-x64.zip"
      },
      {
       "name": "ghostmesh-desktop-v0.2.2-windows-x64.zip",
       "size": 3929563,
-      "dl": 1,
+      "dl": 2,
       "sha": "cf559f421784ad8b88a438b8992a4ee024d21861eae8515eef1a22483aa28668",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.2/ghostmesh-desktop-v0.2.2-windows-x64.zip"
      }
@@ -418,14 +449,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli-v0.2.1-windows-x64.zip",
       "size": 2374418,
-      "dl": 1,
+      "dl": 2,
       "sha": "0a562679a9cdb761d60ab99e935f35daa0bd9758aa46bd7321ff8ad5632b5155",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.1/ghostmesh-cli-v0.2.1-windows-x64.zip"
      },
      {
       "name": "ghostmesh-desktop-v0.2.1-windows-x64.zip",
       "size": 3874056,
-      "dl": 1,
+      "dl": 2,
       "sha": "1b7f4cb767581673cf2b433cd4ed36e755f2960c6cc89fb79f696626eb758dc8",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.1/ghostmesh-desktop-v0.2.1-windows-x64.zip"
      }
@@ -449,7 +480,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-desktop-v0.2.0-windows-x64.zip",
       "size": 3822152,
-      "dl": 1,
+      "dl": 2,
       "sha": "2ec1e3a4104df164bdffc49fb069e7af31a24e2602cb28811af2a48b33f4acef",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.2.0/ghostmesh-desktop-v0.2.0-windows-x64.zip"
      }
@@ -466,14 +497,14 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli-v0.1.3-windows-x64.zip",
       "size": 1538935,
-      "dl": 0,
+      "dl": 1,
       "sha": "20ac774db723ea5bf7caeac0ecfa5ef4ad7b6ce2744f26e264ba14d125137cb1",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.1.3/ghostmesh-cli-v0.1.3-windows-x64.zip"
      },
      {
       "name": "ghostmesh-desktop-v0.1.3-windows-x64.zip",
       "size": 3107206,
-      "dl": 1,
+      "dl": 2,
       "sha": "ab534d83981998f6f964f5b76d64a798dbd0f7c6ad501b76a8d9942fab22aab1",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.1.3/ghostmesh-desktop-v0.1.3-windows-x64.zip"
      }
@@ -490,7 +521,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-desktop-v0.1.2-windows-x64.zip",
       "size": 2978786,
-      "dl": 0,
+      "dl": 1,
       "sha": "857da181b51bb26070a21572c27de91df0e74780413e24288428c6183920ef23",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.1.2/ghostmesh-desktop-v0.1.2-windows-x64.zip"
      }
@@ -507,7 +538,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "ghostmesh-cli-v0.1.1-windows-x64.zip",
       "size": 1340224,
-      "dl": 4,
+      "dl": 5,
       "sha": "53ee3c02217cb14a988feeee59eec1099ba4b21f0ac2882fadbd1996628af933",
       "url": "https://github.com/NeyorDEV/ghostmesh/releases/download/v0.1.1/ghostmesh-cli-v0.1.1-windows-x64.zip"
      },
@@ -594,7 +625,7 @@ window.DL_SNAPSHOT = {
      {
       "name": "dragonmounts-fabric-26.2.jar",
       "size": 604898,
-      "dl": 1,
+      "dl": 2,
       "sha": "9e83e832351cd908999c9d7143094ecf9619810ec3dd3de49afcf53243f4751b",
       "url": "https://github.com/NeyorDEV/Dragon-Mounts-Legacy/releases/download/v26.2/dragonmounts-fabric-26.2.jar"
      }

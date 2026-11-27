@@ -986,3 +986,21 @@ details[open] > summary::after {
 .credit a {
   color: var(--accent-text, var(--accent));
 }
+
+/* Téléchargements gagnés depuis la dernière visite */
+.gain {
+  padding: 0.05rem 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #7ee2a0;
+  background: rgba(46, 160, 90, 0.16);
+  border: 1px solid rgba(126, 226, 160, 0.35);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.gain-line {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

@@ -259,14 +259,39 @@
   const cards = $$(".dl-card");
   const state = { f: "all", q: "", sort: "recent" };
 
-  function assetRow(a, recommended, project) {
+  /* ---------- Téléchargements gagnés depuis la dernière visite ----------
+     Les compteurs vus sont gardés dans ce navigateur (localStorage) et enregistrés en quittant la page.
+     Un fichier apparu depuis la dernière visite compte entièrement comme gain. */
+  let seen = null;
+  try {
+    seen = JSON.parse(localStorage.getItem("dl-seen") || "null");
+  } catch {}
+  const current = { t: Date.now(), a: {} };
+  let trackGains = false; /* seulement avec des données à jour, jamais avec la copie hors-ligne */
+  const gainOf = (repo, tag, a) => {
+    if (!trackGains) return 0;
+    const k = `${repo}|${tag}|${a.name}`;
+    current.a[k] = a.dl;
+    return seen && seen.a ? Math.max(0, a.dl - (seen.a[k] || 0)) : 0;
+  };
+  const gainTag = (n) => el("span", "gain", `+${n}`);
+  addEventListener("pagehide", () => {
+    if (!Object.keys(current.a).length) return;
+    try {
+      localStorage.setItem("dl-seen", JSON.stringify(current));
+    } catch {}
+  });
+
+  function assetRow(a, recommended, project, gain = 0) {
     const kind = kindOf(a.name);
     const row = el("div", `asset${recommended ? " rec" : ""}`);
     row.append(el("div", "aicon", ICONS[kind] || "▪"));
     const info = el("div", "ainfo");
     info.append(el("b", "aname", a.name));
     const ext = (a.name.split(".").pop() || "").toLowerCase();
-    info.append(el("small", "", `${t(kind)} · .${ext} · ${fmtSize(a.size)} · ${plural(a.dl, "téléchargement", "téléchargements")}`));
+    const small = el("small", "", `${t(kind)} · .${ext} · ${fmtSize(a.size)} · ${plural(a.dl, "téléchargement", "téléchargements")}`);
+    if (gain) small.append(" ", gainTag(gain));
+    info.append(small);
     if (a.sha) {
       const sha = el("div", "sha");
       sha.append(el("span", "", "SHA-256"), el("code", "", `${a.sha.slice(0, 10)}…${a.sha.slice(-8)}`));
@@ -320,10 +345,14 @@
     time.dateTime = latest.date;
     time.title = fmtDateTime(latest.date);
     meta.append(time, el("span", "dim", `${plural(list.length, "version", "versions")} · ${plural(total, "téléchargement", "téléchargements")}`));
+    const gains = new Map(list.map((r) => [r, r.assets.map((a) => gainOf(repo, r.tag, a))]));
+    const gained = [...gains.values()].flat().reduce((n, g) => n + g, 0);
+    card.dataset.gain = gained;
+    if (gained) meta.append(el("span", "gain", t("+{n} depuis ta dernière visite", { n: gained })));
     main.append(meta);
 
     const rec = latest.assets.findIndex((a) => /(setup|install)/i.test(a.name) || /-gui\.exe$/i.test(a.name));
-    latest.assets.forEach((a, i) => main.append(assetRow(a, i === (rec >= 0 ? rec : 0), name)));
+    latest.assets.forEach((a, i) => main.append(assetRow(a, i === (rec >= 0 ? rec : 0), name, gains.get(latest)[i])));
     if (!latest.assets.length) main.append(el("p", "dl-none", t("Cette release ne contient pas de fichier : voir le code source.")));
 
     if (card.dataset.kinds.includes("npm")) {
@@ -353,16 +382,19 @@
           const s = el("summary");
           s.append(el("b", "", r.tag), el("span", "vname", r.name.replace(new RegExp(`^${name}\\s*`, "i"), "")), el("time", "", fmtDate(r.date)));
           s.append(el("span", "vdl", `⬇ ${plural(r.assets.reduce((n, a) => n + a.dl, 0), "téléchargement", "téléchargements")}`));
+          const vg = gains.get(r).reduce((n, g) => n + g, 0);
+          if (vg) s.append(gainTag(vg));
           if (i === 0) s.append(el("span", "pill", t("dernière")));
           d.append(s);
           const body = el("div", "vbody");
-          r.assets.forEach((a) => {
+          r.assets.forEach((a, ai) => {
             const line = el("div", "vasset");
             const link = el("a", "", a.name);
             link.href = a.url;
             link.dataset.dl = "";
             Object.assign(link.dataset, { name: a.name, size: fmtSize(a.size), sha: a.sha, kind: kindOf(a.name), project: name, url: a.url });
             line.append(link, el("small", "", `${fmtSize(a.size)} · ${plural(a.dl, "téléchargement", "téléchargements")}`));
+            if (gains.get(r)[ai]) line.append(gainTag(gains.get(r)[ai]));
             body.append(line);
           });
           const notes = el("div", "md");
@@ -699,6 +731,7 @@
       color: COLORS[c.dataset.id] || "#b74b4b",
       releases: data[c.dataset.repo] || [],
     }));
+    trackGains = live;
     cards.forEach((c, i) => renderCard(c, items[i].releases));
     applyFilters();
     radar(items);
@@ -722,6 +755,15 @@
       status.textContent = t("GitHub est injoignable : copie hors-ligne du {date}. Les versions peuvent être en retard.", { date: at ? fmtDate(at) : t("dernier relevé") });
       chip.replaceChildren(t("Données : copie hors-ligne"));
       chip.classList.add("warn");
+    }
+    const totalGain = cards.reduce((n, c) => n + (+c.dataset.gain || 0), 0);
+    if (totalGain && seen) {
+      const best = cards.filter((c) => +c.dataset.gain > 0).sort((a, b) => b.dataset.gain - a.dataset.gain);
+      const line = el("p", "gain-line");
+      line.append(el("span", "gain", t("+{n} depuis ta dernière visite", { n: totalGain })),
+        ` ${t("({when})", { when: rel(new Date(seen.t).toISOString()) })} : `,
+        best.map((c) => `${c.dataset.name} +${c.dataset.gain}`).join(" · "));
+      status.after(line);
     }
     fromHash();
   });
